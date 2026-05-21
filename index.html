@@ -3442,7 +3442,16 @@ async function loadDiscordChangelog() {
         </div>
         <div class="cl-item">
           <span class="cl-dot">◆</span>
-          <span>${String(entry.content).replace(/\n/g, '<br>')}</span>
+          <span class="cl-content">
+  ${String(entry.content).replace(/\n/g, '<br>')}
+</span>
+.cl-content {
+    display: block;
+    width: 100%;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
         </div>
       </div>
     `).join('');

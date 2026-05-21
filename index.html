@@ -3218,7 +3218,7 @@ a:hover { text-decoration: underline; }
     
 async function loadChangelog(){
  try{
- const r=await fetch('./data/changelog.json');
+ const r=await fetch('./docs/data/changelog.json');
  const data=await r.json();
  const c=document.getElementById('changelog-container');
  if(!c) return;

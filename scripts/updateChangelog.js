@@ -1,0 +1,1 @@
+// placeholder Discord sync script from ChatGPT guide

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -411,7 +411,7 @@ a:hover { text-decoration: underline; }
     <a href="https://discord.com/invite/MeCKY47" class="topbar-link" target="_blank">Discord</a>
     <a href="https://www.byond.com/games/RatedRCobra/DBAsylum" class="topbar-link topbar-link-primary" target="_blank">Play DBA</a>
   </div>
-  <button class="nav-btn" onclick="showTab('updates', this)">📢 Updates</button>
+  <button class="nav-btn" onclick="showTab('changelog', this)">📢 Latest Changes</button>
 </nav>
 
 <!-- ── LAYOUT ── -->
@@ -3358,126 +3358,25 @@ document.addEventListener('DOMContentLoaded',loadChangelog);
   <!-- CHANGELOG -->
   <section class="tab-panel" id="panel-changelog">
 
-    <div class="section-header">Changelog Version 8.70.4</div>
-    <div class="cl-entry">
-      <div class="cl-version">SYSTEM / BALANCE</div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Auto Target Melee Toggle option added to Options verb for player targets or NPC targets.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Lockers added inside King Kai's Gym and level restriction increased.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Cerealian Sniper Ki cooldown increased from 3s to 7s and Ki cost added.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Master Roshi Hermit Dive now uses STR instead of Ki for damage.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Energy Barrier is now toggleable.</span></div>
-    </div>
-    <div class="cl-entry">
-      <div class="cl-version">BUG FIXES</div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>New overlay rebuild system added: overlays save on logout and reload on login to fix major relog overlay issues.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Race Change Tokens can now be put into lockers.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Additional techniques added to the Race Change exception list.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Bang Attacks multi-hit damage from separate pieces should now be fixed.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Rebirth Boss Gate Quests no longer teleport players after 90 seconds if they already passed the quest.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Gotenks Potara Fuse Form fixed.</span></div>
+    <div class="panel-header">
+      <div class="panel-header-eyebrow">Live Updates</div>
+      <div class="panel-header-title">Discord Changelog</div>
+      <div class="panel-header-desc">
+        This page is automatically synced from the Discord #changelog channel via GitHub Actions.
+      </div>
     </div>
 
-    <div class="section-header">Changelog Version 8.70.3</div>
-    <div class="cl-entry">
-      <div class="cl-version">HUD / OPTIONS</div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>New Options, Fix Hud, and Spectate Hud buttons added.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>All Hud button text now has an outline for readability.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Channels tab cleaned up: options/settings moved into Options verb/HUD button and other verbs condensed.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Redundant Fix and Options verb entries removed and cleaned up.</span></div>
-    </div>
-    <div class="cl-entry">
-      <div class="cl-version">BUG FIXES</div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>AFK overlay bug fixed for newly created save files; existing save overlay issues were still being handled with a temp fix plan.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Race Change Token no longer removes Hakai technique, Hakai check, or Focused Med verb.</span></div>
+    <div class="tip-box">
+      💡 New changelog posts made in Discord will automatically appear here after the next GitHub Action sync.
     </div>
 
-    <div class="section-header">Changelog Version 8.70.2</div>
-    <div class="cl-entry">
-      <div class="cl-version">SMALL PATCH #2</div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Overlay Reset code added to login.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Overlays Logout bug fixed.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>AFK toggle button overlay issues fixed.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Hair overlay sticking from new character creation fixed.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Base Hair overlay getting bugged on rebirths fixed.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Majin overlay after rebirthing fixed.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Chronoa NPC freeze issues should be fixed.</span></div>
+    <div id="changelog-container">
+      <div class="card">
+        Loading latest changelog entries...
+      </div>
     </div>
 
-    <div class="section-header">Changelog Version 8.70.1</div>
-    <div class="cl-entry">
-      <div class="cl-version">SMALL PATCH</div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Race Change Token added to DBA Store.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>DBA Banner and Hub art updated to fix Dragon Ball issues.</span></div>
-    </div>
-    <div class="cl-entry">
-      <div class="cl-version">BUG FIXES</div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Double-clicking charged beam attacks sometimes caused unexpected behavior; fixed.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Enraged Androids were in the IT list but are cave NPCs; fixed.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Saiyan God genes learning two Broly techniques fixed.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>King Kai Otherworld Gate mob cleanup improved so old stage mobs are not left over.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Otherworld King Kai Rebirth Gate Quest received a 90 second timer to prevent room blocking.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Extra KO and Safe checks added to Energy Barrier technique for events.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Race Change Tokens no longer add an unwanted Commands tab.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>AFK Overlay relog bug fixed; players rebooted with it on may need Fix Overlays once.</span></div>
-    </div>
-
-    <div class="section-header">Changelog Version 8.70</div>
-    <div class="cl-entry">
-      <div class="cl-version">NEW CONTENT</div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Early Bird Bonus Gift Pack added, claimable at login during the first 6 hours of wipe.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>King Kai / Dr. Gero rebirth gates added for each of the first three rebirths. Gates use stat checks and boss-defeat trials and may require boosting, TP spending, or stat training before advancing.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Beerus 6/3 rebirth remains locked until the Beerus Quest availability date is announced. 5/3 has not been removed, but is still under discussion.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Red Ribbon Muscle Tower map added northwest of Earth on the snow map. Android 8 quest NPC, Android 8 medals, Red Ribbon quests, and Red Ribbon Army mobs added.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Muscle Tower mobs include RR Mech Soldier Robot, RR Engineer, RR Trooper, RR Enforcer, Mercenary Tao, Major Metallitron, General Blue, Colonel Silver, Buyon, and Commander Red.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Chronoa NPC Stat Boost added: claim all Quest Medals for a x1.5 all-stat boost. Chronoa Boost Quest, Chronoa Tower Quest, Chronoa Quest Medal, and Chronoa Tower ZP reward added.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Space Time Kamehameha added and can be learned from NPC Chronoa by any race.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Race Tokens added for race and gene changes without human intervention. They are purchasable from the Dragon Ball Asylum Store and will be rare loot-box items.</span></div>
-    </div>
-
-    <div class="cl-entry">
-      <div class="cl-version">COMBAT SYSTEM</div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Ki Beam Mastery Quest added at NPC Master Roshi, along with a new tower object, turtle object, and quest medal on Roshi Training Island.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Mastered beams become fully homing after firing and damage enemies in their path. Targeting an enemy is required.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Diagonal beam functionality added, allowing beams to fire diagonally.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Energy Barrier added to all races at Level 1,500 as a defensive technique against incoming attacks.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Hermit Dive added as the Master Roshi SR race special. The user dives head first into the enemy, and it becomes homing when targeting.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Punch/Melee now auto-targets players after the first successful punch and NPC mobs after the second successful punch. Punch/Melee also turns the user toward their target.</span></div>
-    </div>
-
-    <div class="cl-entry">
-      <div class="cl-version">GENERAL CHANGES</div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Target/Spacebar interaction updated: Spacebar can talk to all NPCs when directly next to them, works with Bubbles and Gregory, NPC targeting range is reduced to 3 tiles, and target icon height is reduced.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Non-perm self Potara boost reduced from x1.8 to x1.5 to match the perm Shin boost.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>PVP to ZP/TP exchange is locked behind 4/3 at NPC PVP Broker.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>EOW TP rewards removed from the EOW reward verb. EOW Casino Token reward slightly buffed.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Trunks Tower, Piccolo Tower, King Vegeta Tower, Saiba Tower, and Chronoa Tower EXP buffed. King Vegeta Tower quest and medal added.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Tagoma and Natz Scouter Target/Space output now prints enemy Powerlevel in more detail instead of percentage.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Half Saiyan Mystic boost changed from a 15 million static stat boost to a 3% stat boost.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Flying Kick unbanned in skill-based matches, with cooldown increased by 2 seconds. Wormhole enabled in normal tournaments. Dash cooldown reduced.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Konat Quad Barrage and Sword attacks no longer drain Ki because they are STR-based melee attacks.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Master Roshi gene Turtle Orb icon changed, MAX Kamehameha speed improved, Hero's Flute improved with reduced self-stun and faster firing, and various SR tech Skill Cards added.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Inner Buu Hole turf closed-entry duration shortened from 30 seconds to 7 seconds. Chast statue and Rob statue added, with a Lab 4 mob added.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>DBA Hub art, Discord banners, load screen art updated. General code optimization and redundant code deletion completed.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Legendary Gogeta, Legendary Vegito, Legendary Broly, Legendary Black Frieza, Legendary Gohan, and Legendary Orange Piccolo facelifts are pending future details.</span></div>
-    </div>
-
-    <div class="cl-entry">
-      <div class="cl-version">KOOTY UPDATES</div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Master Roshi SR base and transformation icons revamped and revised. Hermit Dive race special and new Roshi Skill Cards added.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Updated Skill Card art: Powered Ki Blast, Sniper Ki, Super Nova, Scatter.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>New Skill Card art: Gigantic Meteor, Big Bang Kamehameha, Chocolate Kamehameha, Sense, Sense Anyone, Solar Flare, Galactic Donut.</span></div>
-    </div>
-
-    <div class="cl-entry">
-      <div class="cl-version">BUG FIXES</div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Fixed inconsistent mob scaling stats, Candy Ray event stat stealing reduced to 25%, Quest Medal Check total, ignored list rebirth carryover, Cumber Saiyan trans level stat, and incorrect quest object details/rewards.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Reduced Oozaru density near Vegeta Conquest Flag, fixed BBA-style one-shots in skill-based matches, and fixed GoD / Sub ML IT jail and Hakai room bypass issues.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Fixed charging beam attacks releasing a different charged tech, Red Saibaman stats and EXP in Saiba Tower, Admin VPS gene field updates, Madness Rush and Hero Flute Skill Cards, and Black Frieza missing from Sixth Rebirth options.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Removed duplicate Yamcha "Got Any Work" quest and Yamcha Medal 2 from Quest Medal Check, leaving 3 Yamcha medals.</span></div>
-      <div class="cl-item"><span class="cl-dot">◆</span><span>Moved some tech text from OOC to combat window and fixed runtime errors related to rebirth, skillbar reset, turfs, maps, timers, techniques, and gym equipment.</span></div>
-    </div>
-
-  </section>
+</section>
 
   <!-- FOOTER -->
   <footer>
@@ -3505,6 +3404,56 @@ document.addEventListener('DOMContentLoaded',loadChangelog);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 </script>
+
+<script>
+async function loadDiscordChangelog() {
+  const container = document.getElementById('changelog-container');
+  if (!container) return;
+
+  try {
+    const response = await fetch('./data/changelog.json?_=' + Date.now());
+    const entries = await response.json();
+
+    container.innerHTML = entries.map(entry => `
+      <div class="cl-entry">
+        <div class="cl-version">
+          ${new Date(entry.date).toLocaleString()} • ${entry.author}
+        </div>
+        <div class="cl-item">
+          <span class="cl-dot">◆</span>
+          <span>${String(entry.content).replace(/\n/g, '<br>')}</span>
+        </div>
+      </div>
+    `).join('');
+  } catch (e) {
+    container.innerHTML =
+      '<div class="warn-box">Unable to load changelog.json. Check your GitHub Action output.</div>';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadDiscordChangelog);
+</script>
+
+
+<!--
+DISCORD CHANGELOG NOTES
+
+GitHub Action should use:
+- docs/data/changelog.json
+- docs/data/changelog-state.json
+
+Store:
+{
+  "lastMessageId": "1234567890"
+}
+
+Use Discord API:
+/channels/{CHANNEL_ID}/messages?after={lastMessageId}&limit=100
+
+Append only new messages to changelog.json and update
+changelog-state.json with the newest message ID.
+-->
+
 </body>
 </html>
 

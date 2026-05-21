@@ -3405,13 +3405,6 @@ document.addEventListener('DOMContentLoaded',loadChangelog);
   </footer>
 
   
-<div id="updates" class="tab-content">
-  <div class="section-header">📢 Latest Updates</div>
-  <div id="changelog-container">
-    <div class="card">Loading changelog...</div>
-  </div>
-</div>
-
 </main>
 </div>
 
@@ -3433,8 +3426,44 @@ async function loadDiscordChangelog() {
 
   try {
     const response = await fetch('./data/changelog.json?_=' + Date.now());
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
     const entries = await response.json();
 
+    entries.sort(
+      (a, b) => new Date(b.date) - new Date(a.date)
+    );
+
+    container.innerHTML = entries.map(entry => `
+      <div class="cl-entry">
+        <div class="cl-version">
+          ${new Date(entry.date).toLocaleString()} • ${entry.author}
+        </div>
+
+        <div class="cl-item">
+          <span class="cl-dot">◆</span>
+          <span class="cl-content">
+            ${String(entry.content).replace(/\\n/g, '<br>')}
+          </span>
+        </div>
+      </div>
+    `).join('');
+
+  } catch (e) {
+    console.error(e);
+
+    container.innerHTML =
+      '<div class="warn-box">Unable to load changelog.json</div>';
+  }
+}
+
+document.addEventListener(
+  'DOMContentLoaded',
+  loadDiscordChangelog
+);
     container.innerHTML = entries.map(entry => `
       <div class="cl-entry">
         <div class="cl-version">
@@ -3445,8 +3474,6 @@ async function loadDiscordChangelog() {
           <span class="cl-content">
   ${String(entry.content).replace(/\n/g, '<br>')}
 </span>
-.cl-content {
-    display: block;
     width: 100%;
     white-space: pre-wrap;
     overflow-wrap: anywhere;

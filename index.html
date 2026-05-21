@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -394,6 +394,10 @@ a:hover { text-decoration: underline; }
   .card-grid { grid-template-columns: 1fr; }
   th, td { padding: 8px 10px; }
 }
+
+.rebirth-section{display:none;}
+.rebirth-section.active{display:block;}
+
 </style>
 </head>
 <body>
@@ -681,6 +685,19 @@ a:hover { text-decoration: underline; }
     <!-- ROAD TO 6/3 -->
     <div class="section-header">🏁 Road to End of Wipe</div>
 
+    <div class="card" style="margin-bottom:20px;">
+      <label for="rebirthSelect"><strong>Select Your Current Rebirth:</strong></label>
+      <select id="rebirthSelect" onchange="showRebirth(this.value)" style="margin-left:10px;padding:8px 12px;">
+        <option value="r0">0/3 → 1/3</option>
+        <option value="r1">1/3 → 2/3</option>
+        <option value="r2">2/3 → 3/3</option>
+        <option value="r3">3/3 → 4/3</option>
+        <option value="r4">4/3 → 5/3</option>
+        <option value="r5">5/3 → 6/3</option>
+        <option value="r6">6/3 Endgame</option>
+      </select>
+    </div>
+
     <!-- REBIRTH RULES -->
     <div class="warn-box">⚠️ <strong>Before EVERY Rebirth - follow these rules:</strong><br>
     1. Complete all Z-Point Quests to avoid having to grind for them later.<br>
@@ -690,7 +707,8 @@ a:hover { text-decoration: underline; }
     <div class="tip-box">💡 <strong>What resets on Rebirth:</strong> Your Level, all core stats (PL, Ki, Ki Defense, STR, DEF, Stamina), Training Points, and your in-game Skill Stat Panel (except currencies and Super Dragon Ball wish counter). Plan accordingly!</div>
     <div class="warn-box"><strong>v8.70 Rebirth Gate:</strong> King Kai and Dr. Gero now have boss-defeat Quest/Trial gates for each of the first three rebirths. Players may need to boost, spend TPs, or stat train before qualifying. 4/3 still follows the normal SR portal path, and 5/3 still requires defeating all SR portal bosses and talking to Zeno. Beerus 6/3 rebirth remains locked until its quest date is announced.</div>
 
-    <!-- ────────── 0/3 → 1/3 ────────── -->
+    <div class='rebirth-section' id='r0'>
+<!-- ────────── 0/3 → 1/3 ────────── -->
     <div class="sub-header">0/3 → 1/3</div>
 
     <div class="card-grid">
@@ -710,7 +728,9 @@ a:hover { text-decoration: underline; }
       <div class="rebirth-step" style="border-left:3px solid var(--accent-green)"><span class="step-num">R</span><div class="step-title">Rebirth to 1/3</div><div class="step-body">Upon reaching Level 50,000, follow the <strong>Rebirth Rules</strong> above and speak to <strong>King Kai</strong> or <strong>Dr. Gero</strong>. In v8.70, expect a required rebirth Quest/Trial that checks whether your stats and boss progress are strong enough. Congrats, you are now 1/3!</div></div>
     </div>
 
-    <!-- ────────── 1/3 → 2/3 ────────── -->
+    </div>
+<div class='rebirth-section' id='r1'>
+<!-- ────────── 1/3 → 2/3 ────────── -->
     <div class="sub-header">1/3 → 2/3</div>
 
     <div class="card-grid">
@@ -725,7 +745,9 @@ a:hover { text-decoration: underline; }
       <div class="rebirth-step" style="border-left:3px solid var(--accent-green)"><span class="step-num">R</span><div class="step-title">Rebirth to 2/3</div><div class="step-body">Follow the <strong>Rebirth Rules</strong> and speak to <strong>King Kai</strong> or <strong>Dr. Gero</strong> at Level 75,000. In v8.70, complete the rebirth Quest/Trial first; stat training, TP spending, or a boost may be required. Congrats, you are now 2/3!</div></div>
     </div>
 
-    <!-- ────────── 2/3 → 3/3 ────────── -->
+    </div>
+<div class='rebirth-section' id='r2'>
+<!-- ────────── 2/3 → 3/3 ────────── -->
     <div class="sub-header">2/3 → 3/3</div>
 
     <div class="card-grid">
@@ -742,7 +764,9 @@ a:hover { text-decoration: underline; }
       <div class="rebirth-step" style="border-left:3px solid var(--accent-green)"><span class="step-num">R</span><div class="step-title">Rebirth to 3/3</div><div class="step-body">Follow the <strong>Rebirth Rules</strong> and speak to <strong>King Kai</strong> or <strong>Dr. Gero</strong> at Level 100,000. In v8.70, the third early rebirth gate also requires its Quest/Trial completion before you can advance. Congrats, you are now 3/3!</div></div>
     </div>
 
-    <!-- ────────── 3/3 → 4/3 ────────── -->
+    </div>
+<div class='rebirth-section' id='r3'>
+<!-- ────────── 3/3 → 4/3 ────────── -->
     <div class="sub-header">3/3 → 4/3</div>
 
     <div class="card-grid">
@@ -761,7 +785,9 @@ a:hover { text-decoration: underline; }
       <div class="rebirth-step" style="border-left:3px solid var(--accent-green)"><span class="step-num">R</span><div class="step-title">Rebirth to 4/3</div><div class="step-body">Defeat the SR Portal Mob Boss. Before talking to the NPC to rebirth, follow the <strong>Rebirth Rules</strong>, then speak to them. Congrats, you are now 4/3 as a <strong>Super Race</strong>!</div></div>
     </div>
 
-    <!-- ────────── 4/3 → 5/3 ────────── -->
+    </div>
+<div class='rebirth-section' id='r4'>
+<!-- ────────── 4/3 → 5/3 ────────── -->
     <div class="sub-header">4/3 → 5/3</div>
 
     <div class="card-grid">
@@ -778,7 +804,9 @@ a:hover { text-decoration: underline; }
       <div class="rebirth-step" style="border-left:3px solid var(--accent-green)"><span class="step-num">R</span><div class="step-title">Rebirth to 5/3</div><div class="step-body">Complete <strong>Zeno's quest</strong> by defeating all SR portal bosses, then talk to <strong>Zeno</strong> for the rebirth. Follow the <strong>Rebirth Rules</strong> at Level 250,000. Congrats, you are now 5/3!</div></div>
     </div>
 
-    <!-- ────────── 5/3 → 6/3 ────────── -->
+    </div>
+<div class='rebirth-section' id='r5'>
+<!-- ────────── 5/3 → 6/3 ────────── -->
     <div class="sub-header">5/3 → 6/3</div>
 
     <div class="card-grid">
@@ -799,7 +827,9 @@ a:hover { text-decoration: underline; }
       <div class="rebirth-step" style="border-left:3px solid var(--accent-green)"><span class="step-num">R</span><div class="step-title">Rebirth to 6/3</div><div class="step-body">Complete the 3 trials to rebirth. Don't forget your <strong>Rebirth Rules</strong>! Grants a <strong>+30% EXP boost</strong> and a choice of path: TPs, Gym, or Mob Farming. See the Rebirth System section below for details.</div></div>
     </div>
 
-    <!-- ────────── 6/3 ENDGAME ────────── -->
+    </div>
+<div class='rebirth-section' id='r6'>
+<!-- ────────── 6/3 ENDGAME ────────── -->
     <div class="sub-header">6/3: Endgame</div>
 
     <div class="card-grid">
@@ -841,7 +871,8 @@ a:hover { text-decoration: underline; }
       <div class="stat-card"><div class="stat-label">Total ZP to Champion</div><div class="stat-value t-gold">7,000 ZP</div></div>
     </div>
 
-  </section>
+  </div>
+</section>
 
   <!-- ══════════════════════════════════════════════
        TAB 3: EQUIPMENT & ECONOMY
@@ -3484,6 +3515,16 @@ a:hover { text-decoration: underline; }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 </script>
+
+<script>
+function showRebirth(id){
+ document.querySelectorAll('.rebirth-section').forEach(s=>s.classList.remove('active'));
+ const el=document.getElementById(id);
+ if(el) el.classList.add('active');
+}
+document.addEventListener('DOMContentLoaded',()=>showRebirth('r0'));
+</script>
+
 </body>
 </html>
 

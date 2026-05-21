@@ -331,8 +331,29 @@ tbody tr:last-child td { border-bottom: none; }
 /* ── CHANGELOG ── */
 .cl-entry { background: var(--bg-card); border: 1px solid var(--border-frame); border-radius: 10px; padding: 16px 20px; margin-bottom: 10px; }
 .cl-version { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--accent-green); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
-.cl-item { font-size: 13px; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; gap: 10px; line-height: 1.5; color: var(--text-secondary); }
-.cl-item span:last-child { color: var(--text-primary); }
+.cl-item {
+    font-size: 13px;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex;
+    gap: 10px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+
+    width: 100%;
+    overflow: hidden;
+}
+
+.cl-item span:last-child {
+    color: var(--text-primary);
+
+    flex: 1;
+    min-width: 0;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
 .cl-item:last-child { border-bottom: none; }
 .cl-dot { color: var(--accent-green); margin-top: 3px; font-size: 8px; flex-shrink: 0; }
 

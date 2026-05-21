@@ -62,7 +62,7 @@ async function run() {
             content: m.content
         }));
 
-    changelog.push(...newEntries);
+    changelog.unshift(...newEntries.reverse());
 
     fs.writeFileSync(
         CHANGELOG_FILE,

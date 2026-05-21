@@ -364,11 +364,18 @@ tbody tr:last-child td { border-bottom: none; }
   .cl-content {
     display: block;
     width: 100%;
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
-    word-break: break-word;
-}
+    max-width: 100%;
 
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-break: break-word;
+
+    overflow-x: hidden;
+}
+#changelog-container {
+    width: 100%;
+    overflow-x: hidden;
+}
 .cl-item {
     width: 100%;
 }

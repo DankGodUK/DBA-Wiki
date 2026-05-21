@@ -60,6 +60,8 @@ async function run() {
             author: m.author.username,
             date: m.timestamp,
             content: m.content
+                .replace(/```/g, '')
+                .trim()
         }));
 
     changelog.unshift(...newEntries.reverse());

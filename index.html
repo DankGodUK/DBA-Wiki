@@ -365,16 +365,16 @@ tbody tr:last-child td { border-bottom: none; }
 .cl-item:last-child { border-bottom: none; }
 .cl-dot { color: var(--accent-green); margin-top: 3px; font-size: 8px; flex-shrink: 0; }
 /*CSS*/
-  .cl-content {
-    display: block;
-    flex: 1 1 auto;
+.cl-content {
+    flex: 1;
     min-width: 0;
-    max-width: 100%;
+    width: 100%;
 
-    white-space: pre-wrap !important;
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
-    word-break: break-word !important;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+
+    color: var(--text-primary);
 }
 #changelog-container {
     width: 100%;
@@ -3502,29 +3502,7 @@ document.addEventListener(
   'DOMContentLoaded',
   loadDiscordChangelog
 );
-    container.innerHTML = entries.map(entry => `
-      <div class="cl-entry">
-        <div class="cl-version">
-          ${new Date(entry.date).toLocaleString()} • ${entry.author}
-        </div>
-        <div class="cl-item">
-          <span class="cl-dot">◆</span>
-          <span class="cl-content">
-  ${String(entry.content).replace(/\n/g, '<br>')}
-</span>
-    width: 100%;
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
-    word-break: break-word;
-}
-        </div>
-      </div>
-    `).join('');
-  } catch (e) {
-    container.innerHTML =
-      '<div class="warn-box">Unable to load changelog.json. Check your GitHub Action output.</div>';
-  }
-}
+
 
 document.addEventListener('DOMContentLoaded', loadDiscordChangelog);
 </script>

@@ -331,8 +331,11 @@ tbody tr:last-child td { border-bottom: none; }
 /* ── CHANGELOG ── */
 .cl-entry { background: var(--bg-card); border: 1px solid var(--border-frame); border-radius: 10px; padding: 16px 20px; margin-bottom: 10px; }
 .cl-entry {
-    overflow: hidden;
+    width: 100%;
     max-width: 100%;
+    overflow: hidden;
+}
+  
 }
 .cl-version { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--accent-green); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
 .cl-item {
@@ -363,21 +366,26 @@ tbody tr:last-child td { border-bottom: none; }
 /*CSS*/
   .cl-content {
     display: block;
-    width: 100%;
+    flex: 1 1 auto;
+    min-width: 0;
     max-width: 100%;
 
-    white-space: pre-wrap;
-    overflow-wrap: break-word;
-    word-break: break-word;
-
-    overflow-x: hidden;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
 }
 #changelog-container {
     width: 100%;
     overflow-x: hidden;
 }
 .cl-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
     width: 100%;
+    min-width: 0;
 }
 
 .cl-item span:last-child {

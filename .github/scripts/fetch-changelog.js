@@ -45,7 +45,7 @@ async function run() {
     }
 
     const messages = await response.json();
-
+    console.log(JSON.stringify(messages[0], null, 2));
     if (!messages.length) {
         console.log("No new changelog entries.");
         return;

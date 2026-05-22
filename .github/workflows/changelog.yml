@@ -1,10 +1,10 @@
 name: Discord Changelog Sync
 
 on:
+  workflow_dispatch:
+
   schedule:
     - cron: "*/5 * * * *"
-
-  workflow_dispatch:
 
 permissions:
   contents: write
@@ -22,11 +22,17 @@ jobs:
         with:
           node-version: 20
 
+      - name: Debug Trigger
+        run: |
+          echo "Triggered by: ${{ github.event_name }}"
+          date -u
+
       - name: Fetch Changelog
-        run: node .github/scripts/fetch-changelog.js
         env:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
           CHANGELOG_CHANNEL_ID: ${{ secrets.CHANGELOG_CHANNEL_ID }}
+        run: |
+          node .github/scripts/fetch-changelog.js
 
       - name: Commit Changes
         run: |
@@ -36,7 +42,9 @@ jobs:
           git add docs/data/changelog.json
           git add docs/data/changelog-state.json
 
-          git diff --staged --quiet || (
+          if ! git diff --staged --quiet; then
             git commit -m "Update changelog from Discord"
             git push
-          )
+          else
+            echo "No changes detected"
+          fi

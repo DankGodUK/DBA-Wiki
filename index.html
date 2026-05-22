@@ -3452,11 +3452,13 @@ async function loadDiscordChangelog() {
       hour: '2-digit', minute: '2-digit'
     });
     const safe = String(entry.content)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/```[\s\S]*?```/g, '')
-      .replace(/\n/g, '<br>');
+  .replace(/^```[^\n]*\n?/, '')   // strip opening ``` with optional language tag
+  .replace(/```\s*$/, '')          // strip closing ```
+  .trim()
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/\n/g, '<br>');
     return `
       <div class="cl-entry">
         <div class="cl-version">${date} &nbsp;&middot;&nbsp; ${entry.author}</div>

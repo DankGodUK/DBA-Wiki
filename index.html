@@ -443,7 +443,7 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
     <div class="sub-sub-header">🎯 Classes</div>
     <p style="margin-bottom:6px">Change at Z Agent (Level 100,000) or any level at Rebirth 4/3 or 5/3 for <strong>25 ZP</strong>. Also changeable via <strong>Candy Broker NPC</strong>.</p>
     <ul>
-      <li><strong class="t-orange">Mystic</strong>: Ki builds — higher Ki gains per level</li>
+      <li><strong class="t-orange">Mystic ×1.03</strong>: Ki builds — higher Ki gains per level</li>
       <li><strong class="t-orange">Aggressor</strong>: STR builds — higher STR gains per level</li>
       <li><strong class="t-orange">Guardian</strong>: Tank builds — higher DEF gains per level</li>
       <li><strong class="t-orange">Velocitor</strong>: +5% EXP while mobbing + increased EXP while training <span class="t-green">⭐ Best for new players</span></li>
@@ -782,7 +782,40 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
       }
     };
   })();
-  </script>
+  
+document.addEventListener('DOMContentLoaded', function(){
+  function updatePaths(){
+    const perm=document.getElementById('racePerm');
+    const shin=document.getElementById('pathShin');
+    const mystic=document.getElementById('pathMystic');
+    const human=document.getElementById('pathHuman');
+    const changeling=document.getElementById('pathChangeling');
+    const potara=document.getElementById('pathPotara');
+    const none=document.getElementById('pathNone');
+
+    if(!perm) return;
+
+    if(perm.checked){
+      shin.disabled=false;
+      [mystic,human,changeling,potara].forEach(x=>x.disabled=true);
+      if(mystic.checked||human.checked||changeling.checked||potara.checked){
+        shin.checked=true;
+      }
+    } else {
+      shin.disabled=true;
+      [mystic,human,changeling,potara].forEach(x=>x.disabled=false);
+      if(shin.checked) none.checked=true;
+    }
+    runBoostCalc();
+  }
+
+  document.getElementById('racePerm')?.addEventListener('change',updatePaths);
+  document.getElementById('raceNonPerm')?.addEventListener('change',updatePaths);
+  document.querySelectorAll('input[name="path"]').forEach(x=>x.addEventListener('change',runBoostCalc));
+  updatePaths();
+});
+
+</script>
 </section>
 
 <!-- ECONOMY -->
@@ -1462,7 +1495,7 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
   <div class="section-header">🗼 Mob Towers</div>
   <div class="card">
     <p><strong class="t-green">v8.70 tower updates:</strong> Red Ribbon Muscle Tower added northwest of Earth on the snow map — multi-floor Red Ribbon Army map with new quests and Android 8 medals.</p>
-    <p style="margin-top:5px"><strong class="t-orange">EXP buffs:</strong> Trunks Tower, Piccolo Tower, King Vegeta Tower, Saiba Tower, and Chronoa Tower mobs received EXP buffs. King Vegeta Tower also gained a quest and medal.</p>
+    <p style="margin-top:5px"><strong class="t-orange">EXP buffs:</strong> Trunks Tower, Piccolo Tower, King Vegeta Tower, Saiba Tower, and <div class="section-header" style="margin:10px 0;font-size:14px;">Stat-Specific Boosts</div>Chronoa Tower mobs received EXP buffs. King Vegeta Tower also gained a quest and medal.</p>
   </div>
   <div class="table-wrap">
     <table>
@@ -1783,7 +1816,7 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
         <tr><td class="t-bold">Piccolo</td><td>Planet Earth / Namek</td><td>Zanzoken Warp, Light Grenade, Special Beam Cannon, Zanzoken techniques</td></tr>
         <tr><td class="t-bold">Pikkon</td><td>HFIL</td><td>Hyper Tornado technique</td></tr>
         <tr><td class="t-bold">PVP Broker</td><td>Mall</td><td>RBA Tokens → ZP; PVP reward shop (requires 4/3)</td></tr>
-        <tr><td class="t-bold">Shin</td><td>Land of the Kais</td><td>Supreme Kai quest (required for Gogeta/Vegito SR unlock)</td></tr>
+        <tr><td class="t-bold">Shin ×1.5</td><td>Land of the Kais</td><td>Supreme Kai quest (required for Gogeta/Vegito SR unlock)</td></tr>
         <tr><td class="t-bold">Son Goku</td><td>Planet Earth</td><td>After Image, Dragon Fist, Big Bang Attack techniques</td></tr>
         <tr><td class="t-bold">Space Shop Keeper</td><td>Space</td><td>Spacepods for space travel</td></tr>
         <tr><td class="t-bold">Special Shop Keeper</td><td>Mall</td><td>Z-Suits for ZP</td></tr>
@@ -1828,7 +1861,7 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
         <tr><td class="t-bold">Krillin</td><td class="t-green">Ki ×1.2</td><td>Level 35,000 + 100,000,000 Zeni</td></tr>
         <tr><td class="t-bold">Piccolo</td><td class="t-green">Defense ×1.2</td><td>Level 35,000</td></tr>
         <tr><td class="t-bold">Princess Snake</td><td class="t-orange t-bold">All Stats ×2</td><td>Hidden NPC</td></tr>
-        <tr><td class="t-bold">Shin</td><td class="t-orange t-bold">All Stats ×1.5</td><td>Level 35,000 + Permanent Races Only</td></tr>
+        <tr><td class="t-bold">Shin ×1.5</td><td class="t-orange t-bold">All Stats ×1.5</td><td>Level 35,000 + Permanent Races Only</td></tr>
         <tr><td class="t-bold">Son Goku</td><td class="t-green">PL ×1.2</td><td>Level 35,000</td></tr>
         <tr><td class="t-bold">Supreme Kai (Potara)</td><td class="t-orange t-bold">Both Players' Stats Added OR Self ×1.5</td><td>Level 35,000 + Shenron Saga</td></tr>
         <tr><td class="t-bold">Toronbo Dragon</td><td class="t-orange t-bold">All Stats ×2</td><td>Cereal Dragon Ball Wish</td></tr>
@@ -2045,11 +2078,11 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
 </label>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px">
 <label><input type="radio" name="path" id="pathNone" checked> None</label>
-<label><input type="radio" name="path" id="pathShin"> Shin</label>
-<label><input type="radio" name="path" id="pathMystic"> Mystic</label>
-<label><input type="radio" name="path" id="pathHuman"> Human Conversion</label>
-<label><input type="radio" name="path" id="pathChangeling"> Changeling Conversion</label>
-<label><input type="radio" name="path" id="pathPotara"> Potara</label>
+<label><input type="radio" name="path" id="pathShin"> Shin ×1.5</label>
+<label><input type="radio" name="path" id="pathMystic"> Mystic ×1.03</label>
+<label><input type="radio" name="path" id="pathHuman"> Human Conversion ×1.8</label>
+<label><input type="radio" name="path" id="pathChangeling"> Changeling Conversion ×1.8</label>
+<label><input type="radio" name="path" id="pathPotara"> Potara ×1.5</label>
 </div>
 </div>
 
@@ -2059,107 +2092,96 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
             <span class="calc-label-sub">Select NPC boosts and stat boosts that apply to your character.</span>
           </label>
           <div class="boost-checklist" id="boost-checklist">
-            <!-- ALL STAT BOOSTS -->
+<div class="section-header" style="margin:10px 0;font-size:14px;">Full Stat Boosts</div>
+            <!-- NPC BOOSTS -->
+            <label class="boost-check-item" onclick="toggleBoostItem(this)">
+              <input type="checkbox" data-multi="1.2" onchange="runBoostCalc()">
+              <div><div class="boost-check-name">Guru</div><div class="boost-check-stat">ALL STATS</div></div>
+              <div class="boost-check-multi">×1.2</div>
+            </label>
+
+            <label class="boost-check-item" onclick="toggleBoostItem(this)">
+              <input type="checkbox" data-multi="1.2" onchange="runBoostCalc()">
+              <div><div class="boost-check-name">Frieza</div><div class="boost-check-stat">ALL STATS</div></div>
+              <div class="boost-check-multi">×1.2</div>
+            </label>
+
             <label class="boost-check-item" onclick="toggleBoostItem(this)">
               <input type="checkbox" data-multi="1.5" onchange="runBoostCalc()">
-              <div>
-                <div class="boost-check-name">Babidi</div>
-                <div class="boost-check-stat">ALL STATS</div>
-              </div>
+              <div><div class="boost-check-name">Babidi</div><div class="boost-check-stat">ALL STATS</div></div>
               <div class="boost-check-multi">×1.5</div>
             </label>
+
             <label class="boost-check-item" onclick="toggleBoostItem(this)">
               <input type="checkbox" data-multi="1.6" onchange="runBoostCalc()">
-              <div>
-                <div class="boost-check-name">Babidi (Pride Saiyan)</div>
-                <div class="boost-check-stat">ALL STATS</div>
-              </div>
+              <div><div class="boost-check-name">Babidi (Pride Saiyan)</div><div class="boost-check-stat">ALL STATS</div></div>
               <div class="boost-check-multi">×1.6</div>
             </label>
-            <label class="boost-check-item" onclick="toggleBoostItem(this)">
-              <input type="checkbox" data-multi="1.8" onchange="runBoostCalc()">
-              <div>
-                <div class="boost-check-name">Dr. Gero – Convert</div>
-                <div class="boost-check-stat">ALL STATS · HUMAN</div>
-              </div>
-              <div class="boost-check-multi">×1.8</div>
-            </label>
-            <label class="boost-check-item" onclick="toggleBoostItem(this)">
-              <input type="checkbox" data-multi="1.2" onchange="runBoostCalc()">
-              <div>
-                <div class="boost-check-name">Frieza</div>
-                <div class="boost-check-stat">ALL STATS · EVIL</div>
-              </div>
-              <div class="boost-check-multi">×1.2</div>
-            </label>
-            <label class="boost-check-item" onclick="toggleBoostItem(this)">
-              <input type="checkbox" data-multi="1.2" onchange="runBoostCalc()">
-              <div>
-                <div class="boost-check-name">Guru</div>
-                <div class="boost-check-stat">ALL STATS · GOOD</div>
-              </div>
-              <div class="boost-check-multi">×1.2</div>
-            </label>
+
             <label class="boost-check-item" onclick="toggleBoostItem(this)">
               <input type="checkbox" data-multi="1.5" onchange="runBoostCalc()">
-              <div>
-                <div class="boost-check-name">Chronoa</div>
-                <div class="boost-check-stat">ALL STATS · ALL QUEST MEDALS</div>
-              </div>
+              <div><div class="boost-check-name">Chronoa</div><div class="boost-check-stat">ALL STATS</div></div>
               <div class="boost-check-multi">×1.5</div>
             </label>
-            <label class="boost-check-item" onclick="toggleBoostItem(this)">
-              <input type="checkbox" data-multi="1.8" onchange="runBoostCalc()">
-              <div>
-                <div class="boost-check-name">King Cold – Convert</div>
-                <div class="boost-check-stat">CHANGELING · STR or KI</div>
-              </div>
-              <div class="boost-check-multi">×1.8</div>
-            </label>
-            <label class="boost-check-item" onclick="toggleBoostItem(this)">
-              <input type="checkbox" data-multi="1.2" onchange="runBoostCalc()">
-              <div>
-                <div class="boost-check-name">NPCs Stat Combined Boost</div>
-                <div class="boost-check-stat">ALL STATS · Goku, Krillin, Piccolo, Hercule, K.Vegeta</div>
-              </div>
-              <div class="boost-check-multi">×1.2</div>
-            </label>
+
             <label class="boost-check-item" onclick="toggleBoostItem(this)">
               <input type="checkbox" data-multi="2" onchange="runBoostCalc()">
-              <div>
-                <div class="boost-check-name">Princess Snake</div>
-                <div class="boost-check-stat">ALL STATS</div>
-              </div>
+              <div><div class="boost-check-name">Princess Snake</div><div class="boost-check-stat">ALL STATS</div></div>
               <div class="boost-check-multi">×2</div>
             </label>
-            <label class="boost-check-item" onclick="toggleBoostItem(this)">
-              <input type="checkbox" data-multi="1.5" onchange="runBoostCalc()">
-              <div>
-                <div class="boost-check-name">Shin</div>
-                <div class="boost-check-stat">ALL STATS · PERM ONLY</div>
-              </div>
-              <div class="boost-check-multi">×1.5</div>
-            </label>
-            <label class="boost-check-item" onclick="toggleBoostItem(this)">
-              <input type="checkbox" data-multi="1.5" onchange="runBoostCalc()">
-              <div>
-                <div class="boost-check-name">Supreme Kai (Potara Self)</div>
-                <div class="boost-check-stat">ALL STATS · NON-PERM SELF</div>
-              </div>
-              <div class="boost-check-multi">×1.5</div>
-            </label>
+
             <label class="boost-check-item" onclick="toggleBoostItem(this)">
               <input type="checkbox" data-multi="2" onchange="runBoostCalc()">
-              <div>
-                <div class="boost-check-name">Toronbo Dragon</div>
-                <div class="boost-check-stat">ALL STATS · CEREAL DB</div>
-              </div>
+              <div><div class="boost-check-name">Toronbo Dragon</div><div class="boost-check-stat">ALL STATS · CEREAL DB</div></div>
               <div class="boost-check-multi">×2</div>
             </label>
           </div>
         </div>
 
-        <!-- OUTPUT -->
+        
+
+
+
+
+
+
+<div class="section-header" style="margin:10px 0;font-size:14px;">Stat-Specific Boosts</div>
+
+
+
+<label class="boost-check-item" onclick="toggleBoostItem(this)">
+<input type="checkbox" data-stat="pl" data-multi="1.2" onchange="runBoostCalc()">
+<div><div class="boost-check-name">Son Goku</div><div class="boost-check-stat">PL ONLY</div></div>
+<div class="boost-check-multi">×1.2</div>
+</label>
+
+<label class="boost-check-item" onclick="toggleBoostItem(this)">
+<input type="checkbox" data-stat="str" data-multi="1.2" onchange="runBoostCalc()">
+<div><div class="boost-check-name">Hercule</div><div class="boost-check-stat">STR ONLY</div></div>
+<div class="boost-check-multi">×1.2</div>
+</label>
+
+<label class="boost-check-item" onclick="toggleBoostItem(this)">
+<input type="checkbox" data-stat="ki" data-multi="1.2" onchange="runBoostCalc()">
+<div><div class="boost-check-name">Krillin</div><div class="boost-check-stat">KI ONLY</div></div>
+<div class="boost-check-multi">×1.2</div>
+</label>
+
+<label class="boost-check-item" onclick="toggleBoostItem(this)">
+<input type="checkbox" data-stat="def" data-multi="1.2" onchange="runBoostCalc()">
+<div><div class="boost-check-name">Piccolo</div><div class="boost-check-stat">DEF ONLY</div></div>
+<div class="boost-check-multi">×1.2</div>
+</label>
+
+<label class="boost-check-item" onclick="toggleBoostItem(this)">
+<input type="checkbox" data-stat="kidef" data-multi="1.2" onchange="runBoostCalc()">
+<div><div class="boost-check-name">King Vegeta</div><div class="boost-check-stat">KI + DEF</div></div>
+<div class="boost-check-multi">×1.2</div>
+</label>
+
+<!-- OUTPUT -->
+
+
         <div class="calc-output-box" id="calc-output-box">
           <div class="calc-output-label">Fully Powered-Up Powerlevel</div>
           <div class="calc-output-value" id="calc-result">—</div>
@@ -2229,7 +2251,46 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
         return;
       }
 
-      var boostedBase = basePL * boostMulti;
+      
+
+var pathMulti = 1;
+if(document.getElementById('pathMystic')?.checked) pathMulti = 1.03;
+else if(document.getElementById('pathShin')?.checked) pathMulti = 1.5;
+else if(document.getElementById('pathPotara')?.checked) pathMulti = 1.5;
+else if(document.getElementById('pathHuman')?.checked) pathMulti = 1.8;
+else if(document.getElementById('pathChangeling')?.checked) pathMulti = 1.8;
+
+
+let plMulti = 1, strMulti = 1, kiMulti = 1, defMulti = 1;
+
+document.querySelectorAll('[data-stat]').forEach(cb => {
+    if (!cb.checked) return;
+    const stat = cb.dataset.stat;
+    const multi = parseFloat(cb.dataset.multi || 1);
+
+    if (stat === 'pl') plMulti *= multi;
+    else if (stat === 'str') strMulti *= multi;
+    else if (stat === 'ki') kiMulti *= multi;
+    else if (stat === 'def') defMulti *= multi;
+    else if (stat === 'kidef') {
+        kiMulti *= multi;
+        defMulti *= multi;
+    }
+});
+
+window.statSpecificMultipliers = {plMulti, strMulti, kiMulti, defMulti};
+
+
+// Son Goku PL boost
+var gokuBoost = 1;
+document.querySelectorAll('[data-stat="pl"]').forEach(function(cb){
+  if(cb.checked) gokuBoost *= parseFloat(cb.dataset.multi || 1);
+});
+
+var boostedBase = basePL * pathMulti * boostMulti * gokuBoost;
+
+
+
       var final = transMulti > 0 ? boostedBase * transMulti : boostedBase;
 
       resultEl.textContent = formatBigNumber(Math.floor(final));
@@ -2325,7 +2386,7 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
         <tr><td class="t-mono t-dim">33</td><td class="t-bold">Piccolo 2</td><td>Piccolo</td><td class="t-dim">—</td></tr>
         <tr><td class="t-mono t-dim">34</td><td class="t-bold">Pikkon 1</td><td>Pikkon</td><td class="t-dim">—</td></tr>
         <tr><td class="t-mono t-dim">35</td><td class="t-bold">Saiyaman 1 (Helmet)</td><td>Saiyaman / Gohan</td><td class="t-orange">Saiyaman Helmet (+10% PL)</td></tr>
-        <tr><td class="t-mono t-dim">36</td><td class="t-bold">Shin 1</td><td>Shin</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">36</td><td class="t-bold">Shin 1</td><td>Shin ×1.5</td><td class="t-dim">—</td></tr>
         <tr><td class="t-mono t-dim">37</td><td class="t-bold">Spanner 1 (Bulma)</td><td>Bulma</td><td class="t-dim">—</td></tr>
         <tr><td class="t-mono t-dim">38</td><td class="t-bold">Tapion 1</td><td>Tapion</td><td class="t-dim">—</td></tr>
         <tr><td class="t-mono t-dim">39</td><td class="t-bold">Tien 1</td><td>Tien</td><td class="t-dim">—</td></tr>
@@ -2586,5 +2647,48 @@ document.addEventListener('DOMContentLoaded', function(){
   updateRacePathOptions();
 });
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  function syncPaths(){
+    const perm=document.getElementById('racePerm');
+    const shin=document.getElementById('pathShin');
+    const mystic=document.getElementById('pathMystic');
+    const human=document.getElementById('pathHuman');
+    const changeling=document.getElementById('pathChangeling');
+    const potara=document.getElementById('pathPotara');
+    const none=document.getElementById('pathNone');
+    if(!perm) return;
+
+    if(perm.checked){
+      if(shin) shin.disabled=false;
+      [mystic,human,changeling,potara].forEach(x=>x && (x.disabled=true));
+      if((mystic&&mystic.checked)||(human&&human.checked)||(changeling&&changeling.checked)||(potara&&potara.checked)){
+        shin.checked=true;
+      }
+    } else {
+      if(shin){ shin.disabled=true; if(shin.checked && none) none.checked=true; }
+      [mystic,human,changeling,potara].forEach(x=>x && (x.disabled=false));
+    }
+  }
+
+  document.querySelectorAll('input[name="raceType"]').forEach(el=>{
+    el.addEventListener('change', syncPaths);
+  });
+
+  // Mutual exclusivity safety
+  document.querySelectorAll('input[name="path"]').forEach(el=>{
+    el.addEventListener('change', function(){
+      document.querySelectorAll('input[name="path"]').forEach(o=>{
+        if(o!==this) o.checked=false;
+      });
+      this.checked=true;
+    });
+  });
+
+  syncPaths();
+});
+</script>
+
 </body>
 </html>

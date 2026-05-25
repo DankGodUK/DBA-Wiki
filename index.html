@@ -269,8 +269,28 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
   .landing-hero-img{margin:-20px -16px 0}
   .hero-banner-img{max-height:180px}
   .hero-cta-bar{padding:12px 16px;gap:8px}
-  .tb-brand-img img{height:32px}
-}
+  @media(max-width:900px){
+
+  .hamburger{
+    display:flex;
+    z-index:1100;
+    left:12px;
+  }
+
+  .topbar{
+    padding-left:60px;
+  }
+
+  .tb-brand{
+    width:100%;
+    justify-content:center;
+  }
+
+  .tb-brand-img img{
+    height:42px;
+    max-width:calc(100vw - 120px);
+    object-fit:contain;
+  }
 </style>
 </head>
 <body>

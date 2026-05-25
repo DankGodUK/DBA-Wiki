@@ -1812,35 +1812,454 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
   <div class="tip-box">💡 <strong>Boosts are one-time per rebirth.</strong> Wait until your base stats are as high as possible before using them. Boosts cannot be undone.</div>
   <div class="warn-box">⚠️ <strong>v8.70:</strong> Z Agent disclaimer added — level cap boosts bought before 4/3 will NOT carry over if you rebirth. Plan purchases carefully.</div>
 
-  <div class="section-header">💪 Boost Chart (3/3 → 4/3)</div>
-  <div class="tip-box">💡 Wait until you have <strong>150 Million in each of the 5 base stats</strong> before boosting at 3/3.</div>
+  
+  <div class="section-header">💪 NPC Boosts</div>
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Boost Source</th><th>Stat Multiplied</th><th>Multiplier</th><th>How to Access</th></tr></thead>
+      <thead><tr><th>NPC</th><th>Boost</th><th>Requirements</th></tr></thead>
       <tbody>
-        <tr><td class="t-bold">Guru Boost</td><td>All Stats</td><td class="t-orange t-bold">×1.25</td><td>25%+ Good Karma → talk to Guru (Planet Namek)</td></tr>
-        <tr><td class="t-bold">Babidi Boost</td><td>All Stats</td><td class="t-orange t-bold">×1.6</td><td>100% Evil Karma → talk to Babidi (Planet Earth)</td></tr>
-        <tr><td class="t-bold">Kami Wave ×10</td><td>Ki</td><td class="t-orange t-bold">×1.5</td><td>Auto unlock for Saiyans &amp; Half Saiyans</td></tr>
-        <tr><td class="t-bold">Kaioken Boost</td><td>All Stats</td><td class="t-orange t-bold">×1.1 – ×2</td><td>Kaioken technique (all races)</td></tr>
-        <tr><td class="t-bold">Transformation Boost</td><td>Varies</td><td class="t-gold t-bold">Race-specific</td><td>Activate your race transformation</td></tr>
-        <tr><td class="t-bold">Z-Suit Boosts</td><td>Varies</td><td class="t-orange">+10–25%</td><td>Equip Z-Suits (Potara Earrings, Vegito Gi, Hermit Shell, etc.)</td></tr>
-        <tr><td class="t-bold">Saiyaman Helmet</td><td>PL</td><td class="t-orange">+10%</td><td>Saiyaman quest medal reward</td></tr>
-        <tr><td class="t-bold">Z-Sword</td><td>PL</td><td class="t-orange">+15%</td><td>Lazer the Blacksmith (Mall)</td></tr>
-        <tr><td class="t-bold">Sharp Dagger</td><td>STR</td><td class="t-orange">+25%</td><td>Trunks(1) quest medal reward</td></tr>
-        <tr><td class="t-bold">Hell Fruit</td><td>Stamina</td><td class="t-green">+400,000 Stamina</td><td>Hell Fruit quest (Dabura at 50% Evil Karma)</td></tr>
-        <tr><td class="t-bold">Blue Stat Crystal</td><td>All Stats (training)</td><td class="t-orange t-bold">×2 gains for 1 hr</td><td>Casino Shop (C 10,000,000)</td></tr>
-        <tr><td class="t-bold">Cavern Stat Pill</td><td>Stats while leveling</td><td class="t-orange t-bold">×6 for 30 min</td><td>Mystical Cavern (Golden Frieza drop); DQ Store (12 tokens)</td></tr>
+        <tr><td class="t-bold">Babidi</td><td class="t-orange t-bold">All Stats ×1.5 (×1.6 Pride Saiyan)</td><td>Level 35,000 + 100% Evil Karma</td></tr>
+        <tr><td class="t-bold">Dr. Gero – Convert</td><td class="t-orange t-bold">All Stats ×1.8</td><td>Human Only</td></tr>
+        <tr><td class="t-bold">Frieza</td><td class="t-orange t-bold">All Stats ×1.2</td><td>25% Evil Karma + Kill 3 Namekian Civilians</td></tr>
+        <tr><td class="t-bold">Guru</td><td class="t-orange t-bold">All Stats ×1.2</td><td>25% Good Karma + Kill 3 of Frieza's Henchmen</td></tr>
+        <tr><td class="t-bold">Hercule</td><td class="t-green">Strength ×1.2</td><td>Level 35,000</td></tr>
+        <tr><td class="t-bold">King Cold – Convert</td><td class="t-orange t-bold">×1.8 (Metal=STR; Mecha=KI)</td><td>Changeling Only</td></tr>
+        <tr><td class="t-bold">King Vegeta</td><td class="t-green">Ki Defense ×1.2</td><td>Kill 25 Enemies</td></tr>
+        <tr><td class="t-bold">Krillin</td><td class="t-green">Ki ×1.2</td><td>Level 35,000 + 100,000,000 Zeni</td></tr>
+        <tr><td class="t-bold">Piccolo</td><td class="t-green">Defense ×1.2</td><td>Level 35,000</td></tr>
+        <tr><td class="t-bold">Princess Snake</td><td class="t-orange t-bold">All Stats ×2</td><td>Hidden NPC</td></tr>
+        <tr><td class="t-bold">Shin</td><td class="t-orange t-bold">All Stats ×1.5</td><td>Level 35,000 + Permanent Races Only</td></tr>
+        <tr><td class="t-bold">Son Goku</td><td class="t-green">PL ×1.2</td><td>Level 35,000</td></tr>
+        <tr><td class="t-bold">Supreme Kai (Potara)</td><td class="t-orange t-bold">Both Players' Stats Added OR Self ×1.5</td><td>Level 35,000 + Shenron Saga</td></tr>
+        <tr><td class="t-bold">Toronbo Dragon</td><td class="t-orange t-bold">All Stats ×2</td><td>Cereal Dragon Ball Wish</td></tr>
+        <tr><td class="t-bold">Chronoa</td><td class="t-orange t-bold">All Stats ×1.5</td><td>Claim ALL Quest Medals</td></tr>
       </tbody>
     </table>
   </div>
+  <div class="warn-box">⚠️ Mystic Training, Human Conversion, and Changeling Conversion cannot be combined with Potara. Permanent races may use Shin but cannot use Potara. Non-permanent races may use Potara but cannot use Shin.</div>
 
-  <div class="section-header">💪 Boost Chart (4/3 → 5/3)</div>
-  <div class="tip-box">💡 Wait until you have <strong>300 Million in each base stat</strong> before boosting at 4/3.</div>
-  <div class="card"><p>Same sources as 3/3 → 4/3, but your SR race transformation multipliers are now significantly higher. Stack all applicable boosts: Guru/Babidi, Z-Suits, equipment, and your SR transformation before training.</p></div>
 
-  <div class="section-header">💪 Boost Chart (5/3 → 6/3)</div>
-  <div class="tip-box">💡 Wait until you have approximately <strong>8 Billion base stats</strong> before boosting at 5/3. Beerus' Trials require it.</div>
-  <div class="card"><p>Same sources apply. At 5/3 you also have access to <strong>Zeno Race transformations</strong> and <strong>Ultra Forms</strong> (UI/UE/Invert), which stack on top of your base SR forms. Stack everything before Beerus' Trial runs.</p></div>
+<!-- BOOST CALCULATOR -->
+    <div class="section-header">🔢 Boost Calculator</div>
+    <div class="tip-box">💡 Input your <strong>Base Max Powerlevel</strong>, select which boosts you'll use, and enter your <strong>Transformation Multiplier</strong> (exactly as shown in-game, e.g. 9000%). This gives your <strong>fully powered-up Powerlevel</strong>.</div>
+
+    <style>
+      .calc-wrap {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .calc-input-group {
+        margin-bottom: 20px;
+      }
+      .calc-label {
+        display: block;
+        font-weight: 600;
+        font-size: 13px;
+        color: var(--text-primary);
+        margin-bottom: 6px;
+        letter-spacing: 0;
+      }
+      .calc-label-sub {
+        font-weight: 400;
+        font-size: 12px;
+        color: var(--text-secondary);
+        display: block;
+        margin-top: 2px;
+      }
+      .calc-number-input {
+        width: 100%;
+        padding: 10px 12px;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-frame);
+        border-radius: 6px;
+        color: var(--text-primary);
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.15s;
+      }
+      .calc-number-input:focus {
+        border-color: var(--accent-blue);
+      }
+      .calc-number-input::placeholder {
+        color: var(--text-dim);
+        opacity: 0.6;
+      }
+      .boost-checklist {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+      }
+      @media (max-width: 600px) {
+        .boost-checklist { grid-template-columns: 1fr; }
+        .calc-input-row-responsive { grid-template-columns: 1fr !important; }
+      }
+      .boost-check-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-frame);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: border-color 0.12s, background 0.12s;
+        user-select: none;
+      }
+      .boost-check-item:hover {
+        border-color: rgba(88,166,255,0.35);
+        background: rgba(88,166,255,0.04);
+      }
+      .boost-check-item.checked {
+        border-color: rgba(63,185,80,0.4);
+        background: rgba(63,185,80,0.06);
+      }
+      .boost-check-item input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 16px;
+        height: 16px;
+        min-width: 16px;
+        border: 1px solid var(--text-dim);
+        border-radius: 4px;
+        background: transparent;
+        cursor: pointer;
+        position: relative;
+        transition: border-color 0.12s, background 0.12s;
+      }
+      .boost-check-item input[type="checkbox"]:checked {
+        background: var(--accent-green);
+        border-color: var(--accent-green);
+      }
+      .boost-check-item input[type="checkbox"]:checked::after {
+        content: '✓';
+        position: absolute;
+        top: -2px;
+        left: 1px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #000;
+      }
+      .boost-check-name {
+        font-weight: 500;
+        font-size: 13px;
+        color: var(--text-primary);
+        flex: 1;
+      }
+      .boost-check-multi {
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
+        font-size: 12px;
+        color: var(--accent-orange);
+        white-space: nowrap;
+        font-weight: 600;
+      }
+      .boost-check-stat {
+        font-size: 10px;
+        color: var(--text-dim);
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
+        letter-spacing: 0.3px;
+      }
+      .calc-output-box {
+        background: var(--bg-primary);
+        border: 1px solid rgba(63,185,80,0.3);
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+      }
+      .calc-output-label {
+        font-weight: 500;
+        font-size: 11px;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        color: var(--text-dim);
+        margin-bottom: 6px;
+      }
+      .calc-output-value {
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
+        font-size: 26px;
+        font-weight: 600;
+        color: var(--accent-green);
+        word-break: break-all;
+      }
+      .calc-breakdown {
+        margin-top: 14px;
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
+        font-size: 12px;
+        color: var(--text-dim);
+        line-height: 1.8;
+      }
+      .calc-breakdown span {
+        color: var(--text-secondary);
+      }
+      .calc-reset-btn {
+        display: inline-block;
+        margin-top: 16px;
+        padding: 8px 20px;
+        background: var(--btn-bg);
+        color: var(--text-primary);
+        font-weight: 500;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 1px solid var(--border-frame);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: border-color 0.15s, background 0.15s;
+      }
+      .calc-reset-btn:hover { border-color: var(--accent-red); background: rgba(248,81,73,0.08); }
+    </style>
+
+    <div class="card" style="padding:24px 20px">
+      <div class="calc-wrap">
+
+        <!-- BASE PL & TRANS MULTI INPUTS -->
+        <div class="calc-input-group calc-input-row-responsive" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div>
+            <label class="calc-label">Base Max Powerlevel
+              <span class="calc-label-sub">Highest base stat before boosts or transformations</span>
+            </label>
+            <input type="text" class="calc-number-input" id="calc-base-pl" placeholder="e.g. 8000000000" oninput="runBoostCalc()">
+          </div>
+          <div>
+            <label class="calc-label">Transformation Multiplier %
+              <span class="calc-label-sub">Enter exactly what you see in-game (e.g. 9000 = ×90)</span>
+            </label>
+            <input type="text" class="calc-number-input" id="calc-trans-multi" placeholder="e.g. 9000" oninput="runBoostCalc()">
+          </div>
+        </div>
+
+        
+<!-- CHARACTER TYPE -->
+<div class="calc-input-group">
+<label class="calc-label">Character Type</label>
+<div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:8px">
+<label><input type="radio" name="raceType" id="racePerm" checked> Permanent Race</label>
+<label><input type="radio" name="raceType" id="raceNonPerm"> Non-Permanent Race</label>
+</div>
+</div>
+
+<!-- BOOST PATH -->
+<div class="calc-input-group">
+<label class="calc-label">Boost Path
+<span class="calc-label-sub">Choose only one path</span>
+</label>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px">
+<label><input type="radio" name="path" id="pathNone" checked> None</label>
+<label><input type="radio" name="path" id="pathShin"> Shin</label>
+<label><input type="radio" name="path" id="pathMystic"> Mystic</label>
+<label><input type="radio" name="path" id="pathHuman"> Human Conversion</label>
+<label><input type="radio" name="path" id="pathChangeling"> Changeling Conversion</label>
+<label><input type="radio" name="path" id="pathPotara"> Potara</label>
+</div>
+</div>
+
+<!-- BOOST SELECTION -->
+        <div class="calc-input-group">
+          <label class="calc-label">NPC Boosts
+            <span class="calc-label-sub">Select NPC boosts and stat boosts that apply to your character.</span>
+          </label>
+          <div class="boost-checklist" id="boost-checklist">
+            <!-- ALL STAT BOOSTS -->
+            <label class="boost-check-item" onclick="toggleBoostItem(this)">
+              <input type="checkbox" data-multi="1.5" onchange="runBoostCalc()">
+              <div>
+                <div class="boost-check-name">Babidi</div>
+                <div class="boost-check-stat">ALL STATS</div>
+              </div>
+              <div class="boost-check-multi">×1.5</div>
+            </label>
+            <label class="boost-check-item" onclick="toggleBoostItem(this)">
+              <input type="checkbox" data-multi="1.6" onchange="runBoostCalc()">
+              <div>
+                <div class="boost-check-name">Babidi (Pride Saiyan)</div>
+                <div class="boost-check-stat">ALL STATS</div>
+              </div>
+              <div class="boost-check-multi">×1.6</div>
+            </label>
+            <label class="boost-check-item" onclick="toggleBoostItem(this)">
+              <input type="checkbox" data-multi="1.8" onchange="runBoostCalc()">
+              <div>
+                <div class="boost-check-name">Dr. Gero – Convert</div>
+                <div class="boost-check-stat">ALL STATS · HUMAN</div>
+              </div>
+              <div class="boost-check-multi">×1.8</div>
+            </label>
+            <label class="boost-check-item" onclick="toggleBoostItem(this)">
+              <input type="checkbox" data-multi="1.2" onchange="runBoostCalc()">
+              <div>
+                <div class="boost-check-name">Frieza</div>
+                <div class="boost-check-stat">ALL STATS · EVIL</div>
+              </div>
+              <div class="boost-check-multi">×1.2</div>
+            </label>
+            <label class="boost-check-item" onclick="toggleBoostItem(this)">
+              <input type="checkbox" data-multi="1.2" onchange="runBoostCalc()">
+              <div>
+                <div class="boost-check-name">Guru</div>
+                <div class="boost-check-stat">ALL STATS · GOOD</div>
+              </div>
+              <div class="boost-check-multi">×1.2</div>
+            </label>
+            <label class="boost-check-item" onclick="toggleBoostItem(this)">
+              <input type="checkbox" data-multi="1.5" onchange="runBoostCalc()">
+              <div>
+                <div class="boost-check-name">Chronoa</div>
+                <div class="boost-check-stat">ALL STATS · ALL QUEST MEDALS</div>
+              </div>
+              <div class="boost-check-multi">×1.5</div>
+            </label>
+            <label class="boost-check-item" onclick="toggleBoostItem(this)">
+              <input type="checkbox" data-multi="1.8" onchange="runBoostCalc()">
+              <div>
+                <div class="boost-check-name">King Cold – Convert</div>
+                <div class="boost-check-stat">CHANGELING · STR or KI</div>
+              </div>
+              <div class="boost-check-multi">×1.8</div>
+            </label>
+            <label class="boost-check-item" onclick="toggleBoostItem(this)">
+              <input type="checkbox" data-multi="1.2" onchange="runBoostCalc()">
+              <div>
+                <div class="boost-check-name">NPCs Stat Combined Boost</div>
+                <div class="boost-check-stat">ALL STATS · Goku, Krillin, Piccolo, Hercule, K.Vegeta</div>
+              </div>
+              <div class="boost-check-multi">×1.2</div>
+            </label>
+            <label class="boost-check-item" onclick="toggleBoostItem(this)">
+              <input type="checkbox" data-multi="2" onchange="runBoostCalc()">
+              <div>
+                <div class="boost-check-name">Princess Snake</div>
+                <div class="boost-check-stat">ALL STATS</div>
+              </div>
+              <div class="boost-check-multi">×2</div>
+            </label>
+            <label class="boost-check-item" onclick="toggleBoostItem(this)">
+              <input type="checkbox" data-multi="1.5" onchange="runBoostCalc()">
+              <div>
+                <div class="boost-check-name">Shin</div>
+                <div class="boost-check-stat">ALL STATS · PERM ONLY</div>
+              </div>
+              <div class="boost-check-multi">×1.5</div>
+            </label>
+            <label class="boost-check-item" onclick="toggleBoostItem(this)">
+              <input type="checkbox" data-multi="1.5" onchange="runBoostCalc()">
+              <div>
+                <div class="boost-check-name">Supreme Kai (Potara Self)</div>
+                <div class="boost-check-stat">ALL STATS · NON-PERM SELF</div>
+              </div>
+              <div class="boost-check-multi">×1.5</div>
+            </label>
+            <label class="boost-check-item" onclick="toggleBoostItem(this)">
+              <input type="checkbox" data-multi="2" onchange="runBoostCalc()">
+              <div>
+                <div class="boost-check-name">Toronbo Dragon</div>
+                <div class="boost-check-stat">ALL STATS · CEREAL DB</div>
+              </div>
+              <div class="boost-check-multi">×2</div>
+            </label>
+          </div>
+        </div>
+
+        <!-- OUTPUT -->
+        <div class="calc-output-box" id="calc-output-box">
+          <div class="calc-output-label">Fully Powered-Up Powerlevel</div>
+          <div class="calc-output-value" id="calc-result">—</div>
+          <div class="calc-breakdown" id="calc-breakdown"></div>
+          <button class="calc-reset-btn" onclick="resetBoostCalc()">RESET</button>
+        </div>
+
+      </div>
+    </div>
+
+    <script>
+    function toggleBoostItem(el) {
+      // The label click already toggles the checkbox, so just update the class
+      setTimeout(function() {
+        var cb = el.querySelector('input[type="checkbox"]');
+        if (cb.checked) {
+          el.classList.add('checked');
+        } else {
+          el.classList.remove('checked');
+        }
+      }, 0);
+    }
+
+    function parseCalcNum(str) {
+      // Strip commas, spaces, and common suffixes, then parse
+      if (!str) return 0;
+      var cleaned = str.replace(/[,\s]/g, '');
+      // Handle shorthand like 8b, 10m, etc
+      var match = cleaned.match(/^([0-9]*\.?[0-9]+)\s*([bmkBMK]?)$/);
+      if (!match) return parseFloat(cleaned) || 0;
+      var num = parseFloat(match[1]);
+      var suffix = match[2].toLowerCase();
+      if (suffix === 'k') num *= 1000;
+      else if (suffix === 'm') num *= 1000000;
+      else if (suffix === 'b') num *= 1000000000;
+      return num;
+    }
+
+    function formatBigNumber(n) {
+      if (n === 0) return '0';
+      if (n >= 1e15) return (n / 1e15).toFixed(2).replace(/\.?0+$/, '') + ' Quadrillion';
+      if (n >= 1e12) return (n / 1e12).toFixed(2).replace(/\.?0+$/, '') + ' Trillion';
+      if (n >= 1e9) return (n / 1e9).toFixed(2).replace(/\.?0+$/, '') + ' Billion';
+      if (n >= 1e6) return (n / 1e6).toFixed(2).replace(/\.?0+$/, '') + ' Million';
+      return n.toLocaleString('en-US', { maximumFractionDigits: 0 });
+    }
+
+    function runBoostCalc() {
+      var basePL = parseCalcNum(document.getElementById('calc-base-pl').value);
+      var transRaw = parseCalcNum(document.getElementById('calc-trans-multi').value);
+      var transMulti = transRaw > 0 ? transRaw / 100 : 0;
+
+      var boostMulti = 1;
+      var boostCount = 0;
+      var checks = document.querySelectorAll('#boost-checklist input[type="checkbox"]:checked');
+      checks.forEach(function(cb) {
+        boostMulti *= parseFloat(cb.getAttribute('data-multi'));
+        boostCount++;
+      });
+
+      var resultEl = document.getElementById('calc-result');
+      var breakdownEl = document.getElementById('calc-breakdown');
+
+      if (basePL <= 0) {
+        resultEl.textContent = '—';
+        breakdownEl.innerHTML = '';
+        return;
+      }
+
+      var boostedBase = basePL * boostMulti;
+      var final = transMulti > 0 ? boostedBase * transMulti : boostedBase;
+
+      resultEl.textContent = formatBigNumber(Math.floor(final));
+
+      var bd = '';
+      bd += '<span>Base:</span> ' + formatBigNumber(basePL) + '<br>';
+      bd += '<span>Boosts (' + boostCount + ' selected):</span> ×' + boostMulti.toFixed(4).replace(/\.?0+$/, '') + '<br>';
+      bd += '<span>After Boosts:</span> ' + formatBigNumber(Math.floor(boostedBase)) + '<br>';
+      if (transMulti > 0) {
+        bd += '<span>Trans Multi:</span> ' + transRaw + '% (×' + transMulti + ')<br>';
+        bd += '<span>Final:</span> ' + formatBigNumber(Math.floor(final));
+      } else {
+        bd += '<span>Trans Multi:</span> <em style="color:var(--text-dim)">not set</em>';
+      }
+      breakdownEl.innerHTML = bd;
+    }
+
+    function resetBoostCalc() {
+      document.getElementById('calc-base-pl').value = '';
+      document.getElementById('calc-trans-multi').value = '';
+      document.querySelectorAll('#boost-checklist input[type="checkbox"]').forEach(function(cb) {
+        cb.checked = false;
+        cb.closest('.boost-check-item').classList.remove('checked');
+      });
+      document.getElementById('calc-result').textContent = '—';
+      document.getElementById('calc-breakdown').innerHTML = '';
+    }
+    </script>
+
+  
 </section>
 
 <!-- QUEST MEDALS / RANKS -->
@@ -2134,6 +2553,38 @@ async function loadChangelog() {
 
 // Init
 loadChangelog();
+</script>
+
+<script>
+function updateRacePathOptions(){
+  const perm = document.getElementById('racePerm');
+  if(!perm) return;
+
+  const shin = document.getElementById('pathShin');
+  const mystic = document.getElementById('pathMystic');
+  const human = document.getElementById('pathHuman');
+  const changeling = document.getElementById('pathChangeling');
+  const potara = document.getElementById('pathPotara');
+  const none = document.getElementById('pathNone');
+
+  [shin,mystic,human,changeling,potara].forEach(e=>e && (e.disabled=false));
+
+  if(perm.checked){
+    [mystic,human,changeling,potara].forEach(e=>e.disabled=true);
+    if(mystic.checked || human.checked || changeling.checked || potara.checked){
+      shin.checked = true;
+    }
+  } else {
+    shin.disabled = true;
+    if(shin.checked) none.checked = true;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  document.getElementById('racePerm')?.addEventListener('change', updateRacePathOptions);
+  document.getElementById('raceNonPerm')?.addEventListener('change', updateRacePathOptions);
+  updateRacePathOptions();
+});
 </script>
 </body>
 </html>

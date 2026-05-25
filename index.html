@@ -183,20 +183,74 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
 /* RESPONSIVE */
 @media(max-width:900px){
   :root{--sidebar-w:0px;--topbar-h:52px}
-  .topbar{padding:0 14px}
-  .tb-sub,.tb-sep{display:none}
-  .tb-version{display:none}
-  .layout{flex-direction:column}
-  .sidebar{position:sticky;top:var(--topbar-h);width:100%;height:auto;display:flex;flex-direction:row;overflow-x:auto;overflow-y:hidden;padding:0 4px;border-right:none;border-bottom:1px solid var(--border);background:var(--bg2);z-index:200;scrollbar-width:none}
-  .sidebar::-webkit-scrollbar{display:none}
-  .sb-section{display:none}
-  .tab-btn{flex:0 0 auto;white-space:nowrap;border-radius:0;border-left:none;border-bottom:2px solid transparent;padding:12px 12px 10px;font-size:12px;margin-bottom:0;gap:5px}
-  .tab-btn:hover{background:transparent}
-  .tab-btn.active{background:transparent;color:var(--accent);border-left-color:transparent;border-bottom-color:var(--accent)}
-  .main-content{margin-left:0}
-  .tab-panel{padding:0 14px 60px;max-width:100%}
-  .card-grid{grid-template-columns:1fr}
-  th,td{padding:7px 10px}
+
+  .topbar{
+    padding:0 14px;
+  }
+
+  .tb-sub,
+  .tb-sep,
+  .tb-version{
+    display:none;
+  }
+
+  .layout{
+    flex-direction:column;
+  }
+
+  .hamburger{
+    display:flex;
+    z-index:1101;
+  }
+
+  .sidebar{
+    position:fixed;
+    left:-280px;
+    top:var(--topbar-h);
+    width:280px;
+    height:calc(100vh - var(--topbar-h));
+    display:flex;
+    flex-direction:column;
+    overflow-y:auto;
+    overflow-x:hidden;
+    background:var(--bg2);
+    border-right:1px solid var(--border);
+    transition:left .25s ease;
+    z-index:1100;
+  }
+
+  .sidebar.open{
+    left:0;
+  }
+
+  .sb-section{
+    display:block;
+  }
+
+  .tab-btn{
+    width:100%;
+    justify-content:flex-start;
+    border-radius:8px;
+    margin-bottom:4px;
+  }
+
+  .main-content{
+    margin-left:0;
+  }
+
+  .tab-panel{
+    padding:0 14px 60px;
+    max-width:100%;
+  }
+
+  .card-grid{
+    grid-template-columns:1fr;
+  }
+
+  th,
+  td{
+    padding:7px 10px;
+  }
 }
 
 /* SEARCH */

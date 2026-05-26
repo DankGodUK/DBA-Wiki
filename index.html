@@ -361,11 +361,8 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
   <span></span><span></span><span></span>
 </button>
 <nav class="topbar">
- <div class="tb-brand-img">
-    <a href="index.html" aria-label="Home">
-        <img src="assets/logo.png" alt="DB Asylum Logo">
-    </a>
-</div>
+  <div class="tb-brand-img">
+    <img src="assets/logo.png" alt="DB Asylum Logo">
 </div>
   </div>
   <div class="tb-right">
@@ -441,7 +438,7 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
     <p style="margin-top:6px"><strong style="color:var(--blue)">Races &amp; Transformations</strong> — Choose a race at character creation. Each has its own transformation tree. Later you'll unlock Ultra forms and Dual Genes.</p>
     <p style="margin-top:6px"><strong style="color:var(--gold)">Currencies</strong> — Zenni, ZP, Training Points, EK, Ultra Points, Casino Tokens, and more. ZP is critical for level caps and gear.</p>
     <p style="margin-top:6px"><strong style="color:var(--red)">Events &amp; PvP</strong> — Sagas, Mayhem, tournaments, CTF, Mystical Cavern, Conquest, RBA, and more.</p>
-    <p style="margin-top:6px"><strong style="color:var(--blue)">Quest Medals &amp; Ranks</strong> — 56 Quest Medals earned from NPCs. You need them to break past level caps. Rank (Easy → Champion) is tied to level and medal count.</p>
+    <p style="margin-top:6px"><strong style="color:var(--blue)">Quest Medals &amp; Ranks</strong> — 53 Quest Medals earned from NPCs. You need them to break past level caps. Rank (Easy → Champion) is tied to level and medal count.</p>
     <p style="margin-top:6px"><strong style="color:var(--purple)">Guilds</strong> — Team up with other players. Guilds have houses, upgradeable facilities, evolution paths, and guild-specific events.</p>
   </div>
 
@@ -1740,6 +1737,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <ul>
       <li><strong>Legendary Training Equipment</strong> — 10 Billion Zenni per piece</li>
       <li><strong>Infinite Ki Machine</strong> — Casino Shop (C 100,000 / C 500,000 advanced)</li>
+      <li><strong>Lockers</strong> — Storage for items and gear</li>
     </ul>
   </div>
 </section>
@@ -1750,51 +1748,42 @@ document.addEventListener('DOMContentLoaded', function(){
     <div class="ph-eyebrow">Guide</div>
     <div class="ph-title">Events</div>
   </div>
-  <div class="tip-box">💡 Events are announced in <strong>Global Chat</strong>. Watch for announcements from the server — many are time-limited or triggered manually by admins.</div>
+  <div class="tip-box">💡 Events are announced in <strong>Universe Chat</strong>. Watch for announcements from the server — many are time-limited or triggered manually by admins.</div>
 
   <div class="section-header">🏆 Event List</div>
 
   <div class="sub-header">Sagas</div>
-  <div class="card"><p>Spawn Good and Evil opponents from DBZ Sagas. Difficulty Levels: Easy, Medium, Hard, Extreme, Insane, Godly. Higher difficulty = stronger mob stats, Change difficulty at <strong>Yamcha</strong> or the Mall Mascot</p></div>
+  <div class="card"><p>Story-driven boss fights triggered periodically. Defeating saga bosses awards <strong>EXP, EK, and occasionally special items</strong>. Multiple sagas run throughout the wipe. The <strong>Side Cape Z-Suit</strong> gives +10% EXP during sagas.</p></div>
 
   <div class="sub-header">Mayhem</div>
-  <div class="card"><p>Guild-based event. 10 flags are spread across the map. Your goal is to capture as many as you can for your guild. Ki blasts can be used to attack, with special attacks available from time to time. Once the event is over, guilds with flags will get 10 bonuses over time based on what flags they captured.</p></div>
+  <div class="card"><p>Open PvP free-for-all event. Earn <strong>Guild Points</strong> by participating. One of the main sources of GP alongside Guild Tournament. <strong>RBA cannot be joined from Mayhem</strong> (v8.70 fix).</p></div>
 
   <div class="sub-header">Ranked Battle Arena (RBA)</div>
   <div class="card">
-    <p>Admin-hosted. Join via Channels tab → Ranked Battle Arena verb. Matched 1v1 against another player. King of the Hill style.
-
-    Win: levels + ZP + zenni + RBA points
-    RBA Points → ZP = 10 ZP per exchange
-    RBA Broker NPC: Mall → IT to Mall Mascot → inside → bottom left
-</p>
+    <p>Competitive 1v1 tournament bracket. Win matches to earn <strong>RBA Tokens</strong>, which exchange for <strong>ZP</strong> (10 ZP per exchange) at the PVP Broker in the Mall.</p>
     <ul>
+      <li>Logging out of RBA mid-match would previously cause it to hang — fixed in v8.70</li>
+      <li>G.o.D cannot be lost in RBA (v8.70 fix)</li>
     </ul>
   </div>
 
   <div class="sub-header">Tournament of Power (ToP)</div>
-  <div class="card"><p>Universe vs Universe elimination event. Earn <strong>Universe Points (UP)</strong> for participation and wins.</p></div>
+  <div class="card"><p>Universe vs Universe elimination event. Earn <strong>Universe Points (UP)</strong> for participation and wins. Your Universe ranking affects G.o.D eligibility.</p></div>
 
   <div class="sub-header">Mystical Cavern</div>
   <div class="card"><p>Dungeon event. Earn <strong>Cavern Stat Pills</strong> (6× stat gain for 30 min) and other rewards. Crocodile Meat (from Roshi's island) is useful for healing inside. Golden Frieza spawns here with a 50% chance to drop the Cavern Stat Pill.</p></div>
 
   <div class="sub-header">Conquest</div>
-  <div class="card"><p>Universe-based event. Players sign up to capture and defend Banners across 4 Planets for their Universe. 10 minutes long. Warp via Channels tab. Buffs last until next Conquest.
-<div>Banner	Buff</div>
-<div>Earth	+10% EXP on all Saga Mobs</div>
-<div>Future Earth	+10% EXP on all Standard Cave Mobs + all other world mobs + players</div>
-<div>Namek	+10% Zenni on all Mobs</div>
-<div>Vegeta	+10% EXP on all Portal + Mob Tower Mobs (also affects Lab4 + Champion Tower)</div></p>
-</div>
+  <div class="card"><p>Territory control event. Win zones to earn <strong>Universe Points</strong>. Guild coordination is important for Conquest.</p></div>
 
   <div class="sub-header">King of the Hill / Kill the King</div>
-  <div class="card"><p>Team based PvP event. Eliminate the King to win.</p></div>
+  <div class="card"><p>PvP objective event. Hold the hill position or eliminate the King to score. v8.70: auto-check every 5 seconds resets safe players correctly.</p></div>
 
   <div class="sub-header">Team Deathmatch (TDM)</div>
-  <div class="card"><p>Team based PvP event. Kill the enemy team to win</p></div>
+  <div class="card"><p>Team PvP event. v8.70: auto-check every 5 seconds resets safe players correctly.</p></div>
 
   <div class="sub-header">Pillar Event</div>
-  <div class="card"><p>Defend or destroy pillars. Rewards <strong>Universe Points + ZP</strong>.</p></div>
+  <div class="card"><p>Defend or destroy pillars. Rewards <strong>Universe Points</strong>.</p></div>
 
   <div class="sub-header">Daily Quests</div>
   <div class="card">
@@ -1815,13 +1804,13 @@ document.addEventListener('DOMContentLoaded', function(){
 
   <div class="sub-header">End of Wipe Tournament</div>
   <div class="card">
-    <p>The final event of each wipe. Compete to see who became the strongest of the wipe. Winners receive:</p>
+    <p>The final event of each wipe. Only players who reached <strong>Champion rank</strong> can participate. Winners receive:</p>
     <ul>
       <li>🏆 <strong>Real cash prizes</strong></li>
       <li>🎖️ <strong>In-game rewards</strong> carried into the next wipe</li>
       <li>🗿 <strong>Permanent statue</strong> in the Hall of Fame</li>
     </ul>
-    <div class="warn-box" style="margin-top:10px">⚠️ <strong>Ultra Ego's Hakai Homing Blast and other OHKO techs are BANNED</strong> in the End of Wipe tournament (and most other events).</div>
+    <div class="warn-box" style="margin-top:10px">⚠️ <strong>Ultra Ego's Hakai Homing Blast is BANNED</strong> in the End of Wipe tournament (and most other events).</div>
   </div>
 </section>
 
@@ -2248,18 +2237,42 @@ document.addEventListener('DOMContentLoaded', function(){
     <div class="card" style="padding:24px 20px">
       <div class="calc-wrap">
 
-        <!-- BASE PL & TRANS MULTI INPUTS -->
-        <div class="calc-section-title" style="margin-bottom:12px">Your Stats</div>
-        <div class="calc-input-group calc-input-row-responsive" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <!-- BASE STATS INPUTS -->
+        <div class="calc-section-title" style="margin-bottom:12px">Your Base Stats</div>
+        <div class="calc-input-group" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px">
           <div>
-            <label class="calc-label">Base Max Powerlevel
-              <span class="calc-label-sub">Highest base stat before boosts or transformations</span>
+            <label class="calc-label">Powerlevel
+              <span class="calc-label-sub">Base PL before boosts/transforms</span>
             </label>
-            <input type="text" class="calc-number-input" id="calc-base-pl" placeholder="e.g. 8000000000" oninput="runBoostCalc()">
+            <input type="text" class="calc-number-input" id="calc-base-pl" placeholder="e.g. 8b" oninput="runBoostCalc()">
+          </div>
+          <div>
+            <label class="calc-label">Ki
+              <span class="calc-label-sub">Base Ki stat</span>
+            </label>
+            <input type="text" class="calc-number-input" id="calc-base-ki" placeholder="e.g. 8b" oninput="runBoostCalc()">
+          </div>
+          <div>
+            <label class="calc-label">Ki Defence
+              <span class="calc-label-sub">Base Ki Def stat</span>
+            </label>
+            <input type="text" class="calc-number-input" id="calc-base-kidef" placeholder="e.g. 8b" oninput="runBoostCalc()">
+          </div>
+          <div>
+            <label class="calc-label">Strength
+              <span class="calc-label-sub">Base STR stat</span>
+            </label>
+            <input type="text" class="calc-number-input" id="calc-base-str" placeholder="e.g. 8b" oninput="runBoostCalc()">
+          </div>
+          <div>
+            <label class="calc-label">Defence
+              <span class="calc-label-sub">Base DEF stat</span>
+            </label>
+            <input type="text" class="calc-number-input" id="calc-base-def" placeholder="e.g. 8b" oninput="runBoostCalc()">
           </div>
           <div>
             <label class="calc-label">Transformation Multiplier %
-              <span class="calc-label-sub">Enter exactly what you see in-game (e.g. 9000 = ×90)</span>
+              <span class="calc-label-sub">Exactly as shown in-game (e.g. 9000 = ×90)</span>
             </label>
             <input type="text" class="calc-number-input" id="calc-trans-multi" placeholder="e.g. 9000" oninput="runBoostCalc()">
           </div>
@@ -2299,46 +2312,45 @@ document.addEventListener('DOMContentLoaded', function(){
         <div class="calc-input-group">
           <div class="calc-section-title">NPC Boosts</div>
           <div class="boost-checklist" id="boost-checklist">
-<div style="grid-column:1/-1;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#8a95a8;margin-bottom:2px">Full Stat Boosts</div>
-            <!-- NPC BOOSTS -->
+<div style="grid-column:1/-1;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#8a95a8;margin-bottom:2px">All Stats</div>
             <label class="boost-check-item" onclick="toggleBoostItem(this)">
-              <input type="checkbox" data-multi="1.2" onchange="runBoostCalc()">
+              <input type="checkbox" data-stat="all" data-multi="1.2" onchange="runBoostCalc()">
               <div><div class="boost-check-name">Guru</div><div class="boost-check-stat">ALL STATS</div></div>
               <div class="boost-check-multi">×1.2</div>
             </label>
 
             <label class="boost-check-item" onclick="toggleBoostItem(this)">
-              <input type="checkbox" data-multi="1.2" onchange="runBoostCalc()">
+              <input type="checkbox" data-stat="all" data-multi="1.2" onchange="runBoostCalc()">
               <div><div class="boost-check-name">Frieza</div><div class="boost-check-stat">ALL STATS</div></div>
               <div class="boost-check-multi">×1.2</div>
             </label>
 
             <label class="boost-check-item" onclick="toggleBoostItem(this)">
-              <input type="checkbox" data-multi="1.5" onchange="runBoostCalc()">
+              <input type="checkbox" data-stat="all" data-multi="1.5" onchange="runBoostCalc()">
               <div><div class="boost-check-name">Babidi</div><div class="boost-check-stat">ALL STATS</div></div>
               <div class="boost-check-multi">×1.5</div>
             </label>
 
             <label class="boost-check-item" onclick="toggleBoostItem(this)">
-              <input type="checkbox" data-multi="1.6" onchange="runBoostCalc()">
+              <input type="checkbox" data-stat="all" data-multi="1.6" onchange="runBoostCalc()">
               <div><div class="boost-check-name">Babidi (Pride Saiyan)</div><div class="boost-check-stat">ALL STATS</div></div>
               <div class="boost-check-multi">×1.6</div>
             </label>
 
             <label class="boost-check-item" onclick="toggleBoostItem(this)">
-              <input type="checkbox" data-multi="1.5" onchange="runBoostCalc()">
+              <input type="checkbox" data-stat="all" data-multi="1.5" onchange="runBoostCalc()">
               <div><div class="boost-check-name">Chronoa</div><div class="boost-check-stat">ALL STATS</div></div>
               <div class="boost-check-multi">×1.5</div>
             </label>
 
             <label class="boost-check-item" onclick="toggleBoostItem(this)">
-              <input type="checkbox" data-multi="2" onchange="runBoostCalc()">
+              <input type="checkbox" data-stat="all" data-multi="2" onchange="runBoostCalc()">
               <div><div class="boost-check-name">Princess Snake</div><div class="boost-check-stat">ALL STATS</div></div>
               <div class="boost-check-multi">×2</div>
             </label>
 
             <label class="boost-check-item toronbo-item" onclick="toggleBoostItem(this)">
-              <input type="checkbox" data-multi="2" onchange="runBoostCalc()">
+              <input type="checkbox" data-stat="all" data-multi="2" onchange="runBoostCalc()">
               <div style="flex:1">
                 <div class="boost-check-name">Toronbo Dragon</div>
                 <div class="boost-check-stat">ALL STATS · CEREAL DB</div>
@@ -2346,53 +2358,101 @@ document.addEventListener('DOMContentLoaded', function(){
               </div>
               <div class="boost-check-multi">×2</div>
             </label>
+
+<div style="grid-column:1/-1;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#8a95a8;margin-top:10px;margin-bottom:2px">Stat-Specific</div>
+
+            <label class="boost-check-item" onclick="toggleBoostItem(this)">
+              <input type="checkbox" data-stat="pl" data-multi="1.2" onchange="runBoostCalc()">
+              <div><div class="boost-check-name">Son Goku</div><div class="boost-check-stat">PL ONLY</div></div>
+              <div class="boost-check-multi">×1.2</div>
+            </label>
+
+            <label class="boost-check-item" onclick="toggleBoostItem(this)">
+              <input type="checkbox" data-stat="str" data-multi="1.2" onchange="runBoostCalc()">
+              <div><div class="boost-check-name">Hercule</div><div class="boost-check-stat">STR ONLY</div></div>
+              <div class="boost-check-multi">×1.2</div>
+            </label>
+
+            <label class="boost-check-item" onclick="toggleBoostItem(this)">
+              <input type="checkbox" data-stat="ki" data-multi="1.2" onchange="runBoostCalc()">
+              <div><div class="boost-check-name">Krillin</div><div class="boost-check-stat">KI ONLY</div></div>
+              <div class="boost-check-multi">×1.2</div>
+            </label>
+
+            <label class="boost-check-item" onclick="toggleBoostItem(this)">
+              <input type="checkbox" data-stat="def" data-multi="1.2" onchange="runBoostCalc()">
+              <div><div class="boost-check-name">Piccolo</div><div class="boost-check-stat">DEF ONLY</div></div>
+              <div class="boost-check-multi">×1.2</div>
+            </label>
+
+            <label class="boost-check-item" onclick="toggleBoostItem(this)">
+              <input type="checkbox" data-stat="kidef_only" data-multi="1.2" onchange="runBoostCalc()">
+              <div><div class="boost-check-name">King Vegeta</div><div class="boost-check-stat">KI DEF ONLY</div></div>
+              <div class="boost-check-multi">×1.2</div>
+            </label>
+
           </div>
         </div>
 
-        
 
 
 
 
 
+<!-- EQUIPPED ITEMS -->
+<div class="calc-input-group">
+  <div class="calc-section-title">Equipped Items <span style="font-size:10px;font-weight:400;letter-spacing:0;text-transform:none;color:var(--text-dim)">— applied after boosts</span></div>
+  <div class="boost-checklist" id="item-checklist">
 
+    <label class="boost-check-item" onclick="toggleBoostItem(this)">
+      <input type="checkbox" data-item-stat="pl" data-item-add-pct="10" onchange="runBoostCalc()">
+      <div><div class="boost-check-name">Saiyaman Helmet</div><div class="boost-check-stat">PL +10%</div></div>
+      <div class="boost-check-multi">+10%</div>
+    </label>
 
-<label class="boost-check-item" onclick="toggleBoostItem(this)">
-<input type="checkbox" data-stat="pl" data-multi="1.2" onchange="runBoostCalc()">
-<div><div class="boost-check-name">Son Goku</div><div class="boost-check-stat">PL ONLY</div></div>
-<div class="boost-check-multi">×1.2</div>
-</label>
+    <label class="boost-check-item" onclick="toggleBoostItem(this)">
+      <input type="checkbox" data-item-stat="pl" data-item-add-pct="15" onchange="runBoostCalc()">
+      <div><div class="boost-check-name">Vegito Gi</div><div class="boost-check-stat">PL +15% · 400 ZP</div></div>
+      <div class="boost-check-multi">+15%</div>
+    </label>
 
-<label class="boost-check-item" onclick="toggleBoostItem(this)">
-<input type="checkbox" data-stat="str" data-multi="1.2" onchange="runBoostCalc()">
-<div><div class="boost-check-name">Hercule</div><div class="boost-check-stat">STR ONLY</div></div>
-<div class="boost-check-multi">×1.2</div>
-</label>
+    <label class="boost-check-item" onclick="toggleBoostItem(this)">
+      <input type="checkbox" data-item-stat="pl" data-item-add-pct="15" onchange="runBoostCalc()">
+      <div><div class="boost-check-name">Z-Sword</div><div class="boost-check-stat">PL +15% · Weapon</div></div>
+      <div class="boost-check-multi">+15%</div>
+    </label>
 
-<label class="boost-check-item" onclick="toggleBoostItem(this)">
-<input type="checkbox" data-stat="ki" data-multi="1.2" onchange="runBoostCalc()">
-<div><div class="boost-check-name">Krillin</div><div class="boost-check-stat">KI ONLY</div></div>
-<div class="boost-check-multi">×1.2</div>
-</label>
+    <label class="boost-check-item" onclick="toggleBoostItem(this)">
+      <input type="checkbox" data-item-stat="ki" data-item-add-pct="15" onchange="runBoostCalc()">
+      <div><div class="boost-check-name">Potara Earrings</div><div class="boost-check-stat">KI +15% · 400 ZP</div></div>
+      <div class="boost-check-multi">+15%</div>
+    </label>
 
-<label class="boost-check-item" onclick="toggleBoostItem(this)">
-<input type="checkbox" data-stat="def" data-multi="1.2" onchange="runBoostCalc()">
-<div><div class="boost-check-name">Piccolo</div><div class="boost-check-stat">DEF ONLY</div></div>
-<div class="boost-check-multi">×1.2</div>
-</label>
+    <label class="boost-check-item" onclick="toggleBoostItem(this)">
+      <input type="checkbox" data-item-stat="ki" data-item-add-pct="25" onchange="runBoostCalc()">
+      <div><div class="boost-check-name">Hermit Shell</div><div class="boost-check-stat">KI +25% · 800 ZP</div></div>
+      <div class="boost-check-multi">+25%</div>
+    </label>
 
-<label class="boost-check-item" onclick="toggleBoostItem(this)">
-<input type="checkbox" data-stat="kidef" data-multi="1.2" onchange="runBoostCalc()">
-<div><div class="boost-check-name">King Vegeta</div><div class="boost-check-stat">KI + DEF</div></div>
-<div class="boost-check-multi">×1.2</div>
-</label>
+    <label class="boost-check-item" onclick="toggleBoostItem(this)">
+      <input type="checkbox" data-item-stat="str" data-item-add-pct="25" onchange="runBoostCalc()">
+      <div><div class="boost-check-name">Sharp Dagger</div><div class="boost-check-stat">STR +25%</div></div>
+      <div class="boost-check-multi">+25%</div>
+    </label>
+
+    <label class="boost-check-item" onclick="toggleBoostItem(this)">
+      <input type="checkbox" data-item-stat="str" data-item-add-pct="15" onchange="runBoostCalc()">
+      <div><div class="boost-check-name">Short Dagger</div><div class="boost-check-stat">STR +15%</div></div>
+      <div class="boost-check-multi">+15%</div>
+    </label>
+
+  </div>
+</div>
 
 <!-- OUTPUT -->
-
-
         <div class="calc-output-box" id="calc-output-box">
-          <div class="calc-output-label">Fully Powered-Up Powerlevel</div>
-          <div class="calc-output-value" id="calc-result">—</div>
+          <div class="calc-output-label">Results After All Boosts &amp; Items</div>
+          <div id="calc-results-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-bottom:16px;text-align:left"></div>
           <div class="calc-breakdown" id="calc-breakdown"></div>
           <button class="calc-reset-btn" onclick="resetBoostCalc()">RESET</button>
         </div>
@@ -2402,128 +2462,138 @@ document.addEventListener('DOMContentLoaded', function(){
 
     <script>
     function toggleBoostItem(el) {
-      // The label click already toggles the checkbox, so just update the class
       setTimeout(function() {
         var cb = el.querySelector('input[type="checkbox"]');
-        if (cb.checked) {
-          el.classList.add('checked');
-        } else {
-          el.classList.remove('checked');
-        }
+        el.classList.toggle('checked', cb.checked);
       }, 0);
     }
 
     function parseCalcNum(str) {
-      // Strip commas, spaces, and common suffixes, then parse
       if (!str) return 0;
       var cleaned = str.replace(/[,\s]/g, '');
-      // Handle shorthand like 8b, 10m, etc
       var match = cleaned.match(/^([0-9]*\.?[0-9]+)\s*([bmkBMK]?)$/);
       if (!match) return parseFloat(cleaned) || 0;
       var num = parseFloat(match[1]);
       var suffix = match[2].toLowerCase();
-      if (suffix === 'k') num *= 1000;
-      else if (suffix === 'm') num *= 1000000;
-      else if (suffix === 'b') num *= 1000000000;
+      if (suffix === 'k') num *= 1e3;
+      else if (suffix === 'm') num *= 1e6;
+      else if (suffix === 'b') num *= 1e9;
       return num;
     }
 
     function formatBigNumber(n) {
       if (n === 0) return '0';
-      if (n >= 1e15) return (n / 1e15).toFixed(2).replace(/\.?0+$/, '') + ' Quadrillion';
+      if (n >= 1e15) return (n / 1e15).toFixed(2).replace(/\.?0+$/, '') + ' Quad';
       if (n >= 1e12) return (n / 1e12).toFixed(2).replace(/\.?0+$/, '') + ' Trillion';
-      if (n >= 1e9) return (n / 1e9).toFixed(2).replace(/\.?0+$/, '') + ' Billion';
-      if (n >= 1e6) return (n / 1e6).toFixed(2).replace(/\.?0+$/, '') + ' Million';
+      if (n >= 1e9)  return (n / 1e9).toFixed(2).replace(/\.?0+$/, '')  + ' Billion';
+      if (n >= 1e6)  return (n / 1e6).toFixed(2).replace(/\.?0+$/, '')  + ' Million';
       return n.toLocaleString('en-US', { maximumFractionDigits: 0 });
     }
 
     function runBoostCalc() {
-      var basePL = parseCalcNum(document.getElementById('calc-base-pl').value);
-      var transRaw = parseCalcNum(document.getElementById('calc-trans-multi').value);
+      // --- Read base stats ---
+      var bases = {
+        pl:    parseCalcNum(document.getElementById('calc-base-pl').value),
+        ki:    parseCalcNum(document.getElementById('calc-base-ki').value),
+        kidef: parseCalcNum(document.getElementById('calc-base-kidef').value),
+        str:   parseCalcNum(document.getElementById('calc-base-str').value),
+        def:   parseCalcNum(document.getElementById('calc-base-def').value)
+      };
+      var transRaw   = parseCalcNum(document.getElementById('calc-trans-multi').value);
       var transMulti = transRaw > 0 ? transRaw / 100 : 0;
 
-      var boostMulti = 1;
-      var boostCount = 0;
-      var checks = document.querySelectorAll('#boost-checklist input[type="checkbox"]:checked');
-      checks.forEach(function(cb) {
-        boostMulti *= parseFloat(cb.getAttribute('data-multi'));
-        boostCount++;
-      });
-
-      var resultEl = document.getElementById('calc-result');
+      var hasAny = Object.values(bases).some(v => v > 0);
+      var grid = document.getElementById('calc-results-grid');
       var breakdownEl = document.getElementById('calc-breakdown');
 
-      if (basePL <= 0) {
-        resultEl.textContent = '—';
+      if (!hasAny) {
+        grid.innerHTML = '';
         breakdownEl.innerHTML = '';
         return;
       }
 
-      
+      // --- Path multiplier (applies to ALL stats) ---
+      var pathMulti = 1;
+      if (document.getElementById('pathMystic')?.checked)     pathMulti = 1.03;
+      else if (document.getElementById('pathShin')?.checked)  pathMulti = 1.5;
+      else if (document.getElementById('pathPotara')?.checked) pathMulti = document.getElementById('potaraGogeta')?.checked ? 1.9 : 1.5;
+      else if (document.getElementById('pathHuman')?.checked)  pathMulti = 1.8;
+      else if (document.getElementById('pathChangeling')?.checked) pathMulti = 1.8;
 
-var pathMulti = 1;
-if(document.getElementById('pathMystic')?.checked) pathMulti = 1.03;
-else if(document.getElementById('pathShin')?.checked) pathMulti = 1.5;
-else if(document.getElementById('pathPotara')?.checked) pathMulti = document.getElementById('potaraGogeta')?.checked ? 1.9 : 1.5;
-else if(document.getElementById('pathHuman')?.checked) pathMulti = 1.8;
-else if(document.getElementById('pathChangeling')?.checked) pathMulti = 1.8;
+      // --- NPC boost multipliers per stat ---
+      var boostMulti = { pl: 1, ki: 1, kidef: 1, str: 1, def: 1 };
+      document.querySelectorAll('#boost-checklist input[type="checkbox"]:checked').forEach(function(cb) {
+        var stat  = cb.dataset.stat;
+        var multi = parseFloat(cb.dataset.multi || 1);
+        if (stat === 'all') {
+          Object.keys(boostMulti).forEach(k => boostMulti[k] *= multi);
+        } else if (stat === 'kidef') {
+          boostMulti.ki    *= multi;
+          boostMulti.kidef *= multi;
+        } else if (stat === 'kidef_only') {
+          boostMulti.kidef *= multi;
+        } else if (boostMulti[stat] !== undefined) {
+          boostMulti[stat] *= multi;
+        }
+      });
 
+      // --- Item bonuses per stat (additive % on top of boosted value) ---
+      var itemBonus = { pl: 0, ki: 0, kidef: 0, str: 0, def: 0 };
+      document.querySelectorAll('#item-checklist input[type="checkbox"]:checked').forEach(function(cb) {
+        var stat = cb.dataset.itemStat;
+        var pct  = parseFloat(cb.dataset.itemAddPct || 0);
+        if (itemBonus[stat] !== undefined) itemBonus[stat] += pct;
+      });
 
-let plMulti = 1, strMulti = 1, kiMulti = 1, defMulti = 1;
+      // --- Compute per stat ---
+      var STAT_LABELS = { pl: 'Powerlevel', ki: 'Ki', kidef: 'Ki Defence', str: 'Strength', def: 'Defence' };
+      var STAT_COLORS = { pl: '#e8eaf0', ki: '#60a5fa', kidef: '#818cf8', str: '#f87171', def: '#34d399' };
 
-document.querySelectorAll('[data-stat]').forEach(cb => {
-    if (!cb.checked) return;
-    const stat = cb.dataset.stat;
-    const multi = parseFloat(cb.dataset.multi || 1);
+      var html = '';
+      var bdRows = '';
+      Object.keys(bases).forEach(function(stat) {
+        var base = bases[stat];
+        if (base <= 0) return;
 
-    if (stat === 'pl') plMulti *= multi;
-    else if (stat === 'str') strMulti *= multi;
-    else if (stat === 'ki') kiMulti *= multi;
-    else if (stat === 'def') defMulti *= multi;
-    else if (stat === 'kidef') {
-        kiMulti *= multi;
-        defMulti *= multi;
-    }
-});
+        var afterBoosts = base * pathMulti * boostMulti[stat];
+        var itemMul     = 1 + (itemBonus[stat] / 100);
+        var afterItems  = afterBoosts * itemMul;
+        var final       = transMulti > 0 ? afterItems * transMulti : afterItems;
 
-window.statSpecificMultipliers = {plMulti, strMulti, kiMulti, defMulti};
+        var label = STAT_LABELS[stat];
+        var col   = STAT_COLORS[stat];
 
+        html += '<div style="background:var(--bg-primary);border:1px solid var(--border-frame);border-radius:8px;padding:12px 14px">'
+          + '<div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:' + col + ';margin-bottom:6px">' + label + '</div>'
+          + '<div style="font-size:18px;font-weight:700;color:var(--text-primary);line-height:1.2">' + formatBigNumber(Math.floor(final)) + '</div>'
+          + (transMulti > 0
+              ? '<div style="font-size:11px;color:var(--text-dim);margin-top:4px">after trans: ×' + transMulti + '</div>'
+              : '<div style="font-size:11px;color:var(--text-dim);margin-top:4px">no trans set</div>')
+          + '</div>';
 
-// Son Goku PL boost
-var gokuBoost = 1;
-document.querySelectorAll('[data-stat="pl"]').forEach(function(cb){
-  if(cb.checked) gokuBoost *= parseFloat(cb.dataset.multi || 1);
-});
+        bdRows += '<div style="margin-bottom:8px">'
+          + '<span style="color:' + col + ';font-weight:700">' + label + '</span><br>'
+          + '<span>Base:</span> ' + formatBigNumber(base) + ' '
+          + '→ <span>×Boosts (×' + boostMulti[stat].toFixed(3).replace(/\.?0+$/,'') + ' path ×' + pathMulti + '):</span> ' + formatBigNumber(Math.floor(afterBoosts))
+          + (itemBonus[stat] > 0 ? ' → <span>Items (+' + itemBonus[stat] + '%):</span> ' + formatBigNumber(Math.floor(afterItems)) : '')
+          + (transMulti > 0 ? ' → <span>Trans:</span> ' + formatBigNumber(Math.floor(final)) : '')
+          + '</div>';
+      });
 
-var boostedBase = basePL * pathMulti * boostMulti * gokuBoost;
-
-
-
-      var final = transMulti > 0 ? boostedBase * transMulti : boostedBase;
-
-      resultEl.textContent = formatBigNumber(Math.floor(final));
-
-      var bd = '';
-      bd += '<span>Base:</span> ' + formatBigNumber(basePL) + '<br>';
-      bd += '<span>Boosts (' + boostCount + ' selected):</span> ×' + boostMulti.toFixed(4).replace(/\.?0+$/, '') + '<br>';
-      bd += '<span>After Boosts:</span> ' + formatBigNumber(Math.floor(boostedBase)) + '<br>';
-      if (transMulti > 0) {
-        bd += '<span>Trans Multi:</span> ' + transRaw + '% (×' + transMulti + ')<br>';
-        bd += '<span>Final:</span> ' + formatBigNumber(Math.floor(final));
-      } else {
-        bd += '<span>Trans Multi:</span> <em style="color:var(--text-dim)">not set</em>';
-      }
-      breakdownEl.innerHTML = bd;
+      grid.innerHTML = html || '<span style="color:var(--text-dim)">Enter at least one base stat above.</span>';
+      breakdownEl.innerHTML = '<div style="margin-bottom:6px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim)">Breakdown</div>' + bdRows;
     }
 
     function resetBoostCalc() {
-      document.getElementById('calc-base-pl').value = '';
-      document.getElementById('calc-trans-multi').value = '';
-      document.querySelectorAll('#boost-checklist input[type="checkbox"]').forEach(function(cb) {
+      ['calc-base-pl','calc-base-ki','calc-base-kidef','calc-base-str','calc-base-def','calc-trans-multi'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.value = '';
+      });
+      document.querySelectorAll('#boost-checklist input[type="checkbox"], #item-checklist input[type="checkbox"]').forEach(function(cb) {
         cb.checked = false;
         cb.closest('.boost-check-item').classList.remove('checked');
       });
-      document.getElementById('calc-result').textContent = '—';
+      document.getElementById('calc-results-grid').innerHTML = '';
       document.getElementById('calc-breakdown').innerHTML = '';
     }
     </script>
@@ -2538,115 +2608,96 @@ var boostedBase = basePL * pathMulti * boostMulti * gokuBoost;
     <div class="ph-title">Ranks &amp; Quest Medals</div>
   </div>
 
- <div class="section-header">🎖 Ranks</div>
-
-<div class="tip-box">
-💡 Use Quest Medal Check in the Training tab. Easiest early medals:
-<strong>King Kai Kaioken, Bulma Spanner, Saiyaman Helmet, Master Roshi Kamehameha, Yamcha 1, Oolong 1, and Yamcha 4.</strong>
-</div>
-
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Level</th>
-<th>Rank</th>
-<th>Quest Medals Required</th>
+  <div class="section-header">🏅 Ranks</div>
+  <div class="table-wrap">
+    <table>
+<thead><tr><th>Rank</th><th>Medal Requirement</th><th>Level Requirement</th></thead>
+  <td class="t-bold">Hard</td>
+  <td class="t-mono">14</td>
+  <td class="t-mono">20,000</td>
 </tr>
-</thead>
-<tbody>
-<tr><td class="t-mono">2,000</td><td>Easy</td><td>-</td></tr>
-<tr><td class="t-mono">7,500</td><td>Medium</td><td>-</td></tr>
-<tr><td class="t-mono">15,000</td><td>Hard</td><td>-</td></tr>
-<tr><td class="t-mono">25,000</td><td>Extreme</td><td>3</td></tr>
-<tr><td class="t-mono">35,000</td><td>Immortal</td><td>5</td></tr>
-<tr><td class="t-mono">50,000</td><td>Renegade</td><td>7</td></tr>
-<tr><td class="t-mono">75,000</td><td>King</td><td>9</td></tr>
-<tr><td class="t-mono">100,000</td><td>Divine</td><td>11</td></tr>
-<tr><td class="t-mono">150,000</td><td>Deity</td><td>13</td></tr>
-<tr><td class="t-mono">200,000</td><td>Berserker</td><td>-</td></tr>
-<tr><td class="t-mono">250,000</td><td>Sentinel</td><td>15</td></tr>
-<tr><td class="t-mono">300,000</td><td>Shogun</td><td>20 at 350k</td></tr>
-<tr><td class="t-mono">400,000</td><td>Sage</td><td>25 (30 to pass 450k)</td></tr>
-<tr><td class="t-mono">500,000</td><td class="t-gold">Champion</td><td>Max Rank</td></tr>
-</tbody>
-</table>
-</div>
-
- <div class="section-header">🏅 All Quest Medals</div>
-
-<div class="table-wrap">
-<table>
-<thead>
 <tr>
-<th>Medal</th>
-<th>Type</th>
-<th>Objective</th>
-<th>Reward</th>
+  <td class="t-bold">Extreme</td>
+  <td class="t-mono">21</td>
+  <td class="t-mono">30,000</td>
 </tr>
-</thead>
-<tbody>
-
-<tr><td>Android 8(1) Medal v8.70</td><td>Tower</td><td>Defeat Commander Red in Red Ribbon Muscle Tower</td><td>EXP +500,000,000 · Zenni +10,000,000</td></tr>
-<tr><td>Android 8(2) Medal v8.70</td><td>Tower</td><td>Defeat Buyon</td><td>EXP +300,000,000 · Zenni +5,000,000</td></tr>
-<tr><td>Android 8(3) Medal v8.70</td><td>Fetch</td><td>Collect Metal Fragments</td><td>EXP +100,000,000 · Zenni +1,000,000</td></tr>
-<tr><td>Astro</td><td>Tower</td><td>Mob Tower Competition (Get Spacepod back from Bergamo)</td><td>EXP +1,000,000,000 · ZP +50 · TP +500,000</td></tr>
-<tr><td>Babidi</td><td>Kill</td><td>Kill 50 Oolongs/Puars in the Portal Above Babidi</td><td>EXP +50,000,000 · Zenni +20,000,000 · TP +75,000</td></tr>
-<tr><td>Beerus</td><td>Cave</td><td>Kill 50 Universe 6 members in cave</td><td>EXP +1,000,000,000 · Zenni +25,000,000</td></tr>
-<tr><td>Briefs</td><td>Kill</td><td>Kill 50 Simulation Clones in Capsule Corp</td><td>EXP +1,000,000,000 · Zenni +10,000,000 · ZP +25</td></tr>
-<tr><td>Bulma</td><td>Fetch</td><td>Deliver Broken Parts to Dr. Briefs</td><td>Capsule (Inventory +25)</td></tr>
-<tr><td>Cell</td><td>Kill</td><td>Kill Saga Trunks</td><td>EXP +15,000,000 · Zenni +500,000</td></tr>
-<tr><td>Champa</td><td>Cave</td><td>Kill 50 Universe 7 Members in Cave</td><td>EXP +1,000,000,000 · Zenni +25,000,000</td></tr>
-<tr><td>Chronoa v8.70</td><td>Tower</td><td>Chronoa Tower Quest</td><td>Zenni +500,000,000 · ZP +500</td></tr>
-<tr><td>Enraged Trunks(1)</td><td>Kill</td><td>Kill 30 Androids 16 and 17 on Future Earth</td><td>EXP +150,000,000</td></tr>
-<tr><td>Enraged Trunks(2)</td><td>Guild</td><td>Kill 500 Androids</td><td>Zenni +45,000,000 · ZP +100 · EXP +1,000,000,000</td></tr>
-<tr><td>Frieza</td><td>Kill</td><td>Kill 3 Namekian Villagers</td><td>Frieza Boost (1.2x All Stats)</td></tr>
-<tr><td>Gero Metal</td><td>Kill</td><td>Kill Saga Super 17</td><td>-</td></tr>
-<tr><td>Glass Civilian(1)</td><td>Kill</td><td>Defeat Vidro in the cave above</td><td>EXP +500,000,000 · Zenni +25,000,000</td></tr>
-<tr><td>Glass Civilian(2)</td><td>Kill</td><td>Collect 25 Glass Fragments (Kill Glass Soldiers)</td><td>EXP +750,000,000 · Zenni +15,000,000</td></tr>
-<tr><td>Glass Civilian(3)</td><td>Kill</td><td>Kill 15 Namekians in Black</td><td>EXP +1,000,000,000 · Zenni +15,000,000</td></tr>
-<tr><td>Gogeta</td><td>Kill</td><td>Kill Broly and Shenron</td><td>Strength +500,000 · Defense +500,000 · FCC Access</td></tr>
-<tr><td>Gohan</td><td>Kill</td><td>Kill 50 Bebi Vegeta Soldiers</td><td>EXP +500,000,000 · Zenni +25,000,000</td></tr>
-<tr><td>Goku</td><td>Guild</td><td>Kill 2000 Labyrinth Mobs as a Guild</td><td>EXP +250,000,000 · Zenni +20,000,000 · ZP +200</td></tr>
-<tr><td>Gotenks</td><td>Tower</td><td>Kill all mobs in the tower</td><td>EXP +500,000,000 · Zenni +25,000,000</td></tr>
-<tr><td>Guru</td><td>Kill</td><td>Kill 3 Henchman (25% good karma)</td><td>Guru Boost (1.2x All Stats)</td></tr>
-<tr><td>Hell Fruit</td><td>Train</td><td>Talk to Dabura and reach 50% Evil Karma</td><td>Hell Fruit</td></tr>
-<tr><td>King Kai</td><td>Fetch</td><td>Catch Bubbles and Gregory</td><td>Kaioken</td></tr>
-<tr><td>King Vegeta</td><td>Kill</td><td>Kill 25 Enemies</td><td>King Vegeta Boost (1.2x Ki Defense)</td></tr>
-<tr><td>King Vegeta(2) v8.70</td><td>Tower</td><td>King Vegeta Tower Quest</td><td>EXP +500,000,000 · Zenni +30,000,000</td></tr>
-<tr><td>Korin</td><td>Kill</td><td>Kill 10 Saibamen</td><td>5 Senzu Beans</td></tr>
-<tr><td>Master Roshi(1)</td><td>Fetch</td><td>Find and Grab Roshi Rock</td><td>Kamehameha</td></tr>
-<tr><td>Master Roshi(2)</td><td>Train</td><td>Reach 100% Focus Meditation</td><td>EXP +5,000,000,000 · Zenni +50,000,000 · ZP +500 · TP +250,000 · Club Ticket +1</td></tr>
-<tr><td>Master Roshi(3) v8.70</td><td>Train</td><td>Ki Beam Mastery Quest</td><td>Beam Mastery Unlock</td></tr>
-<tr><td>Master Roshi(4)</td><td>Train</td><td>Collect 20 Crocodile Meat and return to Roshi</td><td>EXP +100,000,000 · Zenni +250,000</td></tr>
-<tr><td>Master Roshi(5)</td><td>Kill</td><td>Kill 50 Masked Bandits on Training Island</td><td>EXP +250,000,000 · Zenni +2,500,000</td></tr>
-<tr><td>Oolong(1)</td><td>Forest</td><td>Kill 25 Saibamen</td><td>EXP +15,000,000 · Zenni +500,000</td></tr>
-<tr><td>Oolong(2)</td><td>Tower</td><td>Kill All Mobs in Tower</td><td>EXP +50,000,000 · Zenni +10,000,000</td></tr>
-<tr><td>Piccolo(1)</td><td>Guild</td><td>Kill Behemoth (Located on Namek)</td><td>EXP +1,000,000,000 · Zenni +500,000,000 · ZP +100 · TP +100,000</td></tr>
-<tr><td>Piccolo(2)</td><td>Tower</td><td>Kill all Tower Mobs</td><td>EXP +100,000,000 · Zenni +20,000,000</td></tr>
-<tr><td>Saiyaman</td><td>Fetch</td><td>Catch Son Goten and get back Gohan's Helmet</td><td>Helmet</td></tr>
-<tr><td>Sensei</td><td>Kill</td><td>Kill 100 Tuffle or Oozaru in total</td><td>EXP +200,000,000 · Zenni +20,000,000 · TP +150,000</td></tr>
-<tr><td>Skinny Buu</td><td>Maze</td><td>Clear the maze and kill Skinny Buu</td><td>ZP +100</td></tr>
-<tr><td>Supreme Kai</td><td>Kill</td><td>Kill Saga Shenron</td><td>Potara Earrings</td></tr>
-<tr><td>Tapion</td><td>Cave</td><td>Kill 100 mobs in caves above Tapion</td><td>EXP +250,000,000 · Zenni +20,000,000</td></tr>
-<tr><td>Trunks(1)</td><td>Kill</td><td>Kill Cell (below Trunks)</td><td>Sharp Dagger</td></tr>
-<tr><td>Trunks(2)</td><td>Kill</td><td>Kill 30 Android 16s and 17s</td><td>EXP +50,000,000 · Zenni +10,000,000</td></tr>
-<tr><td>Tuffle Civilian(1)</td><td>Kill</td><td>Kill 30 Yardrat Soldiers</td><td>EXP +500,000,000 · Zenni +15,000,000</td></tr>
-<tr><td>Tuffle Civilian(2)</td><td>Fetch</td><td>Retrieve Key from Cave Chest</td><td>EXP +750,000,000 · Zenni +15,000,000</td></tr>
-<tr><td>Tuffle Civilian(3)</td><td>Fetch</td><td>Save Human from Portal</td><td>EXP +750,000,000 · Zenni +15,000,000</td></tr>
-<tr><td>Tuffle Civilian(4)</td><td>Fetch</td><td>Collect 25 Herb Fragments</td><td>EXP +750,000,000 · Zenni +15,000,000</td></tr>
-<tr><td>Vegeta</td><td>Guild</td><td>Acquire 500 Tower Mob Kills as a Guild</td><td>EXP +75,000,000 · Zenni +15,000,000 · TP +75,000</td></tr>
-<tr><td>Videl</td><td>Cave</td><td>Kill 100 mobs in caves below</td><td>EXP +250,000,000 · Zenni +20,000,000</td></tr>
-<tr><td>Whis</td><td>Kill</td><td>Finish Babidi Tower and Kill the Oozaru</td><td>All 4 Stats +2,000,000 · Stamina +100,000</td></tr>
-<tr><td>Xeno Pan</td><td>Kill</td><td>Kill Aeos in the Cave Above Xeno Pan</td><td>EXP +500,000,000 · Zenni +25,000,000</td></tr>
-<tr><td>Yamcha(1)</td><td>Train</td><td>Level up 500 times</td><td>EXP +1,000,000 · Zenni +250,000 · Stamina +5,000</td></tr>
-<tr><td>Yamcha(2)</td><td>Kill</td><td>Kill 100 Saga Mobs</td><td>25% Zenni Boost</td></tr>
-<tr><td>Yamcha(3)</td><td>Kill</td><td>Kill 30 Saibamen</td><td>EXP +15,000,000 · Zenni +500,000</td></tr>
-<tr><td>Yardrat</td><td>Kill</td><td>Kill 50 Tuffle Soldiers</td><td>EXP +500,000,000 · Zenni +15,000,000</td></tr>
-
+<tr>
+  <td class="t-bold">Legendary</td>
+  <td class="t-mono">28</td>
+  <td class="t-mono">40,000</td>
+</tr>
+<tr>
+  <td class="t-bold t-gold">Champion</td>
+  <td class="t-mono">35+</td>
+  <td class="t-mono">500,000</td>
+</tr>
 </tbody>
-</table>
-</div>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-header">📋 All 53 Quest Medals</div>
+  <div class="tip-box">💡 Some Quest Medals reward <strong>ZP</strong> — complete those first before rebirths! Medal counts reset per rebirth but you keep any ZP/items earned.</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Medal Name</th><th>NPC / Source</th><th>Reward</th></tr></thead>
+      <tbody>
+        <tr><td class="t-mono t-dim">1</td><td class="t-bold">Android 8</td><td>Android 8 (Red Ribbon Muscle Tower)</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">2</td><td class="t-bold">Bardock 1</td><td>Bardock</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">3</td><td class="t-bold">Bardock 2</td><td>Bardock</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">4</td><td class="t-bold">Beerus 1</td><td>Beerus</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">5</td><td class="t-bold">Beerus 2</td><td>Beerus</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">6</td><td class="t-bold">Broly 1</td><td>Broly</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">7</td><td class="t-bold">Bulma 1 (Capsule)</td><td>Bulma</td><td class="t-green">+25 Inventory Space</td></tr>
+        <tr><td class="t-mono t-dim">8</td><td class="t-bold">Chi Chi 1</td><td>Chi Chi</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">9</td><td class="t-bold">Cooler 1</td><td>Cooler</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">10</td><td class="t-bold">Dabura 1 (Hell Fruit)</td><td>Dabura (50% Evil Karma)</td><td class="t-green">Hell Fruit (+400k Stamina)</td></tr>
+        <tr><td class="t-mono t-dim">11</td><td class="t-bold">Dende 1</td><td>Dende</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">12</td><td class="t-bold">Elder Kai 1</td><td>Elder Kai</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">13</td><td class="t-bold">Frieza 1</td><td>Frieza</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">14</td><td class="t-bold">Goku 1</td><td>Son Goku</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">15</td><td class="t-bold">Goku 2</td><td>Son Goku</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">16</td><td class="t-bold">Gohan 1</td><td>Gohan</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">17</td><td class="t-bold">Gohan 2</td><td>Gohan</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">18</td><td class="t-bold">Gotenks 1</td><td>Gotenks</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">19</td><td class="t-bold">Guru 1</td><td>Guru</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">20</td><td class="t-bold">Hell Fruit 1</td><td>Hell Fruit quest chain</td><td class="t-green">Hell Fruit item</td></tr>
+        <tr><td class="t-mono t-dim">21</td><td class="t-bold">Hercule 1</td><td>Hercule</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">22</td><td class="t-bold">Kaioken 1 (King Kai)</td><td>King Kai</td><td class="t-orange">Kaioken technique</td></tr>
+        <tr><td class="t-mono t-dim">23</td><td class="t-bold">Kami 1</td><td>Kami</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">24</td><td class="t-bold">King Vegeta 1</td><td>King Vegeta (v8.70 new)</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">25</td><td class="t-bold">Korin 1</td><td>Korin</td><td class="t-green">5 Senzu Beans</td></tr>
+        <tr><td class="t-mono t-dim">26</td><td class="t-bold">Krillin 1</td><td>Krillin</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">27</td><td class="t-bold">Master Roshi 1 (Kamehameha)</td><td>Master Roshi</td><td class="t-orange">Kamehameha technique</td></tr>
+        <tr><td class="t-mono t-dim">28</td><td class="t-bold">Master Roshi 2</td><td>Master Roshi</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">29</td><td class="t-bold">Nail 1</td><td>Nail</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">30</td><td class="t-bold">Namek Dragon Ball 1</td><td>Namek Dragon Balls</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">31</td><td class="t-bold">Oolong 1</td><td>Oolong</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">32</td><td class="t-bold">Piccolo 1</td><td>Piccolo</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">33</td><td class="t-bold">Piccolo 2</td><td>Piccolo</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">34</td><td class="t-bold">Pikkon 1</td><td>Pikkon</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">35</td><td class="t-bold">Saiyaman 1 (Helmet)</td><td>Saiyaman / Gohan</td><td class="t-orange">Saiyaman Helmet (+10% PL)</td></tr>
+        <tr><td class="t-mono t-dim">36</td><td class="t-bold">Shin 1</td><td>Shin ×1.5</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">37</td><td class="t-bold">Spanner 1 (Bulma)</td><td>Bulma</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">38</td><td class="t-bold">Tapion 1</td><td>Tapion</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">39</td><td class="t-bold">Tien 1</td><td>Tien</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">40</td><td class="t-bold">Tien 2</td><td>Tien</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">41</td><td class="t-bold">Trunks 1 (Sharp Dagger)</td><td>Trunks</td><td class="t-orange">Sharp Dagger (+25% STR)</td></tr>
+        <tr><td class="t-mono t-dim">42</td><td class="t-bold">Trunks 2</td><td>Trunks</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">43</td><td class="t-bold">Vegeta 1</td><td>Vegeta</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">44</td><td class="t-bold">Vegeta 2</td><td>Vegeta</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">45</td><td class="t-bold">Vegeta 3</td><td>Vegeta</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">46</td><td class="t-bold">Whis 1</td><td>Whis</td><td class="t-green">Whis Weights</td></tr>
+        <tr><td class="t-mono t-dim">47</td><td class="t-bold">Whis 2</td><td>Whis</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">48</td><td class="t-bold">Yamcha 1</td><td>Yamcha</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">49</td><td class="t-bold">Yamcha 2</td><td>Yamcha</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">50</td><td class="t-bold">Yamcha 3</td><td>Yamcha</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">51</td><td class="t-bold">Yamcha 4</td><td>Yamcha</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">52</td><td class="t-bold">Yardrat 1</td><td>Yardrat Sensei</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono t-dim">53</td><td class="t-bold">Zeno 1</td><td>Zeno</td><td class="t-dim">—</td></tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
 <!-- RULES -->

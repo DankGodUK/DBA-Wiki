@@ -2332,16 +2332,19 @@ document.addEventListener('DOMContentLoaded', function(){
               <div class="boost-check-multi">×1.2</div>
             </label>
 
-            <label class="boost-check-item" onclick="toggleBoostItem(this)">
-              <input type="checkbox" data-stat="all" data-multi="1.5" onchange="runBoostCalc()">
-              <div><div class="boost-check-name">Babidi</div><div class="boost-check-stat">ALL STATS</div></div>
-              <div class="boost-check-multi">×1.5</div>
-            </label>
-
-            <label class="boost-check-item" onclick="toggleBoostItem(this)">
-              <input type="checkbox" data-stat="all" data-multi="1.6" onchange="runBoostCalc()">
-              <div><div class="boost-check-name">Babidi (Pride Saiyan)</div><div class="boost-check-stat">ALL STATS</div></div>
-              <div class="boost-check-multi">×1.6</div>
+            <label class="boost-check-item" onclick="toggleBoostItem(this)" id="babidi-item">
+              <input type="checkbox" id="babidi-cb" data-stat="all" data-multi="1.5" onchange="onBabidiChange(this)">
+              <div style="flex:1">
+                <div class="boost-check-name">Babidi</div>
+                <div class="boost-check-stat">ALL STATS</div>
+                <div id="babidi-pride-row" style="display:none;margin-top:6px;padding-top:6px;border-top:1px solid var(--border2)">
+                  <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:12px;color:var(--txt2)" onclick="event.stopPropagation()">
+                    <input type="checkbox" id="babidi-pride-cb" onchange="onBabidiPrideChange(this)" style="accent-color:var(--accent);width:13px;height:13px">
+                    <span>Pride Saiyan? <span style="color:var(--accent);font-weight:700">×1.6</span> instead of ×1.5</span>
+                  </label>
+                </div>
+              </div>
+              <div class="boost-check-multi" id="babidi-multi">×1.5</div>
             </label>
 
             <label class="boost-check-item" onclick="toggleBoostItem(this)">
@@ -2593,11 +2596,48 @@ document.addEventListener('DOMContentLoaded', function(){
       });
       document.querySelectorAll('#boost-checklist input[type="checkbox"], #item-checklist input[type="checkbox"]').forEach(function(cb) {
         cb.checked = false;
-        cb.closest('.boost-check-item').classList.remove('checked');
+        var item = cb.closest('.boost-check-item');
+        if (item) item.classList.remove('checked');
       });
+      // Reset Babidi pride state
+      var babidiCb = document.getElementById('babidi-cb');
+      if (babidiCb) { babidiCb.dataset.multi = '1.5'; }
+      var babidiMulti = document.getElementById('babidi-multi');
+      if (babidiMulti) babidiMulti.textContent = '×1.5';
+      var babidiPrideRow = document.getElementById('babidi-pride-row');
+      if (babidiPrideRow) babidiPrideRow.style.display = 'none';
       document.getElementById('calc-results-grid').innerHTML = '';
       document.getElementById('calc-breakdown').innerHTML = '';
     }
+    function onBabidiChange(cb) {
+      var prideRow = document.getElementById('babidi-pride-row');
+      var prideCb  = document.getElementById('babidi-pride-cb');
+      var item     = document.getElementById('babidi-item');
+      if (cb.checked) {
+        prideRow.style.display = 'block';
+        item.classList.add('checked');
+      } else {
+        prideRow.style.display = 'none';
+        prideCb.checked = false;
+        cb.dataset.multi = '1.5';
+        document.getElementById('babidi-multi').textContent = '×1.5';
+        item.classList.remove('checked');
+      }
+      runBoostCalc();
+    }
+
+    function onBabidiPrideChange(prideCb) {
+      var mainCb = document.getElementById('babidi-cb');
+      if (prideCb.checked) {
+        mainCb.dataset.multi = '1.6';
+        document.getElementById('babidi-multi').textContent = '×1.6';
+      } else {
+        mainCb.dataset.multi = '1.5';
+        document.getElementById('babidi-multi').textContent = '×1.5';
+      }
+      runBoostCalc();
+    }
+
     </script>
 
   

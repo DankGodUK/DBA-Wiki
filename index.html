@@ -1958,47 +1958,141 @@ document.addEventListener('DOMContentLoaded', function(){
     <div class="tip-box">💡 Input your <strong>Base Max Powerlevel</strong>, select which boosts you'll use, and enter your <strong>Transformation Multiplier</strong> (exactly as shown in-game, e.g. 9000%). This gives your <strong>fully powered-up Powerlevel</strong>.</div>
 
     <style>
-      .calc-wrap {
-        max-width: 720px;
-        margin: 0 auto;
+      /* ── Calculator shell ── */
+      .calc-wrap { max-width: 760px; margin: 0 auto; }
+
+      /* ── Section dividers ── */
+      .calc-section {
+        margin-bottom: 24px;
       }
-      .calc-input-group {
-        margin-bottom: 20px;
+      .calc-section-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+        color: var(--accent, #7c6af7);
+        margin-bottom: 10px;
       }
+      .calc-section-title::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: var(--border-frame, rgba(255,255,255,0.08));
+      }
+
+      /* ── Input group ── */
+      .calc-input-group { margin-bottom: 20px; }
       .calc-label {
         display: block;
         font-weight: 600;
         font-size: 13px;
         color: var(--text-primary);
         margin-bottom: 6px;
-        letter-spacing: 0;
       }
       .calc-label-sub {
         font-weight: 400;
-        font-size: 12px;
-        color: var(--text-secondary);
+        font-size: 11px;
+        color: var(--text-dim, #666);
         display: block;
         margin-top: 2px;
       }
+
+      /* ── Number inputs ── */
       .calc-number-input {
         width: 100%;
-        padding: 10px 12px;
+        padding: 11px 14px;
         background: var(--bg-primary);
         border: 1px solid var(--border-frame);
-        border-radius: 6px;
+        border-radius: 8px;
         color: var(--text-primary);
         font-family: 'JetBrains Mono', 'Consolas', monospace;
         font-size: 14px;
         outline: none;
-        transition: border-color 0.15s;
+        box-sizing: border-box;
+        transition: border-color 0.15s, box-shadow 0.15s;
       }
       .calc-number-input:focus {
-        border-color: var(--accent-blue);
+        border-color: var(--accent, #7c6af7);
+        box-shadow: 0 0 0 3px rgba(124,106,247,0.15);
       }
-      .calc-number-input::placeholder {
-        color: var(--text-dim);
-        opacity: 0.6;
+      .calc-number-input::placeholder { color: var(--text-dim); opacity: 0.5; }
+
+      /* ── Character type pills ── */
+      .calc-type-pills {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
       }
+      .calc-type-pills label {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 8px 16px;
+        border: 1px solid var(--border-frame);
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-secondary);
+        transition: border-color 0.15s, background 0.15s, color 0.15s;
+        user-select: none;
+      }
+      .calc-type-pills label:has(input:checked) {
+        border-color: var(--accent, #7c6af7);
+        background: rgba(124,106,247,0.12);
+        color: var(--text-primary);
+      }
+      .calc-type-pills input[type="radio"] { display: none; }
+
+      /* ── Boost path cards ── */
+      .path-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 7px;
+      }
+      .path-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        padding: 12px 10px;
+        border: 1px solid var(--border-frame);
+        border-radius: 10px;
+        cursor: pointer;
+        text-align: center;
+        transition: border-color 0.15s, background 0.15s;
+        user-select: none;
+      }
+      .path-card:has(input:checked) {
+        border-color: var(--accent, #7c6af7);
+        background: rgba(124,106,247,0.1);
+      }
+      .path-card:hover:not(:has(input:checked)) {
+        border-color: rgba(124,106,247,0.4);
+        background: rgba(124,106,247,0.04);
+      }
+      .path-card input[type="radio"] { display: none; }
+      .path-card-name {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+      .path-card-multi {
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--accent-orange, #e8a838);
+      }
+      .path-card:has(input:disabled) {
+        opacity: 0.35;
+        pointer-events: none;
+      }
+
+      /* ── Boost checklist ── */
       .boost-checklist {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -2007,6 +2101,7 @@ document.addEventListener('DOMContentLoaded', function(){
       @media (max-width: 600px) {
         .boost-checklist { grid-template-columns: 1fr; }
         .calc-input-row-responsive { grid-template-columns: 1fr !important; }
+        .path-grid { grid-template-columns: 1fr 1fr; }
       }
       .boost-check-item {
         display: flex;
@@ -2015,35 +2110,29 @@ document.addEventListener('DOMContentLoaded', function(){
         padding: 10px 12px;
         background: var(--bg-primary);
         border: 1px solid var(--border-frame);
-        border-radius: 6px;
+        border-radius: 8px;
         cursor: pointer;
         transition: border-color 0.12s, background 0.12s;
         user-select: none;
       }
-      .boost-check-item:hover {
-        border-color: rgba(88,166,255,0.35);
-        background: rgba(88,166,255,0.04);
-      }
-      .boost-check-item.checked {
-        border-color: rgba(63,185,80,0.4);
-        background: rgba(63,185,80,0.06);
-      }
+      .boost-check-item:hover { border-color: rgba(124,106,247,0.35); background: rgba(124,106,247,0.04); }
+      .boost-check-item.checked { border-color: rgba(63,185,80,0.45); background: rgba(63,185,80,0.07); }
       .boost-check-item input[type="checkbox"] {
         appearance: none;
         -webkit-appearance: none;
-        width: 16px;
-        height: 16px;
-        min-width: 16px;
-        border: 1px solid var(--text-dim);
-        border-radius: 4px;
+        width: 17px;
+        height: 17px;
+        min-width: 17px;
+        border: 1.5px solid var(--text-dim);
+        border-radius: 5px;
         background: transparent;
         cursor: pointer;
         position: relative;
         transition: border-color 0.12s, background 0.12s;
       }
       .boost-check-item input[type="checkbox"]:checked {
-        background: var(--accent-green);
-        border-color: var(--accent-green);
+        background: var(--accent-green, #3fb950);
+        border-color: var(--accent-green, #3fb950);
       }
       .boost-check-item input[type="checkbox"]:checked::after {
         content: '✓';
@@ -2054,18 +2143,13 @@ document.addEventListener('DOMContentLoaded', function(){
         font-weight: 700;
         color: #000;
       }
-      .boost-check-name {
-        font-weight: 500;
-        font-size: 13px;
-        color: var(--text-primary);
-        flex: 1;
-      }
+      .boost-check-name { font-weight: 500; font-size: 13px; color: var(--text-primary); flex: 1; }
       .boost-check-multi {
         font-family: 'JetBrains Mono', 'Consolas', monospace;
         font-size: 12px;
-        color: var(--accent-orange);
+        color: var(--accent-orange, #e8a838);
         white-space: nowrap;
-        font-weight: 600;
+        font-weight: 700;
       }
       .boost-check-stat {
         font-size: 10px;
@@ -2073,60 +2157,79 @@ document.addEventListener('DOMContentLoaded', function(){
         font-family: 'JetBrains Mono', 'Consolas', monospace;
         letter-spacing: 0.3px;
       }
+
+      /* ── Toronbo warning ── */
+      .toronbo-warning {
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--accent-red, #f85149);
+        letter-spacing: 0.2px;
+        margin-top: 3px;
+      }
+      .toronbo-item.checked { border-color: rgba(248,81,73,0.45) !important; background: rgba(248,81,73,0.07) !important; }
+      .toronbo-item.checked input[type="checkbox"]:checked { background: var(--accent-red, #f85149); border-color: var(--accent-red, #f85149); }
+
+      /* ── Output box ── */
       .calc-output-box {
-        background: var(--bg-primary);
-        border: 1px solid rgba(63,185,80,0.3);
-        border-radius: 8px;
-        padding: 20px;
+        background: linear-gradient(135deg, rgba(63,185,80,0.05) 0%, rgba(63,185,80,0.02) 100%);
+        border: 1px solid rgba(63,185,80,0.25);
+        border-radius: 12px;
+        padding: 24px 20px 20px;
         text-align: center;
       }
       .calc-output-label {
-        font-weight: 500;
-        font-size: 11px;
-        letter-spacing: 0.8px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
         text-transform: uppercase;
         color: var(--text-dim);
-        margin-bottom: 6px;
+        margin-bottom: 8px;
       }
       .calc-output-value {
         font-family: 'JetBrains Mono', 'Consolas', monospace;
-        font-size: 26px;
-        font-weight: 600;
-        color: var(--accent-green);
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--accent-green, #3fb950);
         word-break: break-all;
+        line-height: 1.2;
       }
       .calc-breakdown {
-        margin-top: 14px;
-        font-family: 'JetBrains Mono', 'Consolas', monospace;
-        font-size: 12px;
-        color: var(--text-dim);
-        line-height: 1.8;
-      }
-      .calc-breakdown span {
-        color: var(--text-secondary);
-      }
-      .calc-reset-btn {
-        display: inline-block;
         margin-top: 16px;
-        padding: 8px 20px;
-        background: var(--btn-bg);
-        color: var(--text-primary);
-        font-weight: 500;
-        font-size: 12px;
+        padding-top: 14px;
+        border-top: 1px solid var(--border-frame);
+        font-family: 'JetBrains Mono', 'Consolas', monospace;
+        font-size: 11px;
+        color: var(--text-dim);
+        line-height: 2;
+        text-align: left;
+        display: inline-block;
+      }
+      .calc-breakdown span { color: var(--text-secondary); }
+      .calc-reset-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 16px;
+        padding: 7px 18px;
+        background: transparent;
+        color: var(--text-dim);
+        font-size: 11px;
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 1px;
         border: 1px solid var(--border-frame);
         border-radius: 6px;
         cursor: pointer;
-        transition: border-color 0.15s, background 0.15s;
+        transition: border-color 0.15s, color 0.15s;
       }
-      .calc-reset-btn:hover { border-color: var(--accent-red); background: rgba(248,81,73,0.08); }
+      .calc-reset-btn:hover { border-color: var(--accent-red, #f85149); color: var(--accent-red, #f85149); }
     </style>
 
     <div class="card" style="padding:24px 20px">
       <div class="calc-wrap">
 
         <!-- BASE PL & TRANS MULTI INPUTS -->
+        <div class="calc-section-title" style="margin-bottom:12px">Your Stats</div>
         <div class="calc-input-group calc-input-row-responsive" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
           <div>
             <label class="calc-label">Base Max Powerlevel
@@ -2145,8 +2248,8 @@ document.addEventListener('DOMContentLoaded', function(){
         
 <!-- CHARACTER TYPE -->
 <div class="calc-input-group">
-<label class="calc-label">Character Type</label>
-<div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:8px">
+<div class="calc-section-title">Character Type</div>
+<div class="calc-type-pills">
 <label><input type="radio" name="raceType" id="racePerm" checked> Permanent Race</label>
 <label><input type="radio" name="raceType" id="raceNonPerm"> Non-Permanent Race</label>
 </div>
@@ -2154,26 +2257,29 @@ document.addEventListener('DOMContentLoaded', function(){
 
 <!-- BOOST PATH -->
 <div class="calc-input-group">
-<label class="calc-label">Boost Path
-<span class="calc-label-sub">Choose only one path</span>
-</label>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px">
-<label><input type="radio" name="path" id="pathNone" checked> None</label>
-<label><input type="radio" name="path" id="pathShin"> Shin ×1.5</label>
-<label><input type="radio" name="path" id="pathMystic"> Mystic ×1.03</label>
-<label><input type="radio" name="path" id="pathHuman"> Human Conversion ×1.8</label>
-<label><input type="radio" name="path" id="pathChangeling"> Changeling Conversion ×1.8</label>
-<label><input type="radio" name="path" id="pathPotara"> Potara ×1.5</label>
+<div class="calc-section-title">Boost Path <span style="font-size:10px;font-weight:400;letter-spacing:0;text-transform:none;color:var(--text-dim)">— choose one</span></div>
+<div class="path-grid">
+<label class="path-card"><input type="radio" name="path" id="pathNone" checked><span class="path-card-name">None</span><span class="path-card-multi">—</span></label>
+<label class="path-card"><input type="radio" name="path" id="pathShin"><span class="path-card-name">Shin</span><span class="path-card-multi">×1.5</span></label>
+<label class="path-card"><input type="radio" name="path" id="pathMystic"><span class="path-card-name">Mystic</span><span class="path-card-multi">×1.03</span></label>
+<label class="path-card"><input type="radio" name="path" id="pathHuman"><span class="path-card-name">Human Conv.</span><span class="path-card-multi">×1.8</span></label>
+<label class="path-card"><input type="radio" name="path" id="pathChangeling"><span class="path-card-name">Changeling Conv.</span><span class="path-card-multi">×1.8</span></label>
+<label class="path-card"><input type="radio" name="path" id="pathPotara"><span class="path-card-name">Potara</span><span class="path-card-multi">×1.5 / ×1.9</span></label>
+</div>
+<!-- Gogeta/Vegito sub-option, shown only when Non-Perm + Potara selected -->
+<div id="potaraGogetaRow" style="display:none;margin-top:10px;padding:10px 14px;background:var(--bg2,#1e1e2e);border-radius:8px;border:1px solid var(--accent,#7c6af7)">
+  <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px">
+    <input type="checkbox" id="potaraGogeta" onchange="runBoostCalc()">
+    <span>Playing as <strong>Gogeta</strong> or <strong>Vegito</strong>? → Potara ×<strong>1.9</strong> instead of ×1.5</span>
+  </label>
 </div>
 </div>
 
 <!-- BOOST SELECTION -->
         <div class="calc-input-group">
-          <label class="calc-label">NPC Boosts
-            <span class="calc-label-sub">Select NPC boosts and stat boosts that apply to your character.</span>
-          </label>
+          <div class="calc-section-title">NPC Boosts</div>
           <div class="boost-checklist" id="boost-checklist">
-<div class="section-header" style="margin:10px 0;font-size:14px;">Full Stat Boosts</div>
+<div style="grid-column:1/-1;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);margin-bottom:2px">Full Stat Boosts</div>
             <!-- NPC BOOSTS -->
             <label class="boost-check-item" onclick="toggleBoostItem(this)">
               <input type="checkbox" data-multi="1.2" onchange="runBoostCalc()">
@@ -2211,9 +2317,13 @@ document.addEventListener('DOMContentLoaded', function(){
               <div class="boost-check-multi">×2</div>
             </label>
 
-            <label class="boost-check-item" onclick="toggleBoostItem(this)">
+            <label class="boost-check-item toronbo-item" onclick="toggleBoostItem(this)">
               <input type="checkbox" data-multi="2" onchange="runBoostCalc()">
-              <div><div class="boost-check-name">Toronbo Dragon</div><div class="boost-check-stat">ALL STATS · CEREAL DB</div></div>
+              <div style="flex:1">
+                <div class="boost-check-name">Toronbo Dragon</div>
+                <div class="boost-check-stat">ALL STATS · CEREAL DB</div>
+                <div class="toronbo-warning">⚠ Halves your TrueLevel</div>
+              </div>
               <div class="boost-check-multi">×2</div>
             </label>
           </div>
@@ -2223,10 +2333,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-
-
-
-<div class="section-header" style="margin:10px 0;font-size:14px;">Stat-Specific Boosts</div>
+<div style="grid-column:1/-1;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);margin-top:8px;margin-bottom:2px">Stat-Specific Boosts</div>
 
 
 
@@ -2256,7 +2363,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 <label class="boost-check-item" onclick="toggleBoostItem(this)">
 <input type="checkbox" data-stat="kidef" data-multi="1.2" onchange="runBoostCalc()">
-<div><div class="boost-check-name">King Vegeta</div><div class="boost-check-stat">KI DEF</div></div>
+<div><div class="boost-check-name">King Vegeta</div><div class="boost-check-stat">KI + DEF</div></div>
 <div class="boost-check-multi">×1.2</div>
 </label>
 
@@ -2337,7 +2444,7 @@ document.addEventListener('DOMContentLoaded', function(){
 var pathMulti = 1;
 if(document.getElementById('pathMystic')?.checked) pathMulti = 1.03;
 else if(document.getElementById('pathShin')?.checked) pathMulti = 1.5;
-else if(document.getElementById('pathPotara')?.checked) pathMulti = 1.5;
+else if(document.getElementById('pathPotara')?.checked) pathMulti = document.getElementById('potaraGogeta')?.checked ? 1.9 : 1.5;
 else if(document.getElementById('pathHuman')?.checked) pathMulti = 1.8;
 else if(document.getElementById('pathChangeling')?.checked) pathMulti = 1.8;
 
@@ -2608,7 +2715,7 @@ function toggleSidebar() {
   const sb = document.getElementById('tabNav');
   const hb = document.getElementById('hamburger');
   const ov = document.getElementById('sidebarOverlay');
-  sb.classList.toggle('mobile-open');
+  sb.classList.toggle('open');
   hb.classList.toggle('open');
   if (ov) ov.classList.toggle('active');
 }
@@ -2617,7 +2724,7 @@ function closeSidebar() {
   const sb = document.getElementById('tabNav');
   const hb = document.getElementById('hamburger');
   const ov = document.getElementById('sidebarOverlay');
-  if (sb) sb.classList.remove('mobile-open');
+  if (sb) sb.classList.remove('open');
   if (hb) hb.classList.remove('open');
   if (ov) ov.classList.remove('active');
 }
@@ -2781,6 +2888,21 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   syncPaths();
+
+  // Show/hide Gogeta-Vegito Potara sub-option
+  function updateGogetaRow() {
+    const nonPerm = document.getElementById('raceNonPerm')?.checked;
+    const potara = document.getElementById('pathPotara')?.checked;
+    const row = document.getElementById('potaraGogetaRow');
+    const cb = document.getElementById('potaraGogeta');
+    if (row) row.style.display = (nonPerm && potara) ? 'block' : 'none';
+    if (cb && !(nonPerm && potara)) cb.checked = false;
+    runBoostCalc();
+  }
+  document.querySelectorAll('input[name="raceType"], input[name="path"]').forEach(el => {
+    el.addEventListener('change', updateGogetaRow);
+  });
+  updateGogetaRow();
 });
 </script>
 

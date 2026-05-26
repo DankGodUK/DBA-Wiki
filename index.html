@@ -111,7 +111,7 @@ tbody tr:last-child td{border-bottom:none}
 .t-green{color:var(--green)}
 .t-red{color:var(--red)}
 .t-purple{color:var(--purple)}
-.t-dim{color:var(--txt3)}
+.t-dim{color:#8a95a8}
 .t-mono{font-family:'JetBrains Mono',monospace;font-size:12px}
 .t-bold{font-weight:600}
 
@@ -1958,6 +1958,15 @@ document.addEventListener('DOMContentLoaded', function(){
     <div class="tip-box">💡 Input your <strong>Base Max Powerlevel</strong>, select which boosts you'll use, and enter your <strong>Transformation Multiplier</strong> (exactly as shown in-game, e.g. 9000%). This gives your <strong>fully powered-up Powerlevel</strong>.</div>
 
     <style>
+      /* ── Calculator variable bridge ── */
+      .card {
+        --text-primary: #e8eaf0;
+        --text-secondary: #b8c0cc;
+        --text-dim: #8a95a8;
+        --border-frame: #2e3540;
+        --bg-primary: #0d1014;
+      }
+
       /* ── Calculator shell ── */
       .calc-wrap { max-width: 760px; margin: 0 auto; }
 
@@ -2279,7 +2288,7 @@ document.addEventListener('DOMContentLoaded', function(){
         <div class="calc-input-group">
           <div class="calc-section-title">NPC Boosts</div>
           <div class="boost-checklist" id="boost-checklist">
-<div style="grid-column:1/-1;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);margin-bottom:2px">Full Stat Boosts</div>
+<div style="grid-column:1/-1;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#8a95a8;margin-bottom:2px">Full Stat Boosts</div>
             <!-- NPC BOOSTS -->
             <label class="boost-check-item" onclick="toggleBoostItem(this)">
               <input type="checkbox" data-multi="1.2" onchange="runBoostCalc()">

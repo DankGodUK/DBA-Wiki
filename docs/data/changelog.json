@@ -1,5 +1,11 @@
 [
   {
+    "id": "1508937720637030632",
+    "author": "tof__",
+    "date": "2026-05-26T20:59:47.307000+00:00",
+    "content": "```\n#Version 8.70.10\n- Pure Progression mechanic has been recoded with a more robust system in gaining Progress stat.\n- Note: There will be a Progress decay added when Hit's face lift update arrives and a couple more enhancements\n- Legendary Hit players will now see Progression stat in Stats tab after learning Pure Progression.\n- Clicking on the Dummy whilst training Unarmed/Ki Skill can now also be stopped by a single click on the dummy.\n\n#Bug-Fixes:\n- Revert verb was not being added when learning Pure Progression as Legendary Hit.\n- Extra checks added to Pure Progression to prevent stat inflation.\n- Hakai Realm safety turfs fixed. (Zac)\n- McDonald map void issues, fixed. (Lelouch)\n- Burn effect from Burning Lotus will no longer occur/proc if the player is in safe zone. (Brog)\n- Z Agent would allow players to buy level cap past 500,000 and take the ZP even though level cap cannot be raised past 500,000 and is auto reset, fixed. (Brog)\n- Rebooting would break the new Club Frog room cooldown timer code, fixed. (Note: Relog after this update drops to apply the fix to clear var values) (Bond)\n- Energy Barrier duration will now last only 4s in Conquest and 7s in normal use for balancing purposes. (Bond)\n- Target icon layering issues fixed. (Ace)\n- Legendary Training Dummies self fix equipment code added. (Zero)\n- Moving whilst having the Training Dummy pop up window is now restricted.\n- Distance check added to Training Dummy when training unarmed skill.\n- Various revert texts moved to training info box.\n- PVP races missing some core verbs such as Ki Blast, Transform, Revert etc. fixed.\n- Minor fixes to some races' tranformation and revert codes.\n```"
+  },
+  {
     "id": "1507107485323104397",
     "author": "kausar",
     "date": "2026-05-21T19:47:05.204000+00:00",

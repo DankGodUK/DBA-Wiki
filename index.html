@@ -36,7 +36,7 @@ html,body{height:100%}
 body{background:var(--bg);color:var(--txt1);font-family:'Barlow',system-ui,sans-serif;font-size:14px;font-weight:400;line-height:1.6;overflow-x:hidden}
 
 /* TOPBAR */
-.topbar{position:fixed;top:0;left:0;right:0;height:var(--topbar-h);background:rgba(8,10,13,0.97);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:1000;gap:12px}
+.topbar{position:fixed;top:0;left:0;right:0;height:var(--topbar-h);background:rgba(8,10,13,0.97);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:1000;gap:12px;backdrop-filter:blur(6px)}
 .tb-brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .tb-logo{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;letter-spacing:2px;color:#fff;line-height:1}
 .tb-logo em{color:var(--accent);font-style:normal}
@@ -44,10 +44,21 @@ body{background:var(--bg);color:var(--txt1);font-family:'Barlow',system-ui,sans-
 .tb-sub{font-size:12px;color:var(--txt2);font-weight:400;letter-spacing:0.5px}
 .tb-version{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;padding:3px 8px;background:rgba(240,120,0,0.1);color:var(--accent);border:1px solid var(--accent-border);border-radius:3px}
 .tb-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.tb-link{font-size:12px;font-weight:600;color:var(--txt2);text-decoration:none;padding:6px 14px;border-radius:4px;border:1px solid var(--border2);transition:all 0.12s;letter-spacing:0.5px}
-.tb-link:hover{color:var(--txt1);border-color:var(--border);background:var(--bg3)}
+.tb-link{position:relative;font-size:12px;font-weight:600;color:var(--txt2);text-decoration:none;padding:6px 14px;border-radius:4px;border:1px solid var(--border2);transition:color 0.15s,border-color 0.15s,background 0.15s;letter-spacing:0.5px;overflow:hidden}
+.tb-link::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:2px;background:var(--accent);border-radius:2px;transition:width 0.2s ease}
+.tb-link:hover{color:var(--txt1);border-color:var(--accent-border);background:var(--bg3)}
+.tb-link:hover::after{width:60%}
 .tb-cta{background:var(--accent);color:#000 !important;border-color:transparent !important;font-weight:700;letter-spacing:1px}
+.tb-cta::after{display:none}
 .tb-cta:hover{background:var(--accent2) !important;border-color:transparent !important;color:#000 !important}
+
+/* BANNER HERO IMAGE */
+.landing-hero-img{padding:0;background:none;border-bottom:1px solid var(--border);position:relative;margin:-32px -44px 0}
+.hero-banner-img{width:100%;display:block;max-height:320px;object-fit:cover;object-position:center top}
+.hero-cta-bar{display:flex;gap:10px;flex-wrap:wrap;padding:16px 44px;background:var(--bg2);border-bottom:1px solid var(--border)}
+.tb-brand-img{display:flex;align-items:center}
+.tb-brand-img img{height:44px;width:auto;transition:opacity 0.15s}
+.tb-brand-img img:hover{opacity:0.85}
 
 /* LAYOUT */
 .layout{display:flex;min-height:100vh;padding-top:var(--topbar-h)}
@@ -57,35 +68,37 @@ body{background:var(--bg);color:var(--txt1);font-family:'Barlow',system-ui,sans-
 .sidebar::-webkit-scrollbar{width:3px}
 .sidebar::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
 .sb-section{display:block;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#8a95a8;padding:14px 10px 6px}
-.tab-btn{display:flex;align-items:center;gap:8px;width:100%;background:transparent;border:none;border-left:2px solid transparent;color:var(--txt2);font-family:'Barlow',system-ui,sans-serif;font-weight:500;font-size:13px;padding:7px 10px;cursor:pointer;text-align:left;transition:all 0.1s;line-height:1.3;margin-bottom:1px;border-radius:0 4px 4px 0}
-.tab-btn:hover{background:var(--bg3);color:var(--txt1)}
-.tab-btn.active{background:var(--accent-dim);color:var(--accent);border-left-color:var(--accent)}
+.tab-btn{display:flex;align-items:center;gap:8px;width:100%;background:transparent;border:none;border-left:2px solid transparent;color:var(--txt2);font-family:'Barlow',system-ui,sans-serif;font-weight:500;font-size:13px;padding:7px 10px;cursor:pointer;text-align:left;transition:all 0.15s;line-height:1.3;margin-bottom:1px;border-radius:0 4px 4px 0}
+.tab-btn:hover{background:var(--bg3);color:var(--txt1);border-left-color:var(--border2)}
+.tab-btn.active{background:linear-gradient(90deg,rgba(240,120,0,0.14) 0%,rgba(240,120,0,0.04) 100%);color:var(--accent);border-left-color:var(--accent);box-shadow:inset 0 0 12px rgba(240,120,0,0.04)}
 .tab-icon{font-size:13px;flex-shrink:0;width:18px;text-align:center;opacity:0.8}
 .tab-btn.active .tab-icon{opacity:1}
 
 /* MAIN */
 .main-content{margin-left:var(--sidebar-w);flex:1;min-width:0}
 .tab-panel{display:none;padding:0 44px 80px;max-width:1020px;min-width:0;overflow:hidden;box-sizing:border-box}
-.tab-panel.active{display:block;animation:fadeIn 0.15s ease}
-@keyframes fadeIn{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+.tab-panel.active{display:block;animation:fadeIn 0.18s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 
 /* PAGE HEADER */
-.panel-header{padding:32px 0 22px;border-bottom:1px solid var(--border);margin-bottom:22px}
+.panel-header{padding:32px 0 22px;border-bottom:1px solid var(--border);margin-bottom:22px;position:relative}
+.panel-header::after{content:'';position:absolute;bottom:-1px;left:0;width:60px;height:2px;background:linear-gradient(90deg,var(--accent),transparent)}
 .ph-eyebrow{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
 .ph-title{font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:700;color:#fff;letter-spacing:0.5px;line-height:1.15}
 .ph-desc{font-size:13.5px;color:#b8c0cc;margin-top:5px;line-height:1.65}
 
 /* SECTION HEADERS */
 .section-header{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);padding:28px 0 12px;display:flex;align-items:center;gap:10px}
-.section-header::after{content:'';flex:1;height:1px;background:var(--border)}
+.section-header::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--accent-border) 0%,transparent 100%)}
 .sub-header{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);padding:18px 0 8px;border-bottom:1px solid rgba(74,158,255,0.12);margin-bottom:10px}
 .sub-sub-header{font-size:13px;font-weight:600;color:var(--txt1);padding:12px 0 5px}
 
 /* CARDS */
-.card{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:16px 20px;margin-bottom:10px;transition:border-color 0.12s}
-.card:hover{border-color:var(--border2)}
+.card{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:16px 20px;margin-bottom:10px;transition:border-color 0.2s,box-shadow 0.2s}
+.card:hover{border-color:var(--accent-border);box-shadow:0 0 16px rgba(240,120,0,0.06)}
 .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px;margin-bottom:12px}
-.stat-card{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:13px 16px;transition:border-color 0.12s;border-left:2px solid var(--accent)}
+.stat-card{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:13px 16px;transition:border-color 0.2s,box-shadow 0.2s;border-left:2px solid var(--accent)}
+.stat-card:hover{border-color:var(--accent-border);box-shadow:0 0 12px rgba(240,120,0,0.07)}
 .stat-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#8a95a8;margin-bottom:5px}
 .stat-value{font-size:13px;font-weight:600;color:var(--txt1);line-height:1.35}
 
@@ -103,7 +116,8 @@ table{width:100%;border-collapse:collapse;font-size:13px;background:var(--bg3)}
 thead tr{background:var(--bg2)}
 th{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#8a95a8;padding:9px 14px;text-align:left;border-bottom:1px solid var(--border)}
 td{padding:9px 14px;border-bottom:1px solid var(--border);color:var(--txt1);vertical-align:top;line-height:1.5}
-tbody tr:hover{background:rgba(255,255,255,0.02)}
+tbody tr:nth-child(even){background:rgba(255,255,255,0.015)}
+tbody tr:hover{background:rgba(240,120,0,0.05);transition:background 0.1s}
 tbody tr:last-child td{border-bottom:none}
 .t-orange{color:var(--accent);font-weight:600}
 .t-gold{color:var(--gold);font-weight:600}
@@ -320,12 +334,6 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
   }
 }
 
-/* BANNER HERO IMAGE */
-.landing-hero-img{padding:0;background:none;border-bottom:1px solid var(--border);position:relative;margin:-32px -44px 0}
-.hero-banner-img{width:100%;display:block;max-height:320px;object-fit:cover;object-position:center top}
-.hero-cta-bar{display:flex;gap:10px;flex-wrap:wrap;padding:16px 44px;background:var(--bg2);border-bottom:1px solid var(--border)}
-.tb-brand-img{display:flex;align-items:center}
-.tb-brand-img img{height:120px;width:auto}
 @media(max-width:900px){
   .landing-hero-img{margin:-20px -16px 0}
   .hero-banner-img{max-height:180px}
@@ -1655,18 +1663,18 @@ document.addEventListener('DOMContentLoaded', function(){
   <div class="section-header">🌍 Planet List</div>
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Planet</th><th>Map Number</th><th>Notable NPCs / Features</th></tr></thead>
+      <thead><tr><th>Planet</th><th>Notable NPCs / Features</th></tr></thead>
       <tbody>
-        <tr><td class="t-bold t-orange">Planet Earth</td><td class="t-mono">1</td><td>Yamcha, Master Roshi, Tien, Krillin, Bulma, Babidi, Z Agent, Mall, Casino, Wackdonalds, main spawn</td></tr>
-        <tr><td class="t-bold t-blue">Planet Namek</td><td class="t-mono">2</td><td>Piccolo, Guru, Frieza, Nail, Dende — Namekian transformations, Lab entrance</td></tr>
-        <tr><td class="t-bold">Future Earth</td><td class="t-mono">3</td><td>Trunks, Gotenks, Zeno Tower, Cell Games Arena, multiple SR portals</td></tr>
-        <tr><td class="t-bold t-red">Planet Vegeta</td><td class="t-mono">4</td><td>King Vegeta, Yardrat Sensei, Bebi's Base, Fu's Fortress</td></tr>
-        <tr><td class="t-bold t-dim">HFIL / Land of the Kais</td><td class="t-mono">5</td><td>Dabura, Yemma's Helper, Shin, Demigra's Dominion, Garlic's Grove</td></tr>
-        <tr><td class="t-bold t-gold">Beerus Planet</td><td class="t-mono">15</td><td>Beerus, Whis, Feline's Fissure, Beerus 6/3 rebirth location</td></tr>
-        <tr><td class="t-bold t-purple">Planet of Divines</td><td class="t-mono">10</td><td>Z Warrior, Broly Cave, Gogeta Island, Super Bojack Portal, Divine Tower</td></tr>
-        <tr><td class="t-bold t-green">Planet Glass</td><td class="t-mono">19</td><td>Chronoa, Xeno Pan, Glass Civilian, Aeos Cave, Vidro Cave, Mutant Cave, Chronoa Tower</td></tr>
-        <tr><td class="t-bold">Space</td><td class="t-mono">9</td><td>Lost Astronaut, Space Tower, Orange/Purple/Blue Star planets, Super Dragon Balls</td></tr>
-        <tr><td class="t-bold">Roshi's Training Island</td><td class="t-dim">—</td><td>Master Roshi Tower, Crocodiles. Teleport via Master Roshi NPC.</td></tr>
+        <tr><td class="t-bold t-orange">Planet Earth</td><td>Yamcha, Master Roshi, Tien, Krillin, Bulma, Babidi, Z Agent, Mall, Casino, Wackdonalds, main spawn</td></tr>
+        <tr><td class="t-bold t-blue">Planet Namek</td><td>Piccolo, Guru, Frieza, Nail, Dende — Namekian transformations, Lab entrance</td></tr>
+        <tr><td class="t-bold">Future Earth</td><td>Trunks, Gotenks, Zeno Tower, Cell Games Arena, multiple SR portals</td></tr>
+        <tr><td class="t-bold t-red">Planet Vegeta</td><td>King Vegeta, Yardrat Sensei, Bebi's Base, Fu's Fortress</td></tr>
+        <tr><td class="t-bold t-dim">HFIL / Land of the Kais</td><td>Dabura, Yemma's Helper, Shin, Demigra's Dominion, Garlic's Grove</td></tr>
+        <tr><td class="t-bold t-gold">Beerus Planet</td><td>Beerus, Whis, Feline's Fissure, Beerus 6/3 rebirth location</td></tr>
+        <tr><td class="t-bold t-purple">Planet of Divines</td><td>Z Warrior, Broly Cave, Gogeta Island, Super Bojack Portal, Divine Tower</td></tr>
+        <tr><td class="t-bold t-green">Planet Glass</td><td>Chronoa, Xeno Pan, Glass Civilian, Aeos Cave, Vidro Cave, Mutant Cave, Chronoa Tower</td></tr>
+        <tr><td class="t-bold">Space</td><td>Lost Astronaut, Space Tower, Orange/Purple/Blue Star planets, Super Dragon Balls</td></tr>
+        <tr><td class="t-bold">Roshi's Training Island</td><td>Master Roshi Tower, Crocodiles. Teleport via Master Roshi NPC.</td></tr>
       </tbody>
     </table>
   </div>
@@ -2557,7 +2565,7 @@ document.addEventListener('DOMContentLoaded', function(){
         var label = STAT_LABELS[stat];
         var col   = STAT_COLORS[stat];
 
-        html += '<div style="background:var(--bg-primary);border:1px solid var(--border-frame);border-radius:8px;padding:12px 14px">'
+        html += '<div style="background:var(--bg-primary);border:1px solid var(--border-frame);border-left:3px solid ' + col + ';border-radius:8px;padding:12px 14px;transition:box-shadow 0.2s">'
           + '<div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:' + col + ';margin-bottom:6px">' + label + '</div>'
           + '<div style="font-size:18px;font-weight:700;color:var(--text-primary);line-height:1.2">' + formatBigNumber(Math.floor(final)) + '</div>'
           + (transMulti > 0
@@ -2602,115 +2610,94 @@ document.addEventListener('DOMContentLoaded', function(){
     <div class="ph-title">Ranks &amp; Quest Medals</div>
   </div>
 
-  <div class="section-header">🎖 Ranks</div>
-
-<div class="tip-box">
-💡 Use Quest Medal Check in the Training tab. Easiest early medals:
-<strong>King Kai Kaioken, Bulma Spanner, Saiyaman Helmet, Master Roshi Kamehameha, Yamcha 1, Oolong 1, and Yamcha 4.</strong>
-</div>
-
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Level</th>
-<th>Rank</th>
-<th>Quest Medals Required</th>
-</tr>
-</thead>
-<tbody>
-<tr><td class="t-mono">2,000</td><td>Easy</td><td>-</td></tr>
-<tr><td class="t-mono">7,500</td><td>Medium</td><td>-</td></tr>
-<tr><td class="t-mono">15,000</td><td>Hard</td><td>-</td></tr>
-<tr><td class="t-mono">25,000</td><td>Extreme</td><td>3</td></tr>
-<tr><td class="t-mono">35,000</td><td>Immortal</td><td>5</td></tr>
-<tr><td class="t-mono">50,000</td><td>Renegade</td><td>7</td></tr>
-<tr><td class="t-mono">75,000</td><td>King</td><td>9</td></tr>
-<tr><td class="t-mono">100,000</td><td>Divine</td><td>11</td></tr>
-<tr><td class="t-mono">150,000</td><td>Deity</td><td>13</td></tr>
-<tr><td class="t-mono">200,000</td><td>Berserker</td><td>-</td></tr>
-<tr><td class="t-mono">250,000</td><td>Sentinel</td><td>15</td></tr>
-<tr><td class="t-mono">300,000</td><td>Shogun</td><td>20 at 350k</td></tr>
-<tr><td class="t-mono">400,000</td><td>Sage</td><td>25 (30 to pass 450k)</td></tr>
-<tr><td class="t-mono">500,000</td><td class="t-gold">Champion</td><td>Max Rank</td></tr>
-</tbody>
-</table>
-</div>
+  <div class="section-header">🏅 Ranks</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Level Required</th><th>Rank</th><th>Quest Medals Required</th></tr></thead>
+      <tbody>
+        <tr><td class="t-mono">2,000</td><td class="t-bold">Easy</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono">7,500</td><td class="t-bold">Medium</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono">15,000</td><td class="t-bold">Hard</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono">25,000</td><td class="t-bold">Extreme</td><td class="t-mono">3</td></tr>
+        <tr><td class="t-mono">35,000</td><td class="t-bold">Immortal</td><td class="t-mono">5</td></tr>
+        <tr><td class="t-mono">50,000</td><td class="t-bold">Renegade</td><td class="t-mono">7</td></tr>
+        <tr><td class="t-mono">75,000</td><td class="t-bold">King</td><td class="t-mono">9</td></tr>
+        <tr><td class="t-mono">100,000</td><td class="t-bold">Divine</td><td class="t-mono">11</td></tr>
+        <tr><td class="t-mono">150,000</td><td class="t-bold">Deity</td><td class="t-mono">13</td></tr>
+        <tr><td class="t-mono">200,000</td><td class="t-bold">Berserker</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-mono">250,000</td><td class="t-bold">Sentinel</td><td class="t-mono">15</td></tr>
+        <tr><td class="t-mono">300,000</td><td class="t-bold">Shogun</td><td class="t-mono">20 at 350k</td></tr>
+        <tr><td class="t-mono">400,000</td><td class="t-bold">Sage</td><td class="t-mono">25 (30 to pass 450k)</td></tr>
+        <tr><td class="t-mono">500,000</td><td class="t-bold t-gold">Champion</td><td class="t-dim">Max Rank</td></tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="section-header">🏅 All Quest Medals</div>
-
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Medal</th>
-<th>Type</th>
-<th>Objective</th>
-<th>Reward</th>
-</tr>
-</thead>
-<tbody>
-
-<tr><td>Android 8(1) Medal v8.70</td><td>Tower</td><td>Defeat Commander Red in Red Ribbon Muscle Tower</td><td>EXP +500,000,000 · Zenni +10,000,000</td></tr>
-<tr><td>Android 8(2) Medal v8.70</td><td>Tower</td><td>Defeat Buyon</td><td>EXP +300,000,000 · Zenni +5,000,000</td></tr>
-<tr><td>Android 8(3) Medal v8.70</td><td>Fetch</td><td>Collect Metal Fragments</td><td>EXP +100,000,000 · Zenni +1,000,000</td></tr>
-<tr><td>Astro</td><td>Tower</td><td>Mob Tower Competition (Get Spacepod back from Bergamo)</td><td>EXP +1,000,000,000 · ZP +50 · TP +500,000</td></tr>
-<tr><td>Babidi</td><td>Kill</td><td>Kill 50 Oolongs/Puars in the Portal Above Babidi</td><td>EXP +50,000,000 · Zenni +20,000,000 · TP +75,000</td></tr>
-<tr><td>Beerus</td><td>Cave</td><td>Kill 50 Universe 6 members in cave</td><td>EXP +1,000,000,000 · Zenni +25,000,000</td></tr>
-<tr><td>Briefs</td><td>Kill</td><td>Kill 50 Simulation Clones in Capsule Corp</td><td>EXP +1,000,000,000 · Zenni +10,000,000 · ZP +25</td></tr>
-<tr><td>Bulma</td><td>Fetch</td><td>Deliver Broken Parts to Dr. Briefs</td><td>Capsule (Inventory +25)</td></tr>
-<tr><td>Cell</td><td>Kill</td><td>Kill Saga Trunks</td><td>EXP +15,000,000 · Zenni +500,000</td></tr>
-<tr><td>Champa</td><td>Cave</td><td>Kill 50 Universe 7 Members in Cave</td><td>EXP +1,000,000,000 · Zenni +25,000,000</td></tr>
-<tr><td>Chronoa v8.70</td><td>Tower</td><td>Chronoa Tower Quest</td><td>Zenni +500,000,000 · ZP +500</td></tr>
-<tr><td>Enraged Trunks(1)</td><td>Kill</td><td>Kill 30 Androids 16 and 17 on Future Earth</td><td>EXP +150,000,000</td></tr>
-<tr><td>Enraged Trunks(2)</td><td>Guild</td><td>Kill 500 Androids</td><td>Zenni +45,000,000 · ZP +100 · EXP +1,000,000,000</td></tr>
-<tr><td>Frieza</td><td>Kill</td><td>Kill 3 Namekian Villagers</td><td>Frieza Boost (1.2x All Stats)</td></tr>
-<tr><td>Gero Metal</td><td>Kill</td><td>Kill Saga Super 17</td><td>-</td></tr>
-<tr><td>Glass Civilian(1)</td><td>Kill</td><td>Defeat Vidro in the cave above</td><td>EXP +500,000,000 · Zenni +25,000,000</td></tr>
-<tr><td>Glass Civilian(2)</td><td>Kill</td><td>Collect 25 Glass Fragments (Kill Glass Soldiers)</td><td>EXP +750,000,000 · Zenni +15,000,000</td></tr>
-<tr><td>Glass Civilian(3)</td><td>Kill</td><td>Kill 15 Namekians in Black</td><td>EXP +1,000,000,000 · Zenni +15,000,000</td></tr>
-<tr><td>Gogeta</td><td>Kill</td><td>Kill Broly and Shenron</td><td>Strength +500,000 · Defense +500,000 · FCC Access</td></tr>
-<tr><td>Gohan</td><td>Kill</td><td>Kill 50 Bebi Vegeta Soldiers</td><td>EXP +500,000,000 · Zenni +25,000,000</td></tr>
-<tr><td>Goku</td><td>Guild</td><td>Kill 2000 Labyrinth Mobs as a Guild</td><td>EXP +250,000,000 · Zenni +20,000,000 · ZP +200</td></tr>
-<tr><td>Gotenks</td><td>Tower</td><td>Kill all mobs in the tower</td><td>EXP +500,000,000 · Zenni +25,000,000</td></tr>
-<tr><td>Guru</td><td>Kill</td><td>Kill 3 Henchman (25% good karma)</td><td>Guru Boost (1.2x All Stats)</td></tr>
-<tr><td>Hell Fruit</td><td>Train</td><td>Talk to Dabura and reach 50% Evil Karma</td><td>Hell Fruit</td></tr>
-<tr><td>King Kai</td><td>Fetch</td><td>Catch Bubbles and Gregory</td><td>Kaioken</td></tr>
-<tr><td>King Vegeta</td><td>Kill</td><td>Kill 25 Enemies</td><td>King Vegeta Boost (1.2x Ki Defense)</td></tr>
-<tr><td>King Vegeta(2) v8.70</td><td>Tower</td><td>King Vegeta Tower Quest</td><td>EXP +500,000,000 · Zenni +30,000,000</td></tr>
-<tr><td>Korin</td><td>Kill</td><td>Kill 10 Saibamen</td><td>5 Senzu Beans</td></tr>
-<tr><td>Master Roshi(1)</td><td>Fetch</td><td>Find and Grab Roshi Rock</td><td>Kamehameha</td></tr>
-<tr><td>Master Roshi(2)</td><td>Train</td><td>Reach 100% Focus Meditation</td><td>EXP +5,000,000,000 · Zenni +50,000,000 · ZP +500 · TP +250,000 · Club Ticket +1</td></tr>
-<tr><td>Master Roshi(3) v8.70</td><td>Train</td><td>Ki Beam Mastery Quest</td><td>Beam Mastery Unlock</td></tr>
-<tr><td>Master Roshi(4)</td><td>Train</td><td>Collect 20 Crocodile Meat and return to Roshi</td><td>EXP +100,000,000 · Zenni +250,000</td></tr>
-<tr><td>Master Roshi(5)</td><td>Kill</td><td>Kill 50 Masked Bandits on Training Island</td><td>EXP +250,000,000 · Zenni +2,500,000</td></tr>
-<tr><td>Oolong(1)</td><td>Forest</td><td>Kill 25 Saibamen</td><td>EXP +15,000,000 · Zenni +500,000</td></tr>
-<tr><td>Oolong(2)</td><td>Tower</td><td>Kill All Mobs in Tower</td><td>EXP +50,000,000 · Zenni +10,000,000</td></tr>
-<tr><td>Piccolo(1)</td><td>Guild</td><td>Kill Behemoth (Located on Namek)</td><td>EXP +1,000,000,000 · Zenni +500,000,000 · ZP +100 · TP +100,000</td></tr>
-<tr><td>Piccolo(2)</td><td>Tower</td><td>Kill all Tower Mobs</td><td>EXP +100,000,000 · Zenni +20,000,000</td></tr>
-<tr><td>Saiyaman</td><td>Fetch</td><td>Catch Son Goten and get back Gohan's Helmet</td><td>Helmet</td></tr>
-<tr><td>Sensei</td><td>Kill</td><td>Kill 100 Tuffle or Oozaru in total</td><td>EXP +200,000,000 · Zenni +20,000,000 · TP +150,000</td></tr>
-<tr><td>Skinny Buu</td><td>Maze</td><td>Clear the maze and kill Skinny Buu</td><td>ZP +100</td></tr>
-<tr><td>Supreme Kai</td><td>Kill</td><td>Kill Saga Shenron</td><td>Potara Earrings</td></tr>
-<tr><td>Tapion</td><td>Cave</td><td>Kill 100 mobs in caves above Tapion</td><td>EXP +250,000,000 · Zenni +20,000,000</td></tr>
-<tr><td>Trunks(1)</td><td>Kill</td><td>Kill Cell (below Trunks)</td><td>Sharp Dagger</td></tr>
-<tr><td>Trunks(2)</td><td>Kill</td><td>Kill 30 Android 16s and 17s</td><td>EXP +50,000,000 · Zenni +10,000,000</td></tr>
-<tr><td>Tuffle Civilian(1)</td><td>Kill</td><td>Kill 30 Yardrat Soldiers</td><td>EXP +500,000,000 · Zenni +15,000,000</td></tr>
-<tr><td>Tuffle Civilian(2)</td><td>Fetch</td><td>Retrieve Key from Cave Chest</td><td>EXP +750,000,000 · Zenni +15,000,000</td></tr>
-<tr><td>Tuffle Civilian(3)</td><td>Fetch</td><td>Save Human from Portal</td><td>EXP +750,000,000 · Zenni +15,000,000</td></tr>
-<tr><td>Tuffle Civilian(4)</td><td>Fetch</td><td>Collect 25 Herb Fragments</td><td>EXP +750,000,000 · Zenni +15,000,000</td></tr>
-<tr><td>Vegeta</td><td>Guild</td><td>Acquire 500 Tower Mob Kills as a Guild</td><td>EXP +75,000,000 · Zenni +15,000,000 · TP +75,000</td></tr>
-<tr><td>Videl</td><td>Cave</td><td>Kill 100 mobs in caves below</td><td>EXP +250,000,000 · Zenni +20,000,000</td></tr>
-<tr><td>Whis</td><td>Kill</td><td>Finish Babidi Tower and Kill the Oozaru</td><td>All 4 Stats +2,000,000 · Stamina +100,000</td></tr>
-<tr><td>Xeno Pan</td><td>Kill</td><td>Kill Aeos in the Cave Above Xeno Pan</td><td>EXP +500,000,000 · Zenni +25,000,000</td></tr>
-<tr><td>Yamcha(1)</td><td>Train</td><td>Level up 500 times</td><td>EXP +1,000,000 · Zenni +250,000 · Stamina +5,000</td></tr>
-<tr><td>Yamcha(2)</td><td>Kill</td><td>Kill 100 Saga Mobs</td><td>25% Zenni Boost</td></tr>
-<tr><td>Yamcha(3)</td><td>Kill</td><td>Kill 30 Saibamen</td><td>EXP +15,000,000 · Zenni +500,000</td></tr>
-<tr><td>Yardrat</td><td>Kill</td><td>Kill 50 Tuffle Soldiers</td><td>EXP +500,000,000 · Zenni +15,000,000</td></tr>
-
-</tbody>
-</table>
-</div>
+  <div class="tip-box">💡 Some Quest Medals reward <strong>ZP</strong> — complete those first before rebirths! Medal counts reset per rebirth but you keep any ZP/items earned.</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Medal</th><th>Type</th><th>Objective</th><th>Reward</th></tr></thead>
+      <tbody>
+        <tr><td class="t-bold">Android 8 (1) <span class="tag tag-perm">v8.70</span></td><td class="t-dim">Tower</td><td>Defeat Commander Red in Red Ribbon Muscle Tower</td><td>EXP +500,000,000 · Zenni +10,000,000</td></tr>
+        <tr><td class="t-bold">Android 8 (2) <span class="tag tag-perm">v8.70</span></td><td class="t-dim">Tower</td><td>Defeat Buyon</td><td>EXP +300,000,000 · Zenni +5,000,000</td></tr>
+        <tr><td class="t-bold">Android 8 (3) <span class="tag tag-perm">v8.70</span></td><td class="t-dim">Fetch</td><td>Collect Metal Fragments</td><td>EXP +100,000,000 · Zenni +1,000,000</td></tr>
+        <tr><td class="t-bold">Astro</td><td class="t-dim">Tower</td><td>Mob Tower Competition — get Spacepod back from Bergamo</td><td>EXP +1,000,000,000 · ZP +50 · TP +500,000</td></tr>
+        <tr><td class="t-bold">Babidi</td><td class="t-dim">Kill</td><td>Kill 50 Oolongs/Puars in the portal above Babidi</td><td>EXP +50,000,000 · Zenni +20,000,000 · TP +75,000</td></tr>
+        <tr><td class="t-bold">Beerus</td><td class="t-dim">Cave</td><td>Kill 50 Universe 6 members in cave</td><td>EXP +1,000,000,000 · Zenni +25,000,000</td></tr>
+        <tr><td class="t-bold">Briefs</td><td class="t-dim">Kill</td><td>Kill 50 Simulation Clones in Capsule Corp</td><td>EXP +1,000,000,000 · Zenni +10,000,000 · ZP +25</td></tr>
+        <tr><td class="t-bold">Bulma</td><td class="t-dim">Fetch</td><td>Deliver Broken Parts to Dr. Briefs</td><td class="t-green">Capsule (Inventory +25)</td></tr>
+        <tr><td class="t-bold">Cell</td><td class="t-dim">Kill</td><td>Kill Saga Trunks</td><td>EXP +15,000,000 · Zenni +500,000</td></tr>
+        <tr><td class="t-bold">Champa</td><td class="t-dim">Cave</td><td>Kill 50 Universe 7 members in cave</td><td>EXP +1,000,000,000 · Zenni +25,000,000</td></tr>
+        <tr><td class="t-bold">Chronoa <span class="tag tag-perm">v8.70</span></td><td class="t-dim">Tower</td><td>Chronoa Tower Quest</td><td class="t-orange">Zenni +500,000,000 · ZP +500</td></tr>
+        <tr><td class="t-bold">Enraged Trunks (1)</td><td class="t-dim">Kill</td><td>Kill 30 Androids 16 and 17 on Future Earth</td><td>EXP +150,000,000</td></tr>
+        <tr><td class="t-bold">Enraged Trunks (2)</td><td class="t-dim">Guild</td><td>Kill 500 Androids</td><td class="t-orange">Zenni +45,000,000 · ZP +100 · EXP +1,000,000,000</td></tr>
+        <tr><td class="t-bold">Frieza</td><td class="t-dim">Kill</td><td>Kill 3 Namekian Villagers</td><td class="t-green">Frieza Boost (×1.2 All Stats)</td></tr>
+        <tr><td class="t-bold">Gero Metal</td><td class="t-dim">Kill</td><td>Kill Saga Super 17</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-bold">Glass Civilian (1)</td><td class="t-dim">Kill</td><td>Defeat Vidro in the cave above</td><td>EXP +500,000,000 · Zenni +25,000,000</td></tr>
+        <tr><td class="t-bold">Glass Civilian (2)</td><td class="t-dim">Kill</td><td>Collect 25 Glass Fragments (kill Glass Soldiers)</td><td>EXP +750,000,000 · Zenni +15,000,000</td></tr>
+        <tr><td class="t-bold">Glass Civilian (3)</td><td class="t-dim">Kill</td><td>Kill 15 Namekians in Black</td><td>EXP +1,000,000,000 · Zenni +15,000,000</td></tr>
+        <tr><td class="t-bold">Gogeta</td><td class="t-dim">Kill</td><td>Kill Broly and Shenron</td><td class="t-green">STR +500,000 · DEF +500,000 · FCC Access</td></tr>
+        <tr><td class="t-bold">Gohan</td><td class="t-dim">Kill</td><td>Kill 50 Bebi Vegeta Soldiers</td><td>EXP +500,000,000 · Zenni +25,000,000</td></tr>
+        <tr><td class="t-bold">Goku</td><td class="t-dim">Guild</td><td>Kill 2000 Labyrinth Mobs as a Guild</td><td class="t-orange">EXP +250,000,000 · Zenni +20,000,000 · ZP +200</td></tr>
+        <tr><td class="t-bold">Gotenks</td><td class="t-dim">Tower</td><td>Kill all mobs in the tower</td><td>EXP +500,000,000 · Zenni +25,000,000</td></tr>
+        <tr><td class="t-bold">Guru</td><td class="t-dim">Kill</td><td>Kill 3 Henchmen (25% good karma)</td><td class="t-green">Guru Boost (×1.2 All Stats)</td></tr>
+        <tr><td class="t-bold">Hell Fruit</td><td class="t-dim">Train</td><td>Talk to Dabura and reach 50% Evil Karma</td><td class="t-green">Hell Fruit</td></tr>
+        <tr><td class="t-bold">King Kai</td><td class="t-dim">Fetch</td><td>Catch Bubbles and Gregory</td><td class="t-orange">Kaioken</td></tr>
+        <tr><td class="t-bold">King Vegeta</td><td class="t-dim">Kill</td><td>Kill 25 enemies</td><td class="t-green">King Vegeta Boost (×1.2 Ki Defence)</td></tr>
+        <tr><td class="t-bold">King Vegeta (2) <span class="tag tag-perm">v8.70</span></td><td class="t-dim">Tower</td><td>King Vegeta Tower Quest</td><td>EXP +500,000,000 · Zenni +30,000,000</td></tr>
+        <tr><td class="t-bold">Korin</td><td class="t-dim">Kill</td><td>Kill 10 Saibamen</td><td class="t-green">5 Senzu Beans</td></tr>
+        <tr><td class="t-bold">Master Roshi (1)</td><td class="t-dim">Fetch</td><td>Find and grab Roshi Rock</td><td class="t-orange">Kamehameha</td></tr>
+        <tr><td class="t-bold">Master Roshi (2)</td><td class="t-dim">Train</td><td>Reach 100% Focus Meditation</td><td class="t-orange">EXP +5,000,000,000 · Zenni +50,000,000 · ZP +500 · TP +250,000 · Club Ticket</td></tr>
+        <tr><td class="t-bold">Master Roshi (3) <span class="tag tag-perm">v8.70</span></td><td class="t-dim">Train</td><td>Ki Beam Mastery Quest</td><td class="t-orange">Beam Mastery Unlock</td></tr>
+        <tr><td class="t-bold">Master Roshi (4)</td><td class="t-dim">Train</td><td>Collect 20 Crocodile Meat and return to Roshi</td><td>EXP +100,000,000 · Zenni +250,000</td></tr>
+        <tr><td class="t-bold">Master Roshi (5)</td><td class="t-dim">Kill</td><td>Kill 50 Masked Bandits on Training Island</td><td>EXP +250,000,000 · Zenni +2,500,000</td></tr>
+        <tr><td class="t-bold">Oolong (1)</td><td class="t-dim">Forest</td><td>Kill 25 Saibamen</td><td>EXP +15,000,000 · Zenni +500,000</td></tr>
+        <tr><td class="t-bold">Oolong (2)</td><td class="t-dim">Tower</td><td>Kill all mobs in tower</td><td>EXP +50,000,000 · Zenni +10,000,000</td></tr>
+        <tr><td class="t-bold">Piccolo (1)</td><td class="t-dim">Guild</td><td>Kill Behemoth (located on Namek)</td><td class="t-orange">EXP +1,000,000,000 · Zenni +500,000,000 · ZP +100 · TP +100,000</td></tr>
+        <tr><td class="t-bold">Piccolo (2)</td><td class="t-dim">Tower</td><td>Kill all Tower Mobs</td><td>EXP +100,000,000 · Zenni +20,000,000</td></tr>
+        <tr><td class="t-bold">Saiyaman</td><td class="t-dim">Fetch</td><td>Catch Son Goten and get back Gohan's Helmet</td><td class="t-green">Saiyaman Helmet (+10% PL)</td></tr>
+        <tr><td class="t-bold">Sensei</td><td class="t-dim">Kill</td><td>Kill 100 Tuffle or Oozaru in total</td><td>EXP +200,000,000 · Zenni +20,000,000 · TP +150,000</td></tr>
+        <tr><td class="t-bold">Skinny Buu</td><td class="t-dim">Maze</td><td>Clear the maze and kill Skinny Buu</td><td class="t-orange">ZP +100</td></tr>
+        <tr><td class="t-bold">Supreme Kai</td><td class="t-dim">Kill</td><td>Kill Saga Shenron</td><td class="t-green">Potara Earrings (+15% Ki)</td></tr>
+        <tr><td class="t-bold">Tapion</td><td class="t-dim">Cave</td><td>Kill 100 mobs in caves above Tapion</td><td>EXP +250,000,000 · Zenni +20,000,000</td></tr>
+        <tr><td class="t-bold">Trunks (1)</td><td class="t-dim">Kill</td><td>Kill Cell (below Trunks)</td><td class="t-green">Sharp Dagger (+25% STR)</td></tr>
+        <tr><td class="t-bold">Trunks (2)</td><td class="t-dim">Kill</td><td>Kill 30 Android 16s and 17s</td><td>EXP +50,000,000 · Zenni +10,000,000</td></tr>
+        <tr><td class="t-bold">Tuffle Civilian (1)</td><td class="t-dim">Kill</td><td>Kill 30 Yardrat Soldiers</td><td>EXP +500,000,000 · Zenni +15,000,000</td></tr>
+        <tr><td class="t-bold">Tuffle Civilian (2)</td><td class="t-dim">Fetch</td><td>Retrieve Key from Cave Chest</td><td>EXP +750,000,000 · Zenni +15,000,000</td></tr>
+        <tr><td class="t-bold">Tuffle Civilian (3)</td><td class="t-dim">Fetch</td><td>Save Human from Portal</td><td>EXP +750,000,000 · Zenni +15,000,000</td></tr>
+        <tr><td class="t-bold">Tuffle Civilian (4)</td><td class="t-dim">Fetch</td><td>Collect 25 Herb Fragments</td><td>EXP +750,000,000 · Zenni +15,000,000</td></tr>
+        <tr><td class="t-bold">Vegeta</td><td class="t-dim">Guild</td><td>Acquire 500 Tower Mob Kills as a Guild</td><td>EXP +75,000,000 · Zenni +15,000,000 · TP +75,000</td></tr>
+        <tr><td class="t-bold">Videl</td><td class="t-dim">Cave</td><td>Kill 100 mobs in caves below</td><td>EXP +250,000,000 · Zenni +20,000,000</td></tr>
+        <tr><td class="t-bold">Whis</td><td class="t-dim">Kill</td><td>Finish Babidi Tower and kill the Oozaru</td><td class="t-green">All 4 Stats +2,000,000 · Stamina +100,000</td></tr>
+        <tr><td class="t-bold">Xeno Pan</td><td class="t-dim">Kill</td><td>Kill Aeos in the Cave above Xeno Pan</td><td>EXP +500,000,000 · Zenni +25,000,000</td></tr>
+        <tr><td class="t-bold">Yamcha (1)</td><td class="t-dim">Train</td><td>Level up 500 times</td><td>EXP +1,000,000 · Zenni +250,000 · Stamina +5,000</td></tr>
+        <tr><td class="t-bold">Yamcha (2)</td><td class="t-dim">Kill</td><td>Kill 100 Saga Mobs</td><td class="t-green">25% Zenni Boost</td></tr>
+        <tr><td class="t-bold">Yamcha (3)</td><td class="t-dim">Kill</td><td>Kill 30 Saibamen</td><td>EXP +15,000,000 · Zenni +500,000</td></tr>
+        <tr><td class="t-bold">Yardrat</td><td class="t-dim">Kill</td><td>Kill 50 Tuffle Soldiers</td><td>EXP +500,000,000 · Zenni +15,000,000</td></tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
 <!-- RULES -->

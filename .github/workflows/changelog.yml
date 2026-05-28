@@ -62,6 +62,10 @@ jobs:
             echo "No changes detected"
           fi
 
+      - name: Inject Admin Password
+        run: |
+          sed -i "s/var ADMIN_PASSWORD = 'dba-admin'/var ADMIN_PASSWORD = '${{ secrets.ADMIN_PASSWORD }}'/" index.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 

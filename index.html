@@ -2581,7 +2581,7 @@ document.addEventListener('DOMContentLoaded', function(){
         ].filter(Boolean);
 
         boxes.forEach(function(other) {
-          if (other === box || other.checked) return;
+          if (other === box) return;
 
           var otherGroups = [
             other.dataset.exclusiveGroup,
@@ -2594,9 +2594,15 @@ document.addEventListener('DOMContentLoaded', function(){
           });
 
           if (conflict) {
+            // Uncheck if already checked (force deselect conflicting items)
+            if (other.checked) {
+              other.checked = false;
+              var checkedItem = other.closest('.boost-check-item');
+              if (checkedItem) checkedItem.classList.remove('checked');
+            }
             other.disabled = true;
             var item = other.closest('.boost-check-item');
-            if(item) item.classList.add('disabled');
+            if (item) item.classList.add('disabled');
           }
         });
       });

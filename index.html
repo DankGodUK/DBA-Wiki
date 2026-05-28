@@ -191,6 +191,24 @@ tbody tr:last-child td{border-bottom:none}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
 
+/* 6/3 STATUS BANNER */
+.beerus-locked{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:6px;padding:10px 14px;font-size:13px;color:#fca5a5;margin-bottom:10px}
+.beerus-unlocked{background:rgba(61,184,106,0.1);border:1px solid rgba(61,184,106,0.3);border-radius:6px;padding:10px 14px;font-size:13px;color:#86efac;margin-bottom:10px}
+/* ADMIN PANEL */
+.admin-panel{position:fixed;bottom:20px;right:20px;background:var(--bg2);border:1px solid var(--accent-border);border-radius:8px;padding:14px 18px;z-index:9999;min-width:220px;box-shadow:0 4px 24px rgba(0,0,0,0.4);display:none}
+.admin-panel-title{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.admin-toggle-row{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px;color:var(--txt1)}
+.admin-toggle{position:relative;width:36px;height:20px;flex-shrink:0}
+.admin-toggle input{opacity:0;width:0;height:0}
+.admin-toggle-slider{position:absolute;inset:0;background:var(--border2);border-radius:20px;cursor:pointer;transition:background 0.2s}
+.admin-toggle-slider::before{content:'';position:absolute;width:14px;height:14px;left:3px;top:3px;background:#fff;border-radius:50%;transition:transform 0.2s}
+.admin-toggle input:checked+.admin-toggle-slider{background:var(--green)}
+.admin-toggle input:checked+.admin-toggle-slider::before{transform:translateX(16px)}
+.admin-panel-close{position:absolute;top:8px;right:10px;background:none;border:none;color:var(--txt3);cursor:pointer;font-size:14px;line-height:1}
+.admin-panel-close:hover{color:var(--txt1)}
+.admin-fab{position:fixed;bottom:20px;right:20px;background:var(--bg2);color:var(--accent);border:1px solid var(--accent-border);border-radius:50%;width:40px;height:40px;font-size:18px;cursor:pointer;z-index:9998;box-shadow:0 2px 12px rgba(0,0,0,0.3);transition:all 0.15s}
+.admin-fab:hover{background:var(--bg3)}
+
 /* ZP REWARD ROW HIGHLIGHT */
 tr.zp-row td{background:rgba(240,120,0,0.07) !important}
 tr.zp-row td:first-child{border-left:2px solid var(--accent)}
@@ -805,7 +823,7 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
       </div>
     </div>
     <div class="tip-box">💡 Buy <strong>all Level Cap increases ASAP</strong>. <strong>Unlimited TNL Cuts</strong> are available at 5/3 (400 ZP each).</div>
-    <div class="warn-box"><strong>v8.70 status:</strong> Beerus 6/3 rebirth remains locked. A date will be announced when the Beerus Quest becomes available.</div>
+    <div id="beerus-status-banner"></div>
     <div style="margin-top:10px" class="rebirth-flow">
       <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">1</span><div class="step-title">Buy All Level Caps Early</div><div class="step-body">Purchase all remaining <strong>Level Cap increases</strong> from Z Agent (5,000 ZP total at 5/3) as soon as possible to avoid being capped mid-grind.</div><div class="rb-step-check"></div></div>
       <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">2</span><div class="step-title">Wait to Boost</div><div class="step-body">Wait until you have around <strong>8 Billion base stats</strong> before boosting. Beerus' Trials are extremely hard and require substantial stats.</div><div class="rb-step-check"></div></div>
@@ -1005,7 +1023,6 @@ document.addEventListener('DOMContentLoaded', function(){
   </div>
 
   <div class="section-header">💱 Currency Conversions &amp; Exchange NPCs</div>
-  <div class="warn-box"><strong>v8.70:</strong> End-of-wipe TP rewards were removed from the EOW reward verb, while EOW Casino Token rewards were slightly buffed.</div>
   <div class="table-wrap">
     <table>
       <thead><tr><th>From</th><th>To</th><th>Rate</th><th>NPC &amp; Location</th></tr></thead>
@@ -1479,7 +1496,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
   <div class="section-header">📜 NPC Techniques</div>
   <div class="tip-box">💡 These techniques can be learned by talking to specific NPCs around the world.</div>
-  <div class="card"><p><strong class="t-green">v8.70 combat updates:</strong> Punch/Melee now auto-targets players after the first successful punch, auto-targets NPC mobs after the second successful punch. Flying Kick is unbanned in skill-based matches (cooldown +2s). Wormhole enabled in normal tournaments. Dash cooldown reduced. Konat Quad Barrage and Sword attacks no longer drain Ki.</p></div>
   <div class="table-wrap">
     <table>
       <thead><tr><th>Technique</th><th>Giver NPC</th></tr></thead>
@@ -1517,7 +1533,7 @@ document.addEventListener('DOMContentLoaded', function(){
   </div>
 
   <div class="section-header">📈 Level-Up Techniques</div>
-  <div class="tip-box">💡 Level-Up Techniques are learned <strong>automatically</strong> when you reach the required level. v8.70 added diagonal beam firing and Ki Beam Mastery progression — mastered beams fully home to targets.</div>
+  <div class="tip-box">💡 Level-Up Techniques are learned <strong>automatically</strong> when you reach the required level.</div>
   <div class="sub-header">Universal (All Races)</div>
   <div class="table-wrap">
     <table>
@@ -1829,22 +1845,26 @@ document.addEventListener('DOMContentLoaded', function(){
   <div class="section-header">🏆 Event List</div>
 
   <div class="sub-header">Sagas</div>
-  <div class="card"><p>Story-driven boss fights triggered periodically. Defeating saga bosses awards <strong>EXP, EK, and occasionally special items</strong>. Multiple sagas run throughout the wipe. The <strong>Side Cape Z-Suit</strong> gives +10% EXP during sagas.</p></div>
+  <div class="card">
+    <p>Sagas spawn mobs across the world in timeline order through the anime story arcs. There are two sides: <strong>Evil</strong> and <strong>Good</strong>. Sagas auto-run after one completes.</p>
+    <ul>
+      <li><strong>Difficulty Levels:</strong> Easy, Medium, Hard, Extreme, Insane, Godly. Higher difficulty = stronger mob stats, better EXP, and smarter AI</li>
+      <li>Change difficulty at <strong>Yamcha</strong> or the <strong>Mall Mascot</strong></li>
+      <li>Some saga mobs are stronger than normal and have quests attached — keep an eye out and circle back to complete them!</li>
+    </ul>
+  </div>
 
   <div class="sub-header">Mayhem</div>
-  <div class="card"><p>Open PvP free-for-all event. Earn <strong>Guild Points</strong> by participating. One of the main sources of GP alongside Guild Tournament. <strong>RBA cannot be joined from Mayhem</strong> (v8.70 fix).</p></div>
+  <div class="card"><p>Open PvP free-for-all event. Earn <strong>Guild Points</strong> by participating. One of the main sources of GP alongside Guild Tournament.</p></div>
 
   <div class="sub-header">Ranked Battle Arena (RBA)</div>
   <div class="card">
     <p>Competitive 1v1 tournament bracket. Win matches to earn <strong>RBA Tokens</strong>, which exchange for <strong>ZP</strong> (10 ZP per exchange) at the PVP Broker in the Mall.</p>
-    <ul>
-      <li>Logging out of RBA mid-match would previously cause it to hang — fixed in v8.70</li>
-      <li>G.o.D cannot be lost in RBA (v8.70 fix)</li>
-    </ul>
   </div>
 
   <div class="sub-header">Tournament of Power (ToP)</div>
-  <div class="card"><p>Universe vs Universe elimination event. Earn <strong>Universe Points (UP)</strong> for participation and wins. Your Universe ranking affects G.o.D eligibility.</p></div>
+  <div class="card"><p>Universe vs Universe elimination event. Earn <strong>Universe Points (UP)</strong> for participation and wins. Your Universe ranking affects G.o.D eligibility.</p>
+  <p style="margin-top:6px"><strong>Winner:</strong> 1,500 levels + 50 ZP + 25 Universe Points</p></div>
 
   <div class="sub-header">Mystical Cavern</div>
   <div class="card"><p>Dungeon event. Earn <strong>Cavern Stat Pills</strong> (6× stat gain for 30 min) and other rewards. Crocodile Meat (from Roshi's island) is useful for healing inside. Golden Frieza spawns here with a 50% chance to drop the Cavern Stat Pill.</p></div>
@@ -1852,14 +1872,23 @@ document.addEventListener('DOMContentLoaded', function(){
   <div class="sub-header">Conquest</div>
   <div class="card"><p>Territory control event. Win zones to earn <strong>Universe Points</strong>. Guild coordination is important for Conquest.</p></div>
 
-  <div class="sub-header">King of the Hill / Kill the King</div>
-  <div class="card"><p>PvP objective event. Hold the hill position or eliminate the King to score. v8.70: auto-check every 5 seconds resets safe players correctly.</p></div>
+  <div class="sub-header">Kill the King</div>
+  <div class="card"><p>Your stats are balanced and set for this event. Kill the opposing team's King while protecting yours at the same time. Play strategically!</p>
+  <p style="margin-top:6px"><strong>Loser:</strong> Levels + Zenni + 1 PVP Token &nbsp;·&nbsp; <strong>Winner:</strong> Levels + Zenni + 3 PVP Tokens</p></div>
 
   <div class="sub-header">Team Deathmatch (TDM)</div>
-  <div class="card"><p>Team PvP event. v8.70: auto-check every 5 seconds resets safe players correctly.</p></div>
+  <div class="card"><p>Team PvP event. Coordinate with your team to eliminate the opposing side.</p></div>
 
   <div class="sub-header">Pillar Event</div>
-  <div class="card"><p>Defend or destroy pillars. Rewards <strong>Universe Points</strong>.</p></div>
+  <div class="card"><p>Universe members sign up to protect their pillar and destroy other universe towers. Your stats are balanced and set for this event. Unlimited respawns until your tower is destroyed.</p>
+  <p style="margin-top:6px"><strong>Lower reward:</strong> +1,500 levels · +50 ZP · +100 Universe Points</p></div>
+
+  <div class="sub-header">Grand Maze</div>
+  <div class="card"><p>Players sign up for a loot bag hunt, followed by forced PvP once 4 players remain. Loot bags can contain a wide variety of rewards. Player kills drop better loot bags.</p></div>
+
+  <div class="sub-header">Red Ribbon Battle Tower</div>
+  <div class="card"><p>Your stats are balanced and set for this event. Collect both the Red Star and Blue Star Dragon Balls, then enter the Red Ribbon Tower. Killing players will drop them. Exit the Forest of Chaos to win.</p>
+  <p style="margin-top:6px"><strong>Loser reward:</strong> +750 levels + 1 PVP Token</p></div>
 
   <div class="sub-header">Daily Quests</div>
   <div class="card">
@@ -1878,7 +1907,22 @@ document.addEventListener('DOMContentLoaded', function(){
   <div class="sub-header">Bounty Hunter</div>
   <div class="card"><p>Earn rewards by reaching kill milestones. At <strong>300 kills</strong> you earn a <strong>Club Ticket</strong>. Rewards scale with kill count — check the Bounty Hunter NPC for current thresholds.</p></div>
 
-  <div class="sub-header">End of Wipe Tournament</div>
+  <div class="section-header">🥊 Tournaments</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Tournament</th><th>Win Reward</th><th>Loss Reward</th></tr></thead>
+      <tbody>
+        <tr><td class="t-bold">Baba Tournament</td><td>Levels + TPs</td><td>Levels</td></tr>
+        <tr><td class="t-bold">FFA Tournament</td><td>Levels</td><td>Levels</td></tr>
+        <tr><td class="t-bold">Galactic Tournament</td><td>Levels + TPs</td><td>Levels</td></tr>
+        <tr><td class="t-bold">Guild Tournament</td><td>Levels + Guild Points</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-bold t-orange">Tournament of Power</td><td>1,500 levels + 50 ZP + 25 UP</td><td class="t-dim">—</td></tr>
+        <tr><td class="t-bold">World Tournament</td><td>Levels</td><td>Levels</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-header">🏆 End of Wipe Tournament</div>
   <div class="card">
     <p>The final event of each wipe. Only players who reached <strong>Champion rank</strong> can participate. Winners receive:</p>
     <ul>
@@ -3292,5 +3336,90 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<!-- ADMIN PANEL -->
+<button class="admin-fab" id="admin-fab" onclick="toggleAdminPanel()" title="Admin Panel">⚙️</button>
+<div class="admin-panel" id="admin-panel">
+  <button class="admin-panel-close" onclick="toggleAdminPanel()">✕</button>
+  <div class="admin-panel-title">⚙️ Admin Controls</div>
+  <div class="admin-toggle-row">
+    <span>Beerus 6/3 Unlocked</span>
+    <label class="admin-toggle">
+      <input type="checkbox" id="beerus-toggle" onchange="updateBeerusStatus()">
+      <span class="admin-toggle-slider"></span>
+    </label>
+  </div>
+</div>
+
+<script>
+  var ADMIN_PASSWORD = 'dba-admin';
+  var ADMIN_AUTH_KEY = 'dba_admin_authed';
+
+  function toggleAdminPanel() {
+    var panel = document.getElementById('admin-panel');
+    var fab   = document.getElementById('admin-fab');
+    var open  = panel.style.display === 'block';
+
+    if (open) {
+      panel.style.display = 'none';
+      fab.style.display   = 'block';
+      return;
+    }
+
+    // Check if already authenticated this session
+    if (!sessionStorage.getItem(ADMIN_AUTH_KEY)) {
+      var pw = prompt('Admin password:');
+      if (pw !== ADMIN_PASSWORD) {
+        if (pw !== null) alert('Incorrect password.');
+        return;
+      }
+      sessionStorage.setItem(ADMIN_AUTH_KEY, '1');
+    }
+
+    panel.style.display = 'block';
+    fab.style.display   = 'none';
+  }
+
+  function updateBeerusStatus() {
+    var unlocked = document.getElementById('beerus-toggle').checked;
+    var banner   = document.getElementById('beerus-status-banner');
+
+    // Update banner
+    if (banner) {
+      if (unlocked) {
+        banner.className = 'beerus-unlocked';
+        banner.innerHTML = '✅ <strong>Beerus 6/3 is now UNLOCKED.</strong> Complete Beerus\' three trials to rebirth.';
+      } else {
+        banner.className = 'beerus-locked';
+        banner.innerHTML = '🔒 <strong>Beerus 6/3 is currently LOCKED.</strong> A date will be announced when the Beerus Quest becomes available.';
+      }
+    }
+
+    // Show/hide 6/3 sidebar button
+    var r6btn = document.querySelector('[data-rb="r6"]');
+    if (r6btn) r6btn.style.display = unlocked ? '' : 'none';
+
+    // Show/hide "Next: 6/3 Endgame →" button (in 5/3 panel)
+    document.querySelectorAll('.rb-next-btn').forEach(function(btn) {
+      if (btn.textContent.includes('6/3')) btn.style.display = unlocked ? '' : 'none';
+    });
+
+    // If 6/3 is locked and currently active, switch back to 5/3
+    var r6panel = document.getElementById('rb-r6');
+    if (!unlocked && r6panel && r6panel.classList.contains('active')) {
+      showRebirth('r5', document.querySelector('[data-rb="r5"]'));
+    }
+
+    // Save state
+    localStorage.setItem('beerus63unlocked', unlocked ? '1' : '0');
+  }
+
+  // Restore state on load
+  (function() {
+    var saved  = localStorage.getItem('beerus63unlocked');
+    var toggle = document.getElementById('beerus-toggle');
+    if (saved === '1' && toggle) toggle.checked = true;
+    updateBeerusStatus();
+  })();
+</script>
 </body>
 </html>

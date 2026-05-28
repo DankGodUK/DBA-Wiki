@@ -145,8 +145,16 @@ tbody tr:last-child td{border-bottom:none}
 
 /* REBIRTH FLOW */
 .rebirth-flow{display:flex;flex-direction:column;gap:0}
-.rebirth-step{position:relative;padding:13px 16px 13px 50px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;margin-bottom:4px;transition:border-color 0.12s}
-.rebirth-step:hover{border-color:var(--border2)}
+.rebirth-step{position:relative;padding:13px 16px 13px 50px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;margin-bottom:4px;transition:all 0.15s;cursor:pointer;user-select:none}
+.rebirth-step:hover{border-color:var(--border2);background:var(--bg2)}
+.rebirth-step.done{background:rgba(61,184,106,0.05);border-color:rgba(61,184,106,0.25)}
+.rebirth-step.done .step-title{color:var(--txt3);text-decoration:line-through}
+.rebirth-step.done .step-body{color:var(--txt3)}
+.rebirth-step.done .step-num{background:var(--green) !important;border-color:var(--green) !important;color:#000 !important}
+.rb-step-check{position:absolute;right:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:4px;border:2px solid var(--border2);display:flex;align-items:center;justify-content:center;transition:all 0.15s;background:transparent;flex-shrink:0}
+.rebirth-step.done .rb-step-check{background:var(--green);border-color:var(--green)}
+.rb-step-check::after{content:'✓';font-size:11px;color:#000;font-weight:700;opacity:0;transition:opacity 0.1s}
+.rebirth-step.done .rb-step-check::after{opacity:1}
 .step-num{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-family:'Rajdhani',sans-serif;font-weight:700;font-size:18px;color:var(--accent);opacity:0.3}
 .step-title{font-weight:600;font-size:13.5px;color:var(--txt1);margin-bottom:3px}
 .step-body{font-size:13px;color:#b8c0cc;line-height:1.65}
@@ -182,6 +190,38 @@ tbody tr:last-child td{border-bottom:none}
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+
+/* ZP REWARD ROW HIGHLIGHT */
+tr.zp-row td{background:rgba(240,120,0,0.07) !important}
+tr.zp-row td:first-child{border-left:2px solid var(--accent)}
+.zp-badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;background:rgba(240,120,0,0.18);color:var(--accent);border:1px solid var(--accent-border);border-radius:3px;padding:1px 5px;margin-left:5px;letter-spacing:0.5px;vertical-align:middle}
+
+/* MEDAL SEARCH */
+.medal-search-wrap{position:relative;margin-bottom:10px}
+.medal-search{width:100%;background:var(--bg4);border:1px solid var(--border2);border-radius:5px;color:var(--txt1);font-family:'Barlow',sans-serif;font-size:13px;padding:9px 36px 9px 14px;outline:none;transition:border-color 0.15s}
+.medal-search:focus{border-color:var(--accent-border)}
+.medal-search::placeholder{color:var(--txt3)}
+.medal-search-icon{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:13px;pointer-events:none;color:var(--txt3)}
+.medal-no-results{padding:16px;text-align:center;color:var(--txt3);font-size:13px;display:none}
+
+/* REBIRTH TRACKER */
+.rb-tracker{margin:16px 0 0;border-top:1px solid var(--border);padding-top:14px}
+.rb-tracker-title{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--txt3);margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
+.rb-tracker-title button{font-size:10px;font-weight:600;font-family:'Barlow',sans-serif;letter-spacing:0.5px;text-transform:none;background:transparent;border:1px solid var(--border2);color:var(--txt3);border-radius:3px;padding:2px 8px;cursor:pointer;transition:all 0.12s}
+.rb-tracker-title button:hover{color:var(--txt1);border-color:var(--border)}
+.rb-tracker-steps{display:flex;flex-direction:column;gap:5px}
+.rb-track-item{display:flex;align-items:flex-start;gap:10px;padding:8px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:5px;cursor:pointer;transition:all 0.15s;user-select:none}
+.rb-track-item:hover{border-color:var(--border2)}
+.rb-track-item.done{background:rgba(61,184,106,0.06);border-color:rgba(61,184,106,0.2)}
+.rb-track-item.done .rb-track-label{color:var(--txt3);text-decoration:line-through}
+.rb-track-checkbox{width:16px;height:16px;border-radius:4px;border:2px solid var(--border2);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all 0.15s;background:transparent}
+.rb-track-item.done .rb-track-checkbox{background:var(--green);border-color:var(--green)}
+.rb-track-checkbox::after{content:'✓';font-size:10px;color:#000;font-weight:700;opacity:0;transition:opacity 0.1s}
+.rb-track-item.done .rb-track-checkbox::after{opacity:1}
+.rb-track-label{font-size:13px;color:var(--txt1);line-height:1.4}
+.rb-track-label small{display:block;font-size:11px;color:var(--txt3);margin-top:1px}
+.rb-tracker-progress{height:3px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;margin-bottom:10px}
+.rb-tracker-progress-fill{height:100%;border-radius:3px;background:var(--green);transition:width 0.3s ease}
 
 /* BASE TEXT */
 p{font-size:13.5px;line-height:1.7;color:#b8c0cc;margin-bottom:8px}
@@ -360,6 +400,11 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
     max-width:calc(100vw - 120px);
     object-fit:contain;
   }
+
+#combinedBoost {
+  display: none !important;
+}
+
 </style>
 </head>
 <body>
@@ -649,15 +694,17 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
         <span class="rb-meta-pill t-red">⚔️ Boss: <strong>Broly PL 3.75B</strong></span>
       </div>
     </div>
-    <div class="rebirth-flow">
-      <div class="rebirth-step"><span class="step-num">1</span><div class="step-title">Yamcha's Quest</div><div class="step-body">Talk to <strong>Yamcha</strong> and start his quest. Reach <strong>Level 500</strong> via Self Train verb.</div></div>
-      <div class="rebirth-step"><span class="step-num">2</span><div class="step-title">Train to ~2,000</div><div class="step-body">Continue to around <strong>Level 2,000</strong>. You're now a <strong>Permanent Combatant</strong> and have unlocked main techniques.</div></div>
-      <div class="rebirth-step"><span class="step-num">3</span><div class="step-title">Unlock Instant Transmission</div><div class="step-body">Ask <strong>Yamcha</strong> about learning to Teleport to unlock <strong>Instant Transmission</strong>.</div></div>
-      <div class="rebirth-step"><span class="step-num">4</span><div class="step-title">Explore &amp; Experiment</div><div class="step-body">Experiment with <strong>Mobs</strong>, <strong>Mob Towers</strong>, and <strong>Events</strong> to gain EXP and learn the map.</div></div>
-      <div class="rebirth-step"><span class="step-num">5</span><div class="step-title">Earn 7 Quest Medals</div><div class="step-body">Earn <strong>7 Quest Medals</strong> to reach the 50k level cap. Easiest: <strong>King Kai Kaioken, Bulma Spanner, Saiyaman Helmet, Master Roshi Kamehameha, Yamcha 1, Oolong 1, and Yamcha 4</strong>.</div></div>
-      <div class="rebirth-step"><span class="step-num">6</span><div class="step-title">Buy Gear</div><div class="step-body">Buy <strong>Ultra Weights</strong> and <strong>Basic Shards</strong> to multiply your gains significantly.</div></div>
-      <div class="rebirth-step"><span class="step-num">7</span><div class="step-title">Complete ZP Quests</div><div class="step-body">Complete <strong>ZP Quests</strong> before rebirthing. Check the <strong>Ranks &amp; Quest Medals</strong> tab for which quests reward ZP.</div></div>
-      <div class="rebirth-step rb-step-final"><span class="step-num">R</span><div class="step-title">Rebirth to 1/3</div><div class="step-body">At Level 50,000, follow the <strong>Rebirth Rules</strong> and speak to <strong>King Kai</strong> or <strong>Dr. Gero</strong>. In v8.70, expect a required Quest/Trial first. Congrats, you are now 1/3!</div></div>
+    <div class="rb-tracker-title">Progress <button onclick="resetTracker('r0')">Reset</button></div>
+    <div class="rb-tracker-progress"><div class="rb-tracker-progress-fill" id="prog-r0" style="width:0%"></div></div>
+    <div class="rebirth-flow" id="tracker-r0">
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">1</span><div class="step-title">Yamcha's Quest</div><div class="step-body">Talk to <strong>Yamcha</strong> and start his quest. Reach <strong>Level 500</strong> via Self Train verb.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">2</span><div class="step-title">Train to ~2,000</div><div class="step-body">Continue to around <strong>Level 2,000</strong>. You're now a <strong>Permanent Combatant</strong> and have unlocked main techniques.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">3</span><div class="step-title">Unlock Instant Transmission</div><div class="step-body">Ask <strong>Yamcha</strong> about learning to Teleport to unlock <strong>Instant Transmission</strong>.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">4</span><div class="step-title">Explore &amp; Experiment</div><div class="step-body">Experiment with <strong>Mobs</strong>, <strong>Mob Towers</strong>, and <strong>Events</strong> to gain EXP and learn the map.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">5</span><div class="step-title">Earn 7 Quest Medals</div><div class="step-body">Earn <strong>7 Quest Medals</strong> to reach the 50k level cap. Easiest: <strong>King Kai Kaioken, Bulma Spanner, Saiyaman Helmet, Master Roshi Kamehameha, Yamcha 1, Oolong 1, and Yamcha 4</strong>.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">6</span><div class="step-title">Buy Gear</div><div class="step-body">Buy <strong>Ultra Weights</strong> and <strong>Basic Shards</strong> to multiply your gains significantly.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">7</span><div class="step-title">Complete ZP Quests</div><div class="step-body">Complete <strong>ZP Quests</strong> before rebirthing. Check the <strong>Ranks &amp; Quest Medals</strong> tab for which quests reward ZP.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step rb-step-final" onclick="toggleTrack(this,'r0')"><span class="step-num">R</span><div class="step-title">Rebirth to 1/3</div><div class="step-body">At Level 50,000, follow the <strong>Rebirth Rules</strong> and speak to <strong>King Kai</strong> or <strong>Dr. Gero</strong>. In v8.70, expect a required Quest/Trial first. Congrats, you are now 1/3!</div><div class="rb-step-check"></div></div>
     </div>
     <button class="rb-next-btn" onclick="showRebirth('r1', document.querySelector('[data-rb=r1]'))">Next: 1/3 → 2/3 →</button>
   </div>
@@ -672,11 +719,13 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
         <span class="rb-meta-pill t-red">⚔️ Boss: <strong>Jiren PL 5.25B</strong></span>
       </div>
     </div>
-    <div class="rebirth-flow">
-      <div class="rebirth-step"><span class="step-num">1</span><div class="step-title">Repeat the 0/3 Loop</div><div class="step-body">Repeat everything from the previous rebirth. You have faster gains now, so finish <strong>more quest medals</strong> this time.</div></div>
-      <div class="rebirth-step"><span class="step-num">2</span><div class="step-title">Before Rebirthing: Whis Quests</div><div class="step-body">Complete <strong>Whis' Quest</strong> for new weights. For his <strong>2nd quest</strong>: talk to <strong>Zeno</strong>, use "show me your powers", and run through towers.</div></div>
-      <div class="rebirth-step"><span class="step-num">3</span><div class="step-title">Complete ZP Quests</div><div class="step-body">Complete all ZP quests before rebirthing. Bank Zenni, unequip gear, leave your guild.</div></div>
-      <div class="rebirth-step rb-step-final"><span class="step-num">R</span><div class="step-title">Rebirth to 2/3</div><div class="step-body">Speak to <strong>King Kai</strong> or <strong>Dr. Gero</strong> at Level 75,000. Complete the Quest/Trial first. Congrats, you are now 2/3!</div></div>
+    <div class="rb-tracker-title">Progress <button onclick="resetTracker('r1')">Reset</button></div>
+    <div class="rb-tracker-progress"><div class="rb-tracker-progress-fill" id="prog-r1" style="width:0%"></div></div>
+    <div class="rebirth-flow" id="tracker-r1">
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">1</span><div class="step-title">Repeat the 0/3 Loop</div><div class="step-body">Repeat everything from the previous rebirth. You have faster gains now, so finish <strong>more quest medals</strong> this time.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">2</span><div class="step-title">Before Rebirthing: Whis Quests</div><div class="step-body">Complete <strong>Whis' Quest</strong> for new weights. For his <strong>2nd quest</strong>: talk to <strong>Zeno</strong>, use "show me your powers", and run through towers.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">3</span><div class="step-title">Complete ZP Quests</div><div class="step-body">Complete all ZP quests before rebirthing. Bank Zenni, unequip gear, leave your guild.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step rb-step-final" onclick="toggleTrack(this,'r0')"><span class="step-num">R</span><div class="step-title">Rebirth to 2/3</div><div class="step-body">Speak to <strong>King Kai</strong> or <strong>Dr. Gero</strong> at Level 75,000. Complete the Quest/Trial first. Congrats, you are now 2/3!</div><div class="rb-step-check"></div></div>
     </div>
     <button class="rb-next-btn" onclick="showRebirth('r2', document.querySelector('[data-rb=r2]'))">Next: 2/3 → 3/3 →</button>
   </div>
@@ -693,11 +742,11 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
     </div>
     <div class="tip-box">💡 If you want to play as <strong>Vegito/Gogeta</strong> SR races for 4/3, you need to choose <strong>Saiyan</strong> when moving to 3/3.</div>
     <div style="margin-top:10px" class="rebirth-flow">
-      <div class="rebirth-step"><span class="step-num">1</span><div class="step-title">Same Loop, Higher Cap</div><div class="step-body">Same loop as above rebirths — only change is the level requirement is now 100k.</div></div>
-      <div class="rebirth-step"><span class="step-num">2</span><div class="step-title">Complete All Medals &amp; Explore</div><div class="step-body">Try completing <strong>every Quest Medal</strong> and explore all the maps. You can freely spend most currencies at Level 100k.</div></div>
-      <div class="rebirth-step"><span class="step-num">3</span><div class="step-title">Buy Large Shards</div><div class="step-body">Buy <strong>Large Shards</strong> from <strong>Z Agent</strong>. These are unbreakable and have a better multiplier than basic shards.</div></div>
-      <div class="rebirth-step"><span class="step-num">4</span><div class="step-title">Complete ZP Quests &amp; Prep</div><div class="step-body">Complete all ZP quests. Bank Zenni, unequip gear, leave your guild. <strong>Start researching SR Portals</strong> — you'll pick one at 4/3.</div></div>
-      <div class="rebirth-step rb-step-final"><span class="step-num">R</span><div class="step-title">Rebirth to 3/3</div><div class="step-body">Speak to <strong>King Kai</strong> or <strong>Dr. Gero</strong> at Level 100,000. Complete the Quest/Trial first. Congrats, you are now 3/3!</div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">1</span><div class="step-title">Same Loop, Higher Cap</div><div class="step-body">Same loop as above rebirths — only change is the level requirement is now 100k.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">2</span><div class="step-title">Complete All Medals &amp; Explore</div><div class="step-body">Try completing <strong>every Quest Medal</strong> and explore all the maps. You can freely spend most currencies at Level 100k.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">3</span><div class="step-title">Buy Large Shards</div><div class="step-body">Buy <strong>Large Shards</strong> from <strong>Z Agent</strong>. These are unbreakable and have a better multiplier than basic shards.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">4</span><div class="step-title">Complete ZP Quests &amp; Prep</div><div class="step-body">Complete all ZP quests. Bank Zenni, unequip gear, leave your guild. <strong>Start researching SR Portals</strong> — you'll pick one at 4/3.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step rb-step-final" onclick="toggleTrack(this,'r0')"><span class="step-num">R</span><div class="step-title">Rebirth to 3/3</div><div class="step-body">Speak to <strong>King Kai</strong> or <strong>Dr. Gero</strong> at Level 100,000. Complete the Quest/Trial first. Congrats, you are now 3/3!</div><div class="rb-step-check"></div></div>
     </div>
     <button class="rb-next-btn" onclick="showRebirth('r3', document.querySelector('[data-rb=r3]'))">Next: 3/3 → 4/3 →</button>
   </div>
@@ -715,13 +764,13 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
     </div>
     <div class="warn-box">⚠️ You need to have completed a <strong>Super Dragon Ball</strong> wish to rebirth. In the Skills tab, your counter must show <strong>1/1</strong>. <strong>DO NOT RESET IT. YOU WILL NOT BE EDITED.</strong></div>
     <div style="margin-top:10px" class="rebirth-flow">
-      <div class="rebirth-step"><span class="step-num">1</span><div class="step-title">Buy Level Caps (You Need 2)</div><div class="step-body">Purchase <strong>2 Level Cap increases</strong> from <strong>Z Agent</strong> (500 ZP each = 1,000 ZP total). This raises your cap to 150,000.</div></div>
-      <div class="rebirth-step"><span class="step-num">2</span><div class="step-title">Collect Super Dragon Balls</div><div class="step-body">Use your <strong>Level 4 Dragon Radar</strong> (or Ultimate Radar) in Space to find all 7 Super Dragon Balls. Make your one-time wish — <strong>ZP is the top recommendation</strong>. Your counter must show 1/1 before you can rebirth.</div></div>
-      <div class="rebirth-step"><span class="step-num">3</span><div class="step-title">Welcome to Boosting</div><div class="step-body">Wait to boost until you have <strong>150 Million in each of the 5 stats (base, no transformation)</strong>. <strong>Boosts are one-time per rebirth</strong> — stack Guru/Babidi, Z-Suits, and equipment first. See the <strong>Boosts</strong> tab for the full chart.</div></div>
-      <div class="rebirth-step"><span class="step-num">4</span><div class="step-title">Raise Your Stats</div><div class="step-body">Kill Mobs with <strong>Stat Candies</strong>, use <strong>Gym Equipment</strong>, spend <strong>Training Points</strong>. The <strong>Clubhouse</strong> has fast-spawning frogs for stat candy training.</div></div>
-      <div class="rebirth-step"><span class="step-num">5</span><div class="step-title">Choose Your SR Portal</div><div class="step-body">At 150M stats, use all boosts. Choose an <strong>SR Portal</strong> from the Mob Farming tab, defeat its boss, and rebirth as that race. <strong>Check the Race Tier List before choosing — this matters!</strong></div></div>
-      <div class="rebirth-step"><span class="step-num">6</span><div class="step-title">Pre-Rebirth Checklist</div><div class="step-body">Complete ZP quests · Bank Zenni · Unequip all gear into locker · Leave guild · Use all DB wishes.</div></div>
-      <div class="rebirth-step rb-step-final"><span class="step-num">R</span><div class="step-title">Rebirth to 4/3</div><div class="step-body">Defeat the SR Portal Mob Boss. Follow the <strong>Rebirth Rules</strong>, then speak to the NPC inside. Congrats, you are now 4/3 as a <strong>Super Race</strong>!</div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">1</span><div class="step-title">Buy Level Caps (You Need 2)</div><div class="step-body">Purchase <strong>2 Level Cap increases</strong> from <strong>Z Agent</strong> (500 ZP each = 1,000 ZP total). This raises your cap to 150,000.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">2</span><div class="step-title">Collect Super Dragon Balls</div><div class="step-body">Use your <strong>Level 4 Dragon Radar</strong> (or Ultimate Radar) in Space to find all 7 Super Dragon Balls. Make your one-time wish — <strong>ZP is the top recommendation</strong>. Your counter must show 1/1 before you can rebirth.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">3</span><div class="step-title">Welcome to Boosting</div><div class="step-body">Wait to boost until you have <strong>150 Million in each of the 5 stats (base, no transformation)</strong>. <strong>Boosts are one-time per rebirth</strong> — stack Guru/Babidi, Z-Suits, and equipment first. See the <strong>Boosts</strong> tab for the full chart.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">4</span><div class="step-title">Raise Your Stats</div><div class="step-body">Kill Mobs with <strong>Stat Candies</strong>, use <strong>Gym Equipment</strong>, spend <strong>Training Points</strong>. The <strong>Clubhouse</strong> has fast-spawning frogs for stat candy training.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">5</span><div class="step-title">Choose Your SR Portal</div><div class="step-body">At 150M stats, use all boosts. Choose an <strong>SR Portal</strong> from the Mob Farming tab, defeat its boss, and rebirth as that race. <strong>Check the Race Tier List before choosing — this matters!</strong></div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">6</span><div class="step-title">Pre-Rebirth Checklist</div><div class="step-body">Complete ZP quests · Bank Zenni · Unequip all gear into locker · Leave guild · Use all DB wishes.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step rb-step-final" onclick="toggleTrack(this,'r0')"><span class="step-num">R</span><div class="step-title">Rebirth to 4/3</div><div class="step-body">Defeat the SR Portal Mob Boss. Follow the <strong>Rebirth Rules</strong>, then speak to the NPC inside. Congrats, you are now 4/3 as a <strong>Super Race</strong>!</div><div class="rb-step-check"></div></div>
     </div>
     <button class="rb-next-btn" onclick="showRebirth('r4', document.querySelector('[data-rb=r4]'))">Next: 4/3 → 5/3 →</button>
   </div>
@@ -739,12 +788,12 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
     </div>
     <div class="tip-box">💡 <strong>TNL Cuts</strong> are now unlocked (3 max, 500 ZP each). You must complete <strong>ALL SR Portals</strong> to rebirth. Farm portals with <strong>Whis Weights on</strong> for extra stat gains while clearing them!</div>
     <div style="margin-top:10px" class="rebirth-flow">
-      <div class="rebirth-step"><span class="step-num">1</span><div class="step-title">Buy Level Caps (You Need 2)</div><div class="step-body">Purchase <strong>2 Level Cap increases</strong> from <strong>Z Agent</strong> (500 ZP each). Raises your cap toward 250,000.</div></div>
-      <div class="rebirth-step"><span class="step-num">2</span><div class="step-title">Raise Stats to 300M Base</div><div class="step-body">Same grind loop — Stat Candies, Gym Equipment, TPs. Wait until <strong>300 Million base</strong> per stat before boosting.</div></div>
-      <div class="rebirth-step"><span class="step-num">3</span><div class="step-title">Clear ALL SR Portals</div><div class="step-body">You must defeat <strong>every SR Portal boss</strong> to qualify for the 5/3 rebirth. Farm them with Whis Weights on for bonus stat gains. See the <strong>Mob Farming</strong> tab for all portal locations.</div></div>
-      <div class="rebirth-step"><span class="step-num">4</span><div class="step-title">Boost at 300M Stats</div><div class="step-body">Stack Guru/Babidi, Z-Suits, equipment and your SR transformation before training sessions. Boosts are one-time per rebirth.</div></div>
-      <div class="rebirth-step"><span class="step-num">5</span><div class="step-title">Pre-Rebirth Checklist</div><div class="step-body">Complete ZP quests · Bank Zenni · Unequip all gear into locker · Leave guild · Use all DB wishes.</div></div>
-      <div class="rebirth-step rb-step-final"><span class="step-num">R</span><div class="step-title">Rebirth to 5/3</div><div class="step-body">Complete <strong>Zeno's quest</strong> by defeating all SR portal bosses, then talk to <strong>Zeno</strong> at Level 250,000. Follow the <strong>Rebirth Rules</strong>. Congrats, you are now 5/3!</div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">1</span><div class="step-title">Buy Level Caps (You Need 2)</div><div class="step-body">Purchase <strong>2 Level Cap increases</strong> from <strong>Z Agent</strong> (500 ZP each). Raises your cap toward 250,000.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">2</span><div class="step-title">Raise Stats to 300M Base</div><div class="step-body">Same grind loop — Stat Candies, Gym Equipment, TPs. Wait until <strong>300 Million base</strong> per stat before boosting.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">3</span><div class="step-title">Clear ALL SR Portals</div><div class="step-body">You must defeat <strong>every SR Portal boss</strong> to qualify for the 5/3 rebirth. Farm them with Whis Weights on for bonus stat gains. See the <strong>Mob Farming</strong> tab for all portal locations.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">4</span><div class="step-title">Boost at 300M Stats</div><div class="step-body">Stack Guru/Babidi, Z-Suits, equipment and your SR transformation before training sessions. Boosts are one-time per rebirth.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">5</span><div class="step-title">Pre-Rebirth Checklist</div><div class="step-body">Complete ZP quests · Bank Zenni · Unequip all gear into locker · Leave guild · Use all DB wishes.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step rb-step-final" onclick="toggleTrack(this,'r0')"><span class="step-num">R</span><div class="step-title">Rebirth to 5/3</div><div class="step-body">Complete <strong>Zeno's quest</strong> by defeating all SR portal bosses, then talk to <strong>Zeno</strong> at Level 250,000. Follow the <strong>Rebirth Rules</strong>. Congrats, you are now 5/3!</div><div class="rb-step-check"></div></div>
     </div>
     <button class="rb-next-btn" onclick="showRebirth('r5', document.querySelector('[data-rb=r5]'))">Next: 5/3 → 6/3 →</button>
   </div>
@@ -763,13 +812,13 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
     <div class="tip-box">💡 Buy <strong>all Level Cap increases ASAP</strong>. <strong>Unlimited TNL Cuts</strong> are available at 5/3 (400 ZP each).</div>
     <div class="warn-box"><strong>v8.70 status:</strong> Beerus 6/3 rebirth remains locked. A date will be announced when the Beerus Quest becomes available.</div>
     <div style="margin-top:10px" class="rebirth-flow">
-      <div class="rebirth-step"><span class="step-num">1</span><div class="step-title">Buy All Level Caps Early</div><div class="step-body">Purchase all remaining <strong>Level Cap increases</strong> from Z Agent (5,000 ZP total at 5/3) as soon as possible to avoid being capped mid-grind.</div></div>
-      <div class="rebirth-step"><span class="step-num">2</span><div class="step-title">Wait to Boost</div><div class="step-body">Wait until you have around <strong>8 Billion base stats</strong> before boosting. Beerus' Trials are extremely hard and require substantial stats.</div></div>
-      <div class="rebirth-step"><span class="step-num">3</span><div class="step-title">Sell Levels for ZP</div><div class="step-body">Once at <strong>500k</strong>, start selling levels for ZP at the Exchanger NPC. Beerus only requires <strong>500k True Level</strong> to begin the trials — you can sell levels above that.</div></div>
-      <div class="rebirth-step"><span class="step-num">4</span><div class="step-title">Get Hakai</div><div class="step-body">Purchase <strong>Hakai</strong> from Z Agent if you haven't already. You will need it for the Beerus trials.</div></div>
-      <div class="rebirth-step"><span class="step-num">5</span><div class="step-title">Boost &amp; Prep for Trials</div><div class="step-body">At <strong>8B base stats</strong>, stack all boosts and prepare for Beerus' three trials: <strong>Instruction, Endurance</strong> (survive Sentinel waves), and <strong>Growth</strong>.</div></div>
-      <div class="rebirth-step"><span class="step-num">6</span><div class="step-title">Pre-Rebirth Checklist</div><div class="step-body">Complete ZP quests · Bank Zenni · Unequip all gear into locker · Leave guild · Use all DB wishes.</div></div>
-      <div class="rebirth-step rb-step-final"><span class="step-num">R</span><div class="step-title">Rebirth to 6/3</div><div class="step-body">Complete Beerus' 3 trials. Don't forget your <strong>Rebirth Rules</strong>! Grants a <strong>+30% EXP boost</strong> and a choice of path: TPs, Gym, or Mob Farming. Congrats, Champion!</div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">1</span><div class="step-title">Buy All Level Caps Early</div><div class="step-body">Purchase all remaining <strong>Level Cap increases</strong> from Z Agent (5,000 ZP total at 5/3) as soon as possible to avoid being capped mid-grind.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">2</span><div class="step-title">Wait to Boost</div><div class="step-body">Wait until you have around <strong>8 Billion base stats</strong> before boosting. Beerus' Trials are extremely hard and require substantial stats.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">3</span><div class="step-title">Sell Levels for ZP</div><div class="step-body">Once at <strong>500k</strong>, start selling levels for ZP at the Exchanger NPC. Beerus only requires <strong>500k True Level</strong> to begin the trials — you can sell levels above that.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">4</span><div class="step-title">Get Hakai</div><div class="step-body">Purchase <strong>Hakai</strong> from Z Agent if you haven't already. You will need it for the Beerus trials.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">5</span><div class="step-title">Boost &amp; Prep for Trials</div><div class="step-body">At <strong>8B base stats</strong>, stack all boosts and prepare for Beerus' three trials: <strong>Instruction, Endurance</strong> (survive Sentinel waves), and <strong>Growth</strong>.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">6</span><div class="step-title">Pre-Rebirth Checklist</div><div class="step-body">Complete ZP quests · Bank Zenni · Unequip all gear into locker · Leave guild · Use all DB wishes.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step rb-step-final" onclick="toggleTrack(this,'r0')"><span class="step-num">R</span><div class="step-title">Rebirth to 6/3</div><div class="step-body">Complete Beerus' 3 trials. Don't forget your <strong>Rebirth Rules</strong>! Grants a <strong>+30% EXP boost</strong> and a choice of path: TPs, Gym, or Mob Farming. Congrats, Champion!</div><div class="rb-step-check"></div></div>
     </div>
     <button class="rb-next-btn" onclick="showRebirth('r6', document.querySelector('[data-rb=r6]'))">Next: 6/3 Endgame →</button>
   </div>
@@ -784,7 +833,9 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
         <span class="rb-meta-pill">Path: TPs / Gym / Mob Farming</span>
       </div>
     </div>
-    <div class="rebirth-flow">
+    <div class="rb-tracker-title">Progress <button onclick="resetTracker('r2')">Reset</button></div>
+    <div class="rb-tracker-progress"><div class="rb-tracker-progress-fill" id="prog-r2" style="width:0%"></div></div>
+    <div class="rebirth-flow" id="tracker-r2">
       <div class="rebirth-step" style="border-left:2px solid var(--gold)"><span class="step-num" style="color:var(--gold)">💪</span><div class="step-title">Get As Strong As You Can</div><div class="step-body">You've reached the final rebirth. Focus on building stats, farming endgame content, and preparing for the <strong>End of Wipe tournament</strong>.</div></div>
     </div>
 
@@ -846,6 +897,7 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
   <script>
   (function(){
     const rebirthMap = {r0:0,r1:1,r2:2,r3:3,r4:4,r5:5,r6:6};
+
     window.showRebirth = function(id, btn) {
       document.querySelectorAll('.rb-panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.rb-btn').forEach(b => b.classList.remove('active'));
@@ -869,6 +921,27 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
         }
       }
     };
+
+    window.toggleTrack = function(el, rb) {
+      el.classList.toggle('done');
+      updateTrackerProgress(rb);
+    };
+
+    window.resetTracker = function(rb) {
+      document.querySelectorAll('#tracker-' + rb + ' .rebirth-step').forEach(function(el) {
+        el.classList.remove('done');
+      });
+      updateTrackerProgress(rb);
+    };
+
+    function updateTrackerProgress(rb) {
+      var items = document.querySelectorAll('#tracker-' + rb + ' .rebirth-step');
+      var done  = document.querySelectorAll('#tracker-' + rb + ' .rebirth-step.done');
+      var pct   = items.length ? Math.round((done.length / items.length) * 100) : 0;
+      var fill  = document.getElementById('prog-' + rb);
+      if (fill) fill.style.width = pct + '%';
+    }
+
   })();
   
 document.addEventListener('DOMContentLoaded', function(){
@@ -894,6 +967,7 @@ document.addEventListener('DOMContentLoaded', function(){
       [mystic,human,changeling,potara].forEach(x=>x.disabled=false);
       if(shin.checked) none.checked=true;
     }
+    updateExclusiveBoostItems();
     runBoostCalc();
   }
 
@@ -1833,9 +1907,9 @@ document.addEventListener('DOMContentLoaded', function(){
   <div class="card">
     <p>Guilds are player-run groups. They have their own <strong>Guild House</strong>, upgradeable facilities, a shared <strong>Guild Bank</strong>, and compete in <strong>Guild Events</strong> for Guild Points (GP).</p>
     <ul>
-      <li><strong>Create a Guild:</strong> Talk to the Guild Master NPC. Costs Zenni.</li>
-      <li><strong>Join a Guild:</strong> Get invited by a Guild Officer or Leader.</li>
-      <li><strong>Guild Rank Roles:</strong> Leader → Officer → Member</li>
+      <li><strong>Create a Guild:</strong> Use the Create Guild verb. Costs Zenni.</li>
+      <li><strong>Join a Guild:</strong> Get invited by a Guild Leader or Co-Leader</li>
+      <li><strong>Guild Rank Roles:</strong> Leader → Co-Leader → Member</li>
       <li><strong>Guild Bank:</strong> Shared Zenni pool. Officers and Leaders can deposit/withdraw.</li>
       <li><strong>Guild House:</strong> Private area for guild members with training facilities.</li>
     </ul>
@@ -1846,7 +1920,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <p>GP is the guild progression currency. Sources:</p>
     <ul>
       <li><strong>Guild Tournament</strong> — Primary GP source</li>
-      <li><strong>Mayhem</strong> — Participation rewards GP</li>
+      <li><strong>Mayhem</strong> — GP Flag offers some of the best GP income</li>
       <li><strong>Agent X</strong> — 100 UP → 25 GP</li>
     </ul>
     <p style="margin-top:6px">Spend GP on <strong>Guild Upgrades</strong> and <strong>Guild Evolution paths</strong>.</p>
@@ -1856,11 +1930,11 @@ document.addEventListener('DOMContentLoaded', function(){
   <div class="card">
     <p>Guilds can evolve along different paths, each providing unique bonuses to all members:</p>
     <ul>
-      <li><strong class="t-orange">Hustlers</strong> — +25% TP gain; +50% chance to get 2 Ultra Points from Oracle Fish</li>
-      <li><strong class="t-blue">Warriors</strong> — Combat-focused bonuses for PvP and events</li>
-      <li><strong class="t-green">Scholars</strong> — EXP and progression-focused bonuses</li>
+      <li><strong class="t-orange">Hustlers</strong> — Mob Farming w/ ZP Suits +50% | TP Gains when Spending +25% | Level Up Stat Gains +10% | Oracle Fish EXP chance 20%→50% | Stat Storage +10% per 100b</li>
+      <li><strong class="t-blue">Mobsters</strong> — Mob Farming EXP +30% | Player Kill EXP +50% | Stat Pills: Red/Blue x2.5 (was x2); Cavern x3.5 (was x3) | +50% Stat Pill Duration | +10% Bonus if Active Mob Kill Boost awarded</li>
+      <li><strong class="t-green">Gym Bunny</strong> — Candy farming +50% | Stat Training w/ Equipment: +30% active / +20% AFK | Club House duration +100% (60 min total) | 50% Zenni Discount on Stat Candies | 20% Zenni Discount on Legendary Gym Equipment</li>
     </ul>
-    <p style="margin-top:6px"><em>Guild evolution paths may have additional tiers and bonuses — check with your Guild Leader for the current path your guild is on.</em></p>
+    <p style="margin-top:6px"><em>Guild evolution paths may be reset and changed for 5k GP.</em></p>
   </div>
 </section>
 
@@ -2133,6 +2207,11 @@ document.addEventListener('DOMContentLoaded', function(){
       }
       .boost-check-item:hover { border-color: rgba(124,106,247,0.35); background: rgba(124,106,247,0.04); }
       .boost-check-item.checked { border-color: rgba(63,185,80,0.45); background: rgba(63,185,80,0.07); }
+      .boost-check-item.disabled {
+        opacity: 0.35;
+        pointer-events: none;
+        filter: grayscale(0.6);
+      }
       .boost-check-item input[type="checkbox"] {
         appearance: none;
         -webkit-appearance: none;
@@ -2278,10 +2357,16 @@ document.addEventListener('DOMContentLoaded', function(){
             <input type="text" class="calc-number-input" id="calc-base-def" placeholder="e.g. 8b" oninput="runBoostCalc()">
           </div>
           <div>
-            <label class="calc-label">Transformation Multiplier %
-              <span class="calc-label-sub">Exactly as shown in-game (e.g. 9000 = ×90)</span>
+            <label class="calc-label" id="trans-label">Transformation Multiplier %
+              <span class="calc-label-sub" id="trans-label-sub">Exactly as shown in-game (e.g. 9000 = ×90)</span>
             </label>
             <input type="text" class="calc-number-input" id="calc-trans-multi" placeholder="e.g. 9000" oninput="runBoostCalc()">
+          </div>
+          <div id="semi-perm-trans-wrap" style="display:none">
+            <label class="calc-label">Revertable Trans Multiplier %
+              <span class="calc-label-sub">On-top trans shown in-game (e.g. 9000 = ×90)</span>
+            </label>
+            <input type="text" class="calc-number-input" id="calc-trans-revert" placeholder="e.g. 9000" oninput="runBoostCalc()">
           </div>
         </div>
 
@@ -2290,8 +2375,9 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="calc-input-group">
 <div class="calc-section-title">Character Type</div>
 <div class="calc-type-pills">
-<label><input type="radio" name="raceType" id="racePerm" checked> Permanent Race</label>
-<label><input type="radio" name="raceType" id="raceNonPerm"> Non-Permanent Race</label>
+<label><input type="radio" name="raceType" id="racePerm" checked onchange="updateTransLabel()"> Permanent Race</label>
+<label><input type="radio" name="raceType" id="raceSemiPerm" onchange="updateTransLabel()"> Semi-Permanent Race</label>
+<label><input type="radio" name="raceType" id="raceNonPerm" onchange="updateTransLabel()"> Non-Permanent Race</label>
 </div>
 </div>
 
@@ -2415,39 +2501,51 @@ document.addEventListener('DOMContentLoaded', function(){
   <div class="boost-checklist" id="item-checklist">
 
     <label class="boost-check-item" onclick="toggleBoostItem(this)">
-      <input type="checkbox" data-item-stat="pl" data-item-add-pct="10" onchange="runBoostCalc()">
+      <input type="checkbox" data-exclusive-group="helmet" data-exclusive-group-secondary="potara" data-item-stat="pl" data-item-add-pct="15" onchange="runBoostCalc()">
       <div><div class="boost-check-name">Saiyaman Helmet</div><div class="boost-check-stat">PL +10%</div></div>
       <div class="boost-check-multi">+10%</div>
     </label>
 
     <label class="boost-check-item" onclick="toggleBoostItem(this)">
-      <input type="checkbox" data-item-stat="pl" data-item-add-pct="15" onchange="runBoostCalc()">
-      <div><div class="boost-check-name">Vegito Gi</div><div class="boost-check-stat">PL +15% · 400 ZP</div></div>
+      <input type="checkbox" data-exclusive-group="sword" data-exclusive-group-secondary="helmet" data-exclusive-group-tertiary="potara" data-item-stat="pl" data-item-add-pct="15" data-item-key="saiyamancombo" onchange="runBoostCalc()">
+      <div><div class="boost-check-name">Saiyaman Sword &amp; Helmet Combo</div><div class="boost-check-stat">PL +15%</div></div>
       <div class="boost-check-multi">+15%</div>
     </label>
 
     <label class="boost-check-item" onclick="toggleBoostItem(this)">
-      <input type="checkbox" data-item-stat="pl" data-item-add-pct="15" onchange="runBoostCalc()">
-      <div><div class="boost-check-name">Z-Sword</div><div class="boost-check-stat">PL +15% · Weapon</div></div>
+      <input type="checkbox" data-exclusive-group="sword" data-item-stat="pl" data-item-add-pct="15" onchange="runBoostCalc()">
+      <div><div class="boost-check-name">Z-Sword</div><div class="boost-check-stat">PL +15%</div></div>
       <div class="boost-check-multi">+15%</div>
     </label>
 
     <label class="boost-check-item" onclick="toggleBoostItem(this)">
-      <input type="checkbox" data-item-stat="ki" data-item-add-pct="15" onchange="runBoostCalc()">
-      <div><div class="boost-check-name">Potara Earrings</div><div class="boost-check-stat">KI +15% · 400 ZP</div></div>
+      <input type="checkbox" data-exclusive-group="potara" data-exclusive-group-secondary="helmet" data-item-stat="ki" data-item-add-pct="15" onchange="runBoostCalc()">
+      <div><div class="boost-check-name">Potara Earrings</div><div class="boost-check-stat">KI +15%</div></div>
       <div class="boost-check-multi">+15%</div>
     </label>
 
     <label class="boost-check-item" onclick="toggleBoostItem(this)">
-      <input type="checkbox" data-item-stat="ki" data-item-add-pct="25" onchange="runBoostCalc()">
-      <div><div class="boost-check-name">Hermit Shell</div><div class="boost-check-stat">KI +25% · 800 ZP</div></div>
+      <input type="checkbox" data-exclusive-group="gi" data-item-stat="ki" data-item-add-pct="25" onchange="runBoostCalc()">
+      <div><div class="boost-check-name">Hermit Shell</div><div class="boost-check-stat">KI +25%</div></div>
       <div class="boost-check-multi">+25%</div>
     </label>
 
     <label class="boost-check-item" onclick="toggleBoostItem(this)">
-      <input type="checkbox" data-item-stat="str" data-item-add-pct="25" onchange="runBoostCalc()">
+      <input type="checkbox" data-exclusive-group="sword" data-item-stat="str" data-item-add-pct="25" onchange="runBoostCalc()">
       <div><div class="boost-check-name">Sharp Dagger</div><div class="boost-check-stat">STR +25%</div></div>
       <div class="boost-check-multi">+25%</div>
+    </label>
+
+    <label class="boost-check-item" onclick="toggleBoostItem(this)">
+      <input type="checkbox" data-exclusive-group="sword" data-item-stat="ki" data-item-add-pct="15" data-item-key="sword" onchange="runBoostCalc()">
+      <div><div class="boost-check-name">Sword</div><div class="boost-check-stat">KI +15%</div></div>
+      <div class="boost-check-multi">+15%</div>
+    </label>
+
+    <label class="boost-check-item" onclick="toggleBoostItem(this)">
+      <input type="checkbox" data-exclusive-group="gi" data-item-stat="pl" data-item-add-pct="15" onchange="runBoostCalc()">
+      <div><div class="boost-check-name">Vegito Gi</div><div class="boost-check-stat">PL +15%</div></div>
+      <div class="boost-check-multi">+15%</div>
     </label>
 
 
@@ -2456,7 +2554,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
 <!-- OUTPUT -->
         <div class="calc-output-box" id="calc-output-box">
-          <div class="calc-output-label">Results After All Boosts &amp; Items</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:14px">
+            <div class="calc-output-label" style="margin-bottom:0">Results After All Boosts &amp; Items</div>
+            <div id="calc-combined-multi" style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;background:rgba(240,120,0,0.1);color:var(--accent);border:1px solid var(--accent-border);border-radius:4px;padding:4px 10px;display:none">Combined: ×—</div>
+          </div>
           <div id="calc-results-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-bottom:16px;text-align:left"></div>
           <div class="calc-breakdown" id="calc-breakdown"></div>
           <button class="calc-reset-btn" onclick="resetBoostCalc()">RESET</button>
@@ -2466,10 +2567,51 @@ document.addEventListener('DOMContentLoaded', function(){
     </div>
 
     <script>
+    function updateExclusiveBoostItems() {
+      var boxes = document.querySelectorAll('#item-checklist input[type="checkbox"]');
+
+      boxes.forEach(function(box) {
+        box.disabled = false;
+        var item = box.closest('.boost-check-item');
+        if(item) item.classList.remove('disabled');
+      });
+
+      boxes.forEach(function(box) {
+        if (!box.checked) return;
+
+        var groups = [
+          box.dataset.exclusiveGroup,
+          box.dataset.exclusiveGroupSecondary,
+          box.dataset.exclusiveGroupTertiary
+        ].filter(Boolean);
+
+        boxes.forEach(function(other) {
+          if (other === box || other.checked) return;
+
+          var otherGroups = [
+            other.dataset.exclusiveGroup,
+            other.dataset.exclusiveGroupSecondary,
+            other.dataset.exclusiveGroupTertiary
+          ];
+
+          var conflict = groups.some(function(g) {
+            return otherGroups.includes(g);
+          });
+
+          if (conflict) {
+            other.disabled = true;
+            var item = other.closest('.boost-check-item');
+            if(item) item.classList.add('disabled');
+          }
+        });
+      });
+    }
+
     function toggleBoostItem(el) {
       setTimeout(function() {
         var cb = el.querySelector('input[type="checkbox"]');
         el.classList.toggle('checked', cb.checked);
+        updateExclusiveBoostItems();
       }, 0);
     }
 
@@ -2505,7 +2647,14 @@ document.addEventListener('DOMContentLoaded', function(){
         def:   parseCalcNum(document.getElementById('calc-base-def').value)
       };
       var transRaw   = parseCalcNum(document.getElementById('calc-trans-multi').value);
-      var transMulti = transRaw > 0 ? transRaw / 100 : 0;
+      var isPerm     = document.getElementById('racePerm')?.checked;
+      var isSemiPerm = document.getElementById('raceSemiPerm')?.checked;
+      // Perm/Semi-perm: first value is direct multiplier (e.g. 38 = ×38)
+      // Non-perm: value is percentage as shown in-game (e.g. 9000 = ×90)
+      var transMulti = transRaw > 0 ? ((isPerm || isSemiPerm) ? transRaw : transRaw / 100) : 0;
+      // Semi-perm: second revertable trans on top (percentage format)
+      var revertRaw   = parseCalcNum(document.getElementById('calc-trans-revert')?.value || '');
+      var revertMulti = (isSemiPerm && revertRaw > 0) ? revertRaw / 100 : 0;
 
       var hasAny = Object.values(bases).some(v => v > 0);
       var grid = document.getElementById('calc-results-grid');
@@ -2519,10 +2668,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
       // --- Path multiplier (applies to ALL stats) ---
       var pathMulti = 1;
-      if (document.getElementById('pathMystic')?.checked)     pathMulti = 1.03;
-      else if (document.getElementById('pathShin')?.checked)  pathMulti = 1.5;
-      else if (document.getElementById('pathPotara')?.checked) pathMulti = document.getElementById('potaraGogeta')?.checked ? 1.9 : 1.5;
-      else if (document.getElementById('pathHuman')?.checked)  pathMulti = 1.8;
+      if (document.getElementById('pathMystic')?.checked)      pathMulti = 1.03;
+      else if (document.getElementById('pathShin')?.checked)   pathMulti = 1.5;
+      else if (document.getElementById('pathPotara')?.checked)  pathMulti = document.getElementById('potaraGogeta')?.checked ? 1.9 : 1.5;
+      else if (document.getElementById('pathHuman')?.checked)   pathMulti = 1.8;
       else if (document.getElementById('pathChangeling')?.checked) pathMulti = 1.8;
 
       // --- NPC boost multipliers per stat ---
@@ -2560,37 +2709,77 @@ document.addEventListener('DOMContentLoaded', function(){
         var base = bases[stat];
         if (base <= 0) return;
 
-        var afterBoosts = base * pathMulti * boostMulti[stat];
-        var itemMul     = 1 + (itemBonus[stat] / 100);
-        var afterItems  = afterBoosts * itemMul;
-        var final       = transMulti > 0 ? afterItems * transMulti : afterItems;
-
         var label = STAT_LABELS[stat];
         var col   = STAT_COLORS[stat];
+
+        var effectiveBase, afterBoosts, afterItems, final;
+
+        if (isPerm && transMulti > 0) {
+          // Perm: trans baked into base, then boosts on top
+          effectiveBase = base * transMulti;
+          afterBoosts   = effectiveBase * pathMulti * boostMulti[stat];
+          afterItems    = afterBoosts * (1 + itemBonus[stat] / 100);
+          final         = afterItems;
+        } else if (isSemiPerm) {
+          // Semi-perm: perm base baked in first, boosts on top, revertable trans at end
+          effectiveBase = transMulti > 0 ? base * transMulti : base;
+          afterBoosts   = effectiveBase * pathMulti * boostMulti[stat];
+          afterItems    = afterBoosts * (1 + itemBonus[stat] / 100);
+          final         = revertMulti > 0 ? afterItems * revertMulti : afterItems;
+        } else {
+          // Non-perm: boosts first, trans at the end
+          effectiveBase = base;
+          afterBoosts   = base * pathMulti * boostMulti[stat];
+          afterItems    = afterBoosts * (1 + itemBonus[stat] / 100);
+          final         = transMulti > 0 ? afterItems * transMulti : afterItems;
+        }
+
+        var transNote = '';
+        if (isPerm && transMulti > 0)        transNote = 'perm trans ×' + transMulti + ' baked in';
+        else if (isSemiPerm && transMulti > 0 && revertMulti > 0) transNote = 'perm ×' + transMulti + ' + trans ×' + revertMulti;
+        else if (isSemiPerm && transMulti > 0) transNote = 'perm ×' + transMulti + ' baked in';
+        else if (isSemiPerm && revertMulti > 0) transNote = 'trans ×' + revertMulti;
+        else if (!isPerm && !isSemiPerm && transMulti > 0) transNote = 'after trans: ×' + transMulti;
+        else transNote = 'no trans set';
 
         html += '<div style="background:var(--bg-primary);border:1px solid var(--border-frame);border-left:3px solid ' + col + ';border-radius:8px;padding:12px 14px;transition:box-shadow 0.2s">'
           + '<div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:' + col + ';margin-bottom:6px">' + label + '</div>'
           + '<div style="font-size:18px;font-weight:700;color:var(--text-primary);line-height:1.2">' + formatBigNumber(Math.floor(final)) + '</div>'
-          + (transMulti > 0
-              ? '<div style="font-size:11px;color:var(--text-dim);margin-top:4px">after trans: ×' + transMulti + '</div>'
-              : '<div style="font-size:11px;color:var(--text-dim);margin-top:4px">no trans set</div>')
+          + '<div style="font-size:11px;color:var(--text-dim);margin-top:4px">' + transNote + '</div>'
           + '</div>';
+
+        // Breakdown
+        var bdSteps = '<span>Base:</span> ' + formatBigNumber(base);
+        if ((isPerm || isSemiPerm) && transMulti > 0)
+          bdSteps += ' → <span>Perm Trans (×' + transMulti + '):</span> ' + formatBigNumber(Math.floor(effectiveBase));
+        bdSteps += ' → <span>×Boosts (path ×' + pathMulti + ' · NPC ×' + boostMulti[stat].toFixed(3).replace(/\.?0+$/,'') + '):</span> ' + formatBigNumber(Math.floor(afterBoosts));
+        if (itemBonus[stat] > 0)
+          bdSteps += ' → <span>Items (+' + itemBonus[stat] + '%):</span> ' + formatBigNumber(Math.floor(afterItems));
+        if (isSemiPerm && revertMulti > 0)
+          bdSteps += ' → <span>Revertable Trans (×' + revertMulti + '):</span> ' + formatBigNumber(Math.floor(final));
+        else if (!isPerm && !isSemiPerm && transMulti > 0)
+          bdSteps += ' → <span>Trans (×' + transMulti + '):</span> ' + formatBigNumber(Math.floor(final));
 
         bdRows += '<div style="margin-bottom:8px">'
           + '<span style="color:' + col + ';font-weight:700">' + label + '</span><br>'
-          + '<span>Base:</span> ' + formatBigNumber(base) + ' '
-          + '→ <span>×Boosts (×' + boostMulti[stat].toFixed(3).replace(/\.?0+$/,'') + ' path ×' + pathMulti + '):</span> ' + formatBigNumber(Math.floor(afterBoosts))
-          + (itemBonus[stat] > 0 ? ' → <span>Items (+' + itemBonus[stat] + '%):</span> ' + formatBigNumber(Math.floor(afterItems)) : '')
-          + (transMulti > 0 ? ' → <span>Trans:</span> ' + formatBigNumber(Math.floor(final)) : '')
+          + bdSteps
           + '</div>';
       });
 
       grid.innerHTML = html || '<span style="color:var(--text-dim)">Enter at least one base stat above.</span>';
       breakdownEl.innerHTML = '<div style="margin-bottom:6px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim)">Breakdown</div>' + bdRows;
+
+      // Combined multiplier badge — use PL as reference (most common)
+      var combinedEl = document.getElementById('calc-combined-multi');
+      if (combinedEl) {
+        var refMulti = pathMulti * boostMulti['pl'];
+        combinedEl.style.display = 'block';
+        combinedEl.textContent = 'Combined NPC+Path: ×' + refMulti.toFixed(refMulti % 1 === 0 ? 0 : 3).replace(/\.?0+$/, '');
+      }
     }
 
     function resetBoostCalc() {
-      ['calc-base-pl','calc-base-ki','calc-base-kidef','calc-base-str','calc-base-def','calc-trans-multi'].forEach(function(id) {
+      ['calc-base-pl','calc-base-ki','calc-base-kidef','calc-base-str','calc-base-def','calc-trans-multi','calc-trans-revert'].forEach(function(id) {
         var el = document.getElementById(id);
         if (el) el.value = '';
       });
@@ -2608,6 +2797,8 @@ document.addEventListener('DOMContentLoaded', function(){
       if (babidiPrideRow) babidiPrideRow.style.display = 'none';
       document.getElementById('calc-results-grid').innerHTML = '';
       document.getElementById('calc-breakdown').innerHTML = '';
+      var combinedEl = document.getElementById('calc-combined-multi');
+      if (combinedEl) combinedEl.style.display = 'none';
     }
     function onBabidiChange(cb) {
       var prideRow = document.getElementById('babidi-pride-row');
@@ -2637,6 +2828,52 @@ document.addEventListener('DOMContentLoaded', function(){
       }
       runBoostCalc();
     }
+
+    function filterMedals(query) {
+      var rows = document.querySelectorAll('#medals-tbody tr');
+      var q = query.toLowerCase().trim();
+      var visible = 0;
+      rows.forEach(function(row) {
+        var text = row.textContent.toLowerCase();
+        var match = !q || text.indexOf(q) !== -1;
+        row.style.display = match ? '' : 'none';
+        if (match) visible++;
+      });
+      var noResults = document.getElementById('medal-no-results');
+      if (noResults) noResults.style.display = (q && visible === 0) ? 'block' : 'none';
+    }
+
+    function updateTransLabel() {
+      var isPerm     = document.getElementById('racePerm')?.checked;
+      var isSemiPerm = document.getElementById('raceSemiPerm')?.checked;
+      var label  = document.getElementById('trans-label');
+      var sub    = document.getElementById('trans-label-sub');
+      var input  = document.getElementById('calc-trans-multi');
+      var semiWrap = document.getElementById('semi-perm-trans-wrap');
+      if (!label) return;
+      if (isPerm) {
+        label.childNodes[0].textContent = 'Permanent Trans Multiplier ';
+        if (sub) sub.textContent = 'Enter your trans multi directly (e.g. 38 = ×38)';
+        if (input) input.placeholder = 'e.g. 38';
+        if (semiWrap) semiWrap.style.display = 'none';
+      } else if (isSemiPerm) {
+        label.childNodes[0].textContent = 'Permanent Base Multiplier ';
+        if (sub) sub.textContent = 'Enter your perm trans multi directly (e.g. 38 = ×38)';
+        if (input) input.placeholder = 'e.g. 38';
+        if (semiWrap) semiWrap.style.display = 'block';
+      } else {
+        label.childNodes[0].textContent = 'Transformation Multiplier % ';
+        if (sub) sub.textContent = 'Exactly as shown in-game (e.g. 9000 = ×90)';
+        if (input) input.placeholder = 'e.g. 9000';
+        if (semiWrap) semiWrap.style.display = 'none';
+      }
+      runBoostCalc();
+    }
+
+    document.querySelectorAll('input[name="raceType"]').forEach(function(r) {
+      r.addEventListener('change', updateTransLabel);
+    });
+    updateTransLabel();
 
     </script>
 
@@ -2674,24 +2911,29 @@ document.addEventListener('DOMContentLoaded', function(){
   </div>
 
   <div class="section-header">🏅 All Quest Medals</div>
-  <div class="tip-box">💡 Some Quest Medals reward <strong>ZP</strong> — complete those first before rebirths! Medal counts reset per rebirth but you keep any ZP/items earned.</div>
+  <div class="tip-box">💡 Some Quest Medals reward <strong>ZP</strong> — complete those first before rebirths! Medal counts reset per rebirth but you keep any ZP/items earned. <span style="color:var(--accent);font-weight:600">Orange rows = ZP reward.</span></div>
+  <div class="medal-search-wrap">
+    <input type="text" class="medal-search" id="medal-search" placeholder="Search medals, objectives, rewards..." oninput="filterMedals(this.value)">
+    <span class="medal-search-icon">🔍</span>
+  </div>
+  <div class="medal-no-results" id="medal-no-results">No medals match your search.</div>
   <div class="table-wrap">
     <table>
       <thead><tr><th>Medal</th><th>Type</th><th>Objective</th><th>Reward</th></tr></thead>
-      <tbody>
+      <tbody id="medals-tbody">
         <tr><td class="t-bold">Android 8 (1) <span class="tag tag-perm">v8.70</span></td><td class="t-dim">Tower</td><td>Defeat Commander Red in Red Ribbon Muscle Tower</td><td>EXP +500,000,000 · Zenni +10,000,000</td></tr>
         <tr><td class="t-bold">Android 8 (2) <span class="tag tag-perm">v8.70</span></td><td class="t-dim">Tower</td><td>Defeat Buyon</td><td>EXP +300,000,000 · Zenni +5,000,000</td></tr>
         <tr><td class="t-bold">Android 8 (3) <span class="tag tag-perm">v8.70</span></td><td class="t-dim">Fetch</td><td>Collect Metal Fragments</td><td>EXP +100,000,000 · Zenni +1,000,000</td></tr>
-        <tr><td class="t-bold">Astro</td><td class="t-dim">Tower</td><td>Mob Tower Competition — get Spacepod back from Bergamo</td><td>EXP +1,000,000,000 · ZP +50 · TP +500,000</td></tr>
+        <tr class="zp-row"><td class="t-bold">Astro</td><td class="t-dim">Tower</td><td>Mob Tower Competition — get Spacepod back from Bergamo</td><td>EXP +1,000,000,000 · ZP +50 · TP +500,000</td></tr>
         <tr><td class="t-bold">Babidi</td><td class="t-dim">Kill</td><td>Kill 50 Oolongs/Puars in the portal above Babidi</td><td>EXP +50,000,000 · Zenni +20,000,000 · TP +75,000</td></tr>
         <tr><td class="t-bold">Beerus</td><td class="t-dim">Cave</td><td>Kill 50 Universe 6 members in cave</td><td>EXP +1,000,000,000 · Zenni +25,000,000</td></tr>
-        <tr><td class="t-bold">Briefs</td><td class="t-dim">Kill</td><td>Kill 50 Simulation Clones in Capsule Corp</td><td>EXP +1,000,000,000 · Zenni +10,000,000 · ZP +25</td></tr>
+        <tr class="zp-row"><td class="t-bold">Briefs</td><td class="t-dim">Kill</td><td>Kill 50 Simulation Clones in Capsule Corp</td><td>EXP +1,000,000,000 · Zenni +10,000,000 · ZP +25</td></tr>
         <tr><td class="t-bold">Bulma</td><td class="t-dim">Fetch</td><td>Deliver Broken Parts to Dr. Briefs</td><td class="t-green">Capsule (Inventory +25)</td></tr>
         <tr><td class="t-bold">Cell</td><td class="t-dim">Kill</td><td>Kill Saga Trunks</td><td>EXP +15,000,000 · Zenni +500,000</td></tr>
         <tr><td class="t-bold">Champa</td><td class="t-dim">Cave</td><td>Kill 50 Universe 7 members in cave</td><td>EXP +1,000,000,000 · Zenni +25,000,000</td></tr>
-        <tr><td class="t-bold">Chronoa <span class="tag tag-perm">v8.70</span></td><td class="t-dim">Tower</td><td>Chronoa Tower Quest</td><td class="t-orange">Zenni +500,000,000 · ZP +500</td></tr>
+        <tr class="zp-row"><td class="t-bold">Chronoa <span class="tag tag-perm">v8.70</span></td><td class="t-dim">Tower</td><td>Chronoa Tower Quest</td><td class="t-orange">Zenni +500,000,000 · ZP +500</td></tr>
         <tr><td class="t-bold">Enraged Trunks (1)</td><td class="t-dim">Kill</td><td>Kill 30 Androids 16 and 17 on Future Earth</td><td>EXP +150,000,000</td></tr>
-        <tr><td class="t-bold">Enraged Trunks (2)</td><td class="t-dim">Guild</td><td>Kill 500 Androids</td><td class="t-orange">Zenni +45,000,000 · ZP +100 · EXP +1,000,000,000</td></tr>
+        <tr class="zp-row"><td class="t-bold">Enraged Trunks (2)</td><td class="t-dim">Guild</td><td>Kill 500 Androids</td><td class="t-orange">Zenni +45,000,000 · ZP +100 · EXP +1,000,000,000</td></tr>
         <tr><td class="t-bold">Frieza</td><td class="t-dim">Kill</td><td>Kill 3 Namekian Villagers</td><td class="t-green">Frieza Boost (×1.2 All Stats)</td></tr>
         <tr><td class="t-bold">Gero Metal</td><td class="t-dim">Kill</td><td>Kill Saga Super 17</td><td class="t-dim">—</td></tr>
         <tr><td class="t-bold">Glass Civilian (1)</td><td class="t-dim">Kill</td><td>Defeat Vidro in the cave above</td><td>EXP +500,000,000 · Zenni +25,000,000</td></tr>
@@ -2699,7 +2941,7 @@ document.addEventListener('DOMContentLoaded', function(){
         <tr><td class="t-bold">Glass Civilian (3)</td><td class="t-dim">Kill</td><td>Kill 15 Namekians in Black</td><td>EXP +1,000,000,000 · Zenni +15,000,000</td></tr>
         <tr><td class="t-bold">Gogeta</td><td class="t-dim">Kill</td><td>Kill Broly and Shenron</td><td class="t-green">STR +500,000 · DEF +500,000 · FCC Access</td></tr>
         <tr><td class="t-bold">Gohan</td><td class="t-dim">Kill</td><td>Kill 50 Bebi Vegeta Soldiers</td><td>EXP +500,000,000 · Zenni +25,000,000</td></tr>
-        <tr><td class="t-bold">Goku</td><td class="t-dim">Guild</td><td>Kill 2000 Labyrinth Mobs as a Guild</td><td class="t-orange">EXP +250,000,000 · Zenni +20,000,000 · ZP +200</td></tr>
+        <tr class="zp-row"><td class="t-bold">Goku</td><td class="t-dim">Guild</td><td>Kill 2000 Labyrinth Mobs as a Guild</td><td class="t-orange">EXP +250,000,000 · Zenni +20,000,000 · ZP +200</td></tr>
         <tr><td class="t-bold">Gotenks</td><td class="t-dim">Tower</td><td>Kill all mobs in the tower</td><td>EXP +500,000,000 · Zenni +25,000,000</td></tr>
         <tr><td class="t-bold">Guru</td><td class="t-dim">Kill</td><td>Kill 3 Henchmen (25% good karma)</td><td class="t-green">Guru Boost (×1.2 All Stats)</td></tr>
         <tr><td class="t-bold">Hell Fruit</td><td class="t-dim">Train</td><td>Talk to Dabura and reach 50% Evil Karma</td><td class="t-green">Hell Fruit</td></tr>
@@ -2708,17 +2950,17 @@ document.addEventListener('DOMContentLoaded', function(){
         <tr><td class="t-bold">King Vegeta (2) <span class="tag tag-perm">v8.70</span></td><td class="t-dim">Tower</td><td>King Vegeta Tower Quest</td><td>EXP +500,000,000 · Zenni +30,000,000</td></tr>
         <tr><td class="t-bold">Korin</td><td class="t-dim">Kill</td><td>Kill 10 Saibamen</td><td class="t-green">5 Senzu Beans</td></tr>
         <tr><td class="t-bold">Master Roshi (1)</td><td class="t-dim">Fetch</td><td>Find and grab Roshi Rock</td><td class="t-orange">Kamehameha</td></tr>
-        <tr><td class="t-bold">Master Roshi (2)</td><td class="t-dim">Train</td><td>Reach 100% Focus Meditation</td><td class="t-orange">EXP +5,000,000,000 · Zenni +50,000,000 · ZP +500 · TP +250,000 · Club Ticket</td></tr>
+        <tr class="zp-row"><td class="t-bold">Master Roshi (2)</td><td class="t-dim">Train</td><td>Reach 100% Focus Meditation</td><td class="t-orange">EXP +5,000,000,000 · Zenni +50,000,000 · ZP +500 · TP +250,000 · Club Ticket</td></tr>
         <tr><td class="t-bold">Master Roshi (3) <span class="tag tag-perm">v8.70</span></td><td class="t-dim">Train</td><td>Ki Beam Mastery Quest</td><td class="t-orange">Beam Mastery Unlock</td></tr>
         <tr><td class="t-bold">Master Roshi (4)</td><td class="t-dim">Train</td><td>Collect 20 Crocodile Meat and return to Roshi</td><td>EXP +100,000,000 · Zenni +250,000</td></tr>
         <tr><td class="t-bold">Master Roshi (5)</td><td class="t-dim">Kill</td><td>Kill 50 Masked Bandits on Training Island</td><td>EXP +250,000,000 · Zenni +2,500,000</td></tr>
         <tr><td class="t-bold">Oolong (1)</td><td class="t-dim">Forest</td><td>Kill 25 Saibamen</td><td>EXP +15,000,000 · Zenni +500,000</td></tr>
         <tr><td class="t-bold">Oolong (2)</td><td class="t-dim">Tower</td><td>Kill all mobs in tower</td><td>EXP +50,000,000 · Zenni +10,000,000</td></tr>
-        <tr><td class="t-bold">Piccolo (1)</td><td class="t-dim">Guild</td><td>Kill Behemoth (located on Namek)</td><td class="t-orange">EXP +1,000,000,000 · Zenni +500,000,000 · ZP +100 · TP +100,000</td></tr>
+        <tr class="zp-row"><td class="t-bold">Piccolo (1)</td><td class="t-dim">Guild</td><td>Kill Behemoth (located on Namek)</td><td class="t-orange">EXP +1,000,000,000 · Zenni +500,000,000 · ZP +100 · TP +100,000</td></tr>
         <tr><td class="t-bold">Piccolo (2)</td><td class="t-dim">Tower</td><td>Kill all Tower Mobs</td><td>EXP +100,000,000 · Zenni +20,000,000</td></tr>
         <tr><td class="t-bold">Saiyaman</td><td class="t-dim">Fetch</td><td>Catch Son Goten and get back Gohan's Helmet</td><td class="t-green">Saiyaman Helmet (+10% PL)</td></tr>
         <tr><td class="t-bold">Sensei</td><td class="t-dim">Kill</td><td>Kill 100 Tuffle or Oozaru in total</td><td>EXP +200,000,000 · Zenni +20,000,000 · TP +150,000</td></tr>
-        <tr><td class="t-bold">Skinny Buu</td><td class="t-dim">Maze</td><td>Clear the maze and kill Skinny Buu</td><td class="t-orange">ZP +100</td></tr>
+        <tr class="zp-row"><td class="t-bold">Skinny Buu</td><td class="t-dim">Maze</td><td>Clear the maze and kill Skinny Buu</td><td class="t-orange">ZP +100</td></tr>
         <tr><td class="t-bold">Supreme Kai</td><td class="t-dim">Kill</td><td>Kill Saga Shenron</td><td class="t-green">Potara Earrings (+15% Ki)</td></tr>
         <tr><td class="t-bold">Tapion</td><td class="t-dim">Cave</td><td>Kill 100 mobs in caves above Tapion</td><td>EXP +250,000,000 · Zenni +20,000,000</td></tr>
         <tr><td class="t-bold">Trunks (1)</td><td class="t-dim">Kill</td><td>Kill Cell (below Trunks)</td><td class="t-green">Sharp Dagger (+25% STR)</td></tr>
@@ -3033,6 +3275,19 @@ document.addEventListener('DOMContentLoaded', function() {
     el.addEventListener('change', updateGogetaRow);
   });
   updateGogetaRow();
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const combined = document.getElementById('combinedBoost');
+  if (combined) {
+    const pill = combined.closest('.boost-pill');
+    if (pill) {
+      pill.style.display = 'none';
+    }
+  }
 });
 </script>
 

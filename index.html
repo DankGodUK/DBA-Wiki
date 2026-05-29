@@ -2552,8 +2552,8 @@ document.addEventListener('DOMContentLoaded', function(){
     </label>
 
     <label class="boost-check-item" onclick="toggleBoostItem(this)">
-      <input type="checkbox" data-exclusive-group="sword" data-exclusive-group-secondary="helmet" data-exclusive-group-tertiary="potara" data-item-stat="pl" data-item-add-pct="15" data-item-key="saiyamancombo" onchange="runBoostCalc()">
-      <div><div class="boost-check-name">Saiyaman Sword &amp; Helmet Combo</div><div class="boost-check-stat">PL +15%</div></div>
+      <input type="checkbox" data-exclusive-group="sword" data-exclusive-group-secondary="helmet" data-exclusive-group-tertiary="potara" data-item-stat="pl" data-item-add-pct="15" data-item-stat-b="all" data-item-add-pct-b="5" data-item-key="saiyamancombo" onchange="runBoostCalc()">
+      <div><div class="boost-check-name">Saiyaman Sword &amp; Helmet Combo</div><div class="boost-check-stat">PL +15% · All Stats +5%</div></div>
       <div class="boost-check-multi">+15%</div>
     </label>
 
@@ -2745,9 +2745,16 @@ document.addEventListener('DOMContentLoaded', function(){
       // --- Item bonuses per stat (additive % on top of boosted value) ---
       var itemBonus = { pl: 0, ki: 0, kidef: 0, str: 0, def: 0 };
       document.querySelectorAll('#item-checklist input[type="checkbox"]:checked').forEach(function(cb) {
-        var stat = cb.dataset.itemStat;
-        var pct  = parseFloat(cb.dataset.itemAddPct || 0);
-        if (itemBonus[stat] !== undefined) itemBonus[stat] += pct;
+        function applyBonus(stat, pct) {
+          if (!pct) return;
+          if (stat === 'all') {
+            Object.keys(itemBonus).forEach(function(k) { itemBonus[k] += pct; });
+          } else if (itemBonus[stat] !== undefined) {
+            itemBonus[stat] += pct;
+          }
+        }
+        applyBonus(cb.dataset.itemStat,  parseFloat(cb.dataset.itemAddPct  || 0));
+        applyBonus(cb.dataset.itemStatB, parseFloat(cb.dataset.itemAddPctB || 0));
       });
 
       // --- Compute per stat ---

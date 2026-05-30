@@ -741,10 +741,10 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
     <div class="rb-tracker-title">Progress <button onclick="resetTracker('r1')">Reset</button></div>
     <div class="rb-tracker-progress"><div class="rb-tracker-progress-fill" id="prog-r1" style="width:0%"></div></div>
     <div class="rebirth-flow" id="tracker-r1">
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">1</span><div class="step-title">Repeat the 0/3 Loop</div><div class="step-body">Repeat everything from the previous rebirth. You have faster gains now, so finish <strong>more quest medals</strong> this time.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">2</span><div class="step-title">Before Rebirthing: Whis Quests</div><div class="step-body">Complete <strong>Whis' Quest</strong> for new weights. For his <strong>2nd quest</strong>: talk to <strong>Zeno</strong>, use "show me your powers", and run through towers.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">3</span><div class="step-title">Complete ZP Quests</div><div class="step-body">Complete all ZP quests before rebirthing. Bank Zenni, unequip gear, leave your guild.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step rb-step-final" onclick="toggleTrack(this,'r0')"><span class="step-num">R</span><div class="step-title">Rebirth to 2/3</div><div class="step-body">Speak to <strong>King Kai</strong> or <strong>Dr. Gero</strong> at Level 75,000. Complete the Quest/Trial first. Congrats, you are now 2/3!</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r1')"><span class="step-num">1</span><div class="step-title">Repeat the 0/3 Loop</div><div class="step-body">Repeat everything from the previous rebirth. You have faster gains now, so finish <strong>more quest medals</strong> this time.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r1')"><span class="step-num">2</span><div class="step-title">Before Rebirthing: Whis Quests</div><div class="step-body">Complete <strong>Whis' Quest</strong> for new weights. For his <strong>2nd quest</strong>: talk to <strong>Zeno</strong>, use "show me your powers", and run through towers.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r1')"><span class="step-num">3</span><div class="step-title">Complete ZP Quests</div><div class="step-body">Complete all ZP quests before rebirthing. Bank Zenni, unequip gear, leave your guild.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step rb-step-final" onclick="toggleTrack(this,'r1')"><span class="step-num">R</span><div class="step-title">Rebirth to 2/3</div><div class="step-body">Speak to <strong>King Kai</strong> or <strong>Dr. Gero</strong> at Level 75,000. Complete the Quest/Trial first. Congrats, you are now 2/3!</div><div class="rb-step-check"></div></div>
     </div>
     <button class="rb-next-btn" onclick="showRebirth('r2', document.querySelector('[data-rb=r2]'))">Next: 2/3 → 3/3 →</button>
   </div>
@@ -760,12 +760,14 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
       </div>
     </div>
     <div class="tip-box">💡 If you want to play as <strong>Vegito/Gogeta</strong> SR races for 4/3, you need to choose <strong>Saiyan</strong> when moving to 3/3.</div>
-    <div style="margin-top:10px" class="rebirth-flow">
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">1</span><div class="step-title">Same Loop, Higher Cap</div><div class="step-body">Same loop as above rebirths — only change is the level requirement is now 100k.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">2</span><div class="step-title">Complete All Medals &amp; Explore</div><div class="step-body">Try completing <strong>every Quest Medal</strong> and explore all the maps. You can freely spend most currencies at Level 100k.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">3</span><div class="step-title">Buy Large Shards</div><div class="step-body">Buy <strong>Large Shards</strong> from <strong>Z Agent</strong>. These are unbreakable and have a better multiplier than basic shards.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">4</span><div class="step-title">Complete ZP Quests &amp; Prep</div><div class="step-body">Complete all ZP quests. Bank Zenni, unequip gear, leave your guild. <strong>Start researching SR Portals</strong> — you'll pick one at 4/3.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step rb-step-final" onclick="toggleTrack(this,'r0')"><span class="step-num">R</span><div class="step-title">Rebirth to 3/3</div><div class="step-body">Speak to <strong>King Kai</strong> or <strong>Dr. Gero</strong> at Level 100,000. Complete the Quest/Trial first. Congrats, you are now 3/3!</div><div class="rb-step-check"></div></div>
+    <div class="rb-tracker-title">Progress <button onclick="resetTracker('r2')">Reset</button></div>
+    <div class="rb-tracker-progress"><div class="rb-tracker-progress-fill" id="prog-r2" style="width:0%"></div></div>
+    <div style="margin-top:10px" class="rebirth-flow" id="tracker-r2">
+      <div class="rebirth-step" onclick="toggleTrack(this,'r2')"><span class="step-num">1</span><div class="step-title">Same Loop, Higher Cap</div><div class="step-body">Same loop as above rebirths — only change is the level requirement is now 100k.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r2')"><span class="step-num">2</span><div class="step-title">Complete All Medals &amp; Explore</div><div class="step-body">Try completing <strong>every Quest Medal</strong> and explore all the maps. You can freely spend most currencies at Level 100k.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r2')"><span class="step-num">3</span><div class="step-title">Buy Large Shards</div><div class="step-body">Buy <strong>Large Shards</strong> from <strong>Z Agent</strong>. These are unbreakable and have a better multiplier than basic shards.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r2')"><span class="step-num">4</span><div class="step-title">Complete ZP Quests &amp; Prep</div><div class="step-body">Complete all ZP quests. Bank Zenni, unequip gear, leave your guild. <strong>Start researching SR Portals</strong> — you'll pick one at 4/3.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step rb-step-final" onclick="toggleTrack(this,'r2')"><span class="step-num">R</span><div class="step-title">Rebirth to 3/3</div><div class="step-body">Speak to <strong>King Kai</strong> or <strong>Dr. Gero</strong> at Level 100,000. Complete the Quest/Trial first. Congrats, you are now 3/3!</div><div class="rb-step-check"></div></div>
     </div>
     <button class="rb-next-btn" onclick="showRebirth('r3', document.querySelector('[data-rb=r3]'))">Next: 3/3 → 4/3 →</button>
   </div>
@@ -781,15 +783,17 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
         <span class="rb-meta-pill t-orange">💎 ZP Needed: <strong>1,000 ZP (2 caps)</strong></span>
       </div>
     </div>
+    <div class="rb-tracker-title">Progress <button onclick="resetTracker('r3')">Reset</button></div>
+    <div class="rb-tracker-progress"><div class="rb-tracker-progress-fill" id="prog-r3" style="width:0%"></div></div>
     <div class="warn-box">⚠️ You need to have completed a <strong>Super Dragon Ball</strong> wish to rebirth. In the Skills tab, your counter must show <strong>1/1</strong>. <strong>DO NOT RESET IT. YOU WILL NOT BE EDITED.</strong></div>
-    <div style="margin-top:10px" class="rebirth-flow">
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">1</span><div class="step-title">Buy Level Caps (You Need 2)</div><div class="step-body">Purchase <strong>2 Level Cap increases</strong> from <strong>Z Agent</strong> (500 ZP each = 1,000 ZP total). This raises your cap to 150,000.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">2</span><div class="step-title">Collect Super Dragon Balls</div><div class="step-body">Use your <strong>Level 4 Dragon Radar</strong> (or Ultimate Radar) in Space to find all 7 Super Dragon Balls. Make your one-time wish — <strong>ZP is the top recommendation</strong>. Your counter must show 1/1 before you can rebirth.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">3</span><div class="step-title">Welcome to Boosting</div><div class="step-body">Wait to boost until you have <strong>150 Million in each of the 5 stats (base, no transformation)</strong>. <strong>Boosts are one-time per rebirth</strong> — stack Guru/Babidi, Z-Suits, and equipment first. See the <strong>Boosts</strong> tab for the full chart.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">4</span><div class="step-title">Raise Your Stats</div><div class="step-body">Kill Mobs with <strong>Stat Candies</strong>, use <strong>Gym Equipment</strong>, spend <strong>Training Points</strong>. The <strong>Clubhouse</strong> has fast-spawning frogs for stat candy training.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">5</span><div class="step-title">Choose Your SR Portal</div><div class="step-body">At 150M stats, use all boosts. Choose an <strong>SR Portal</strong> from the Mob Farming tab, defeat its boss, and rebirth as that race. <strong>Check the Race Tier List before choosing — this matters!</strong></div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">6</span><div class="step-title">Pre-Rebirth Checklist</div><div class="step-body">Complete ZP quests · Bank Zenni · Unequip all gear into locker · Leave guild · Use all DB wishes.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step rb-step-final" onclick="toggleTrack(this,'r0')"><span class="step-num">R</span><div class="step-title">Rebirth to 4/3</div><div class="step-body">Defeat the SR Portal Mob Boss. Follow the <strong>Rebirth Rules</strong>, then speak to the NPC inside. Congrats, you are now 4/3 as a <strong>Super Race</strong>!</div><div class="rb-step-check"></div></div>
+    <div style="margin-top:10px" class="rebirth-flow" id="tracker-r3">
+      <div class="rebirth-step" onclick="toggleTrack(this,'r3')"><span class="step-num">1</span><div class="step-title">Buy Level Caps (You Need 2)</div><div class="step-body">Purchase <strong>2 Level Cap increases</strong> from <strong>Z Agent</strong> (500 ZP each = 1,000 ZP total). This raises your cap to 150,000.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r3')"><span class="step-num">2</span><div class="step-title">Collect Super Dragon Balls</div><div class="step-body">Use your <strong>Level 4 Dragon Radar</strong> (or Ultimate Radar) in Space to find all 7 Super Dragon Balls. Make your one-time wish — <strong>ZP is the top recommendation</strong>. Your counter must show 1/1 before you can rebirth.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r3')"><span class="step-num">3</span><div class="step-title">Welcome to Boosting</div><div class="step-body">Wait to boost until you have <strong>150 Million in each of the 5 stats (base, no transformation)</strong>. <strong>Boosts are one-time per rebirth</strong> — stack Guru/Babidi, Z-Suits, and equipment first. See the <strong>Boosts</strong> tab for the full chart.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r3')"><span class="step-num">4</span><div class="step-title">Raise Your Stats</div><div class="step-body">Kill Mobs with <strong>Stat Candies</strong>, use <strong>Gym Equipment</strong>, spend <strong>Training Points</strong>. The <strong>Clubhouse</strong> has fast-spawning frogs for stat candy training.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r3')"><span class="step-num">5</span><div class="step-title">Choose Your SR Portal</div><div class="step-body">At 150M stats, use all boosts. Choose an <strong>SR Portal</strong> from the Mob Farming tab, defeat its boss, and rebirth as that race. <strong>Check the Race Tier List before choosing — this matters!</strong></div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r3')"><span class="step-num">6</span><div class="step-title">Pre-Rebirth Checklist</div><div class="step-body">Complete ZP quests · Bank Zenni · Unequip all gear into locker · Leave guild · Use all DB wishes.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step rb-step-final" onclick="toggleTrack(this,'r3')"><span class="step-num">R</span><div class="step-title">Rebirth to 4/3</div><div class="step-body">Defeat the SR Portal Mob Boss. Follow the <strong>Rebirth Rules</strong>, then speak to the NPC inside. Congrats, you are now 4/3 as a <strong>Super Race</strong>!</div><div class="rb-step-check"></div></div>
     </div>
     <button class="rb-next-btn" onclick="showRebirth('r4', document.querySelector('[data-rb=r4]'))">Next: 4/3 → 5/3 →</button>
   </div>
@@ -806,15 +810,17 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
       </div>
     </div>
     <div class="tip-box">💡 <strong>TNL Cuts</strong> are now unlocked (3 max, 500 ZP each). You must complete <strong>ALL SR Portals</strong> to rebirth. Farm portals with <strong>Whis Weights on</strong> for extra stat gains while clearing them!</div>
-    <div style="margin-top:10px" class="rebirth-flow">
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">1</span><div class="step-title">Buy Level Caps (You Need 2)</div><div class="step-body">Purchase <strong>2 Level Cap increases</strong> from <strong>Z Agent</strong> (500 ZP each). Raises your cap toward 250,000.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">2</span><div class="step-title">Raise Stats to 300M Base</div><div class="step-body">Same grind loop — Stat Candies, Gym Equipment, TPs. Wait until <strong>300 Million base</strong> per stat before boosting.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">3</span><div class="step-title">Clear ALL SR Portals</div><div class="step-body">You must defeat <strong>every SR Portal boss</strong> to qualify for the 5/3 rebirth. Farm them with Whis Weights on for bonus stat gains. See the <strong>Mob Farming</strong> tab for all portal locations.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">4</span><div class="step-title">Boost at 300M Stats</div><div class="step-body">Stack Guru/Babidi, Z-Suits, equipment and your SR transformation before training sessions. Boosts are one-time per rebirth.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">5</span><div class="step-title">Pre-Rebirth Checklist</div><div class="step-body">Complete ZP quests · Bank Zenni · Unequip all gear into locker · Leave guild · Use all DB wishes.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step rb-step-final" onclick="toggleTrack(this,'r0')"><span class="step-num">R</span><div class="step-title">Rebirth to 5/3</div><div class="step-body">Complete <strong>Zeno's quest</strong> by defeating all SR portal bosses, then talk to <strong>Zeno</strong> at Level 250,000. Follow the <strong>Rebirth Rules</strong>. Congrats, you are now 5/3!</div><div class="rb-step-check"></div></div>
+    <div class="rb-tracker-title">Progress <button onclick="resetTracker('r4')">Reset</button></div>
+    <div class="rb-tracker-progress"><div class="rb-tracker-progress-fill" id="prog-r4" style="width:0%"></div></div>
+    <div style="margin-top:10px" class="rebirth-flow" id="tracker-r4">
+      <div class="rebirth-step" onclick="toggleTrack(this,'r4')"><span class="step-num">1</span><div class="step-title">Buy Level Caps (You Need 2)</div><div class="step-body">Purchase <strong>2 Level Cap increases</strong> from <strong>Z Agent</strong> (500 ZP each). Raises your cap toward 250,000.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r4')"><span class="step-num">2</span><div class="step-title">Raise Stats to 300M Base</div><div class="step-body">Same grind loop — Stat Candies, Gym Equipment, TPs. Wait until <strong>300 Million base</strong> per stat before boosting.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r4')"><span class="step-num">3</span><div class="step-title">Clear ALL SR Portals</div><div class="step-body">You must defeat <strong>every SR Portal boss</strong> to qualify for the 5/3 rebirth. Farm them with Whis Weights on for bonus stat gains. See the <strong>Mob Farming</strong> tab for all portal locations.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r4')"><span class="step-num">4</span><div class="step-title">Boost at 300M Stats</div><div class="step-body">Stack Guru/Babidi, Z-Suits, equipment and your SR transformation before training sessions. Boosts are one-time per rebirth.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r4')"><span class="step-num">5</span><div class="step-title">Pre-Rebirth Checklist</div><div class="step-body">Complete ZP quests · Bank Zenni · Unequip all gear into locker · Leave guild · Use all DB wishes.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step rb-step-final" onclick="toggleTrack(this,'r4')"><span class="step-num">R</span><div class="step-title">Rebirth to 5/3</div><div class="step-body">Complete <strong>Zeno's quest</strong> by defeating all SR portal bosses, then talk to <strong>Zeno</strong> at Level 250,000. Follow the <strong>Rebirth Rules</strong>. Congrats, you are now 5/3!</div><div class="rb-step-check"></div></div>
     </div>
-    <button class="rb-next-btn" onclick="showRebirth('r5', document.querySelector('[data-rb=r5]'))">Next: 5/3 → 6/3 →</button>
+    <button class="rb-next-btn" onclick="showRebirth('r5', document.querySelector('[data-rb=r5]'))">Next: 5/3</button>
   </div>
 
   <!-- ===== 5/3 ===== -->
@@ -830,14 +836,16 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
     </div>
     <div class="tip-box">💡 Buy <strong>all Level Cap increases ASAP</strong>. <strong>Unlimited TNL Cuts</strong> are available at 5/3 (400 ZP each).</div>
     <div id="beerus-status-banner"></div>
-    <div style="margin-top:10px" class="rebirth-flow">
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">1</span><div class="step-title">Buy All Level Caps Early</div><div class="step-body">Purchase all remaining <strong>Level Cap increases</strong> from Z Agent (5,000 ZP total at 5/3) as soon as possible to avoid being capped mid-grind.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">2</span><div class="step-title">Wait to Boost</div><div class="step-body">Wait until you have around <strong>8 Billion base stats</strong> before boosting. Beerus' Trials are extremely hard and require substantial stats.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">3</span><div class="step-title">Sell Levels for ZP</div><div class="step-body">Once at <strong>500k</strong>, start selling levels for ZP at the Exchanger NPC. Beerus only requires <strong>500k True Level</strong> to begin the trials — you can sell levels above that.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">4</span><div class="step-title">Get Hakai</div><div class="step-body">Purchase <strong>Hakai</strong> from Z Agent if you haven't already. You will need it for the Beerus trials.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">5</span><div class="step-title">Boost &amp; Prep for Trials</div><div class="step-body">At <strong>8B base stats</strong>, stack all boosts and prepare for Beerus' three trials: <strong>Instruction, Endurance</strong> (survive Sentinel waves), and <strong>Growth</strong>.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step" onclick="toggleTrack(this,'r0')"><span class="step-num">6</span><div class="step-title">Pre-Rebirth Checklist</div><div class="step-body">Complete ZP quests · Bank Zenni · Unequip all gear into locker · Leave guild · Use all DB wishes.</div><div class="rb-step-check"></div></div>
-      <div class="rebirth-step rb-step-final" onclick="toggleTrack(this,'r0')"><span class="step-num">R</span><div class="step-title">Rebirth to 6/3</div><div class="step-body">Complete Beerus' 3 trials. Don't forget your <strong>Rebirth Rules</strong>! Grants a <strong>+30% EXP boost</strong> and a choice of path: TPs, Gym, or Mob Farming. Congrats, Champion!</div><div class="rb-step-check"></div></div>
+    <div class="rb-tracker-title">Progress <button onclick="resetTracker('r5')">Reset</button></div>
+    <div class="rb-tracker-progress"><div class="rb-tracker-progress-fill" id="prog-r5" style="width:0%"></div></div>
+    <div style="margin-top:10px" class="rebirth-flow" id="tracker-r5">
+      <div class="rebirth-step" onclick="toggleTrack(this,'r5')"><span class="step-num">1</span><div class="step-title">Buy All Level Caps Early</div><div class="step-body">Purchase all remaining <strong>Level Cap increases</strong> from Z Agent (5,000 ZP total at 5/3) as soon as possible to avoid being capped mid-grind.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r5')"><span class="step-num">2</span><div class="step-title">Wait to Boost</div><div class="step-body">Wait until you have around <strong>8 Billion base stats</strong> before boosting. Beerus' Trials are extremely hard and require substantial stats.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r5')"><span class="step-num">3</span><div class="step-title">Sell Levels for ZP</div><div class="step-body">Once at <strong>500k</strong>, start selling levels for ZP at the Exchanger NPC. Beerus only requires <strong>500k True Level</strong> to begin the trials — you can sell levels above that.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r5')"><span class="step-num">4</span><div class="step-title">Get Hakai</div><div class="step-body">Purchase <strong>Hakai</strong> from Z Agent if you haven't already. You will need it for the Beerus trials.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r5')"><span class="step-num">5</span><div class="step-title">Boost &amp; Prep for Trials</div><div class="step-body">At <strong>8B base stats</strong>, stack all boosts and prepare for Beerus' three trials: <strong>Instruction, Endurance</strong> (survive Sentinel waves), and <strong>Growth</strong>.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step" onclick="toggleTrack(this,'r5')"><span class="step-num">6</span><div class="step-title">Pre-Rebirth Checklist</div><div class="step-body">Complete ZP quests · Bank Zenni · Unequip all gear into locker · Leave guild · Use all DB wishes.</div><div class="rb-step-check"></div></div>
+      <div class="rebirth-step rb-step-final" onclick="toggleTrack(this,'r5')"><span class="step-num">R</span><div class="step-title">Rebirth to 6/3</div><div class="step-body">Complete Beerus' 3 trials. Don't forget your <strong>Rebirth Rules</strong>! Grants a <strong>+30% EXP boost</strong> and a choice of path: TPs, Gym, or Mob Farming. Congrats, Champion!</div><div class="rb-step-check"></div></div>
     </div>
     <button class="rb-next-btn" onclick="showRebirth('r6', document.querySelector('[data-rb=r6]'))">Next: 6/3 Endgame →</button>
   </div>
@@ -852,10 +860,10 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
         <span class="rb-meta-pill">Path: TPs / Gym / Mob Farming</span>
       </div>
     </div>
-    <div class="rb-tracker-title">Progress <button onclick="resetTracker('r2')">Reset</button></div>
-    <div class="rb-tracker-progress"><div class="rb-tracker-progress-fill" id="prog-r2" style="width:0%"></div></div>
-    <div class="rebirth-flow" id="tracker-r2">
-      <div class="rebirth-step" style="border-left:2px solid var(--gold)"><span class="step-num" style="color:var(--gold)">💪</span><div class="step-title">Get As Strong As You Can</div><div class="step-body">You've reached the final rebirth. Focus on building stats, farming endgame content, and preparing for the <strong>End of Wipe tournament</strong>.</div></div>
+    <div class="rb-tracker-title">Progress <button onclick="resetTracker('r6')">Reset</button></div>
+    <div class="rb-tracker-progress"><div class="rb-tracker-progress-fill" id="prog-r6" style="width:0%"></div></div>
+    <div class="rebirth-flow" id="tracker-r6">
+      <div class="rebirth-step" onclick="toggleTrack(this,'r6')" style="border-left:2px solid var(--gold)"><span class="step-num" style="color:var(--gold)">💪</span><div class="step-title">Get As Strong As You Can</div><div class="step-body">You've reached the final rebirth. Focus on building stats, farming endgame content, and preparing for the <strong>End of Wipe tournament</strong>.</div><div class="rb-step-check"></div></div>
     </div>
 
     <div class="section-header" style="margin-top:20px">6/3 Beerus Paths</div>
@@ -3425,10 +3433,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var r6btn = document.querySelector('[data-rb="r6"]');
     if (r6btn) r6btn.style.display = unlocked ? '' : 'none';
 
-    // Show/hide "Next: 6/3 Endgame →" button (in 5/3 panel)
-    document.querySelectorAll('.rb-next-btn').forEach(function(btn) {
-      if (btn.textContent.includes('6/3')) btn.style.display = unlocked ? '' : 'none';
-    });
+    // Show/hide "Next: 6/3 Endgame →" button (only inside 5/3 panel)
+    var r5next = document.querySelector('#rb-r5 .rb-next-btn');
+    if (r5next) r5next.style.display = unlocked ? '' : 'none';
 
     // If 6/3 is locked and currently active, switch back to 5/3
     var r6panel = document.getElementById('rb-r6');

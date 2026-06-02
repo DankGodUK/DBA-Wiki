@@ -1,5 +1,11 @@
 [
   {
+    "id": "1511447471149027348",
+    "author": "tof__",
+    "date": "2026-06-02T19:12:38.458000+00:00",
+    "content": "```\n#Version 8.70.11 (Bug Fix Patch)\n- Melee Damage in Skill Based events has been lowered from 10mil per hit to 1mil per hit due to the recent combat changes. (New Auto Targets, Beam Changes etc. as well as the additional tech face lifts coming)\n- Ki Fist and Galactic Tyrant will now do 5 mil and 10 mil in Skill Based events respectively.\n\n#Bug-Fixes:\n- Using Race Change tokens with Ultra Forms unlocked would cause unexpected issues, fixed. (Brog)\n- Training Dummies when stopped via Clicking on the dummy would cause player to freeze fixed. (Bond)\n- Enraged Masked Bandits inside the tower will now count towards Master Roshi's Bandit Quest. (Brog)\n- Bang Attack techniques were not showing damage output correctly, fixed. (Jv)\n- Ki Fist and Galactic Fist were not behaving as expected in skill based events, fixed. (Brog)\n- Focus Training Med to 100% would not stop the FT correctly and cause the player to get stuck, fixed. (Cypher)\n- Large TP shard unable to be withdrawn in lockers, fixed. (Ace)\n- Wiki link updated on the website. (Ace)\n- Players can no longer open multiple casino slot machine dialogue windows or move more than 1 tile away whilst automating. (Zac)\n- Wormhole would reset Guild Tournament vars when used in the event, fixed. (Adri)\n- Trial GM unauthorised eavesdrop issue fixed. (Toopher)\n\n#Admin:\n- New Check_Race_Type() verb added for Lv2+\n\nNotes: As always, if your name is listed in the Bug fixes, DM via discord to claim 100 ZP per bug report fixed. Thank you once again for all your support.\n```"
+  },
+  {
     "id": "1508937720637030632",
     "author": "tof__",
     "date": "2026-05-26T20:59:47.307000+00:00",

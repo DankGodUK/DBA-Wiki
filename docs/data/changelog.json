@@ -1,5 +1,17 @@
 [
   {
+    "id": "1511843133183365220",
+    "author": "tof__",
+    "date": "2026-06-03T21:24:51.638000+00:00",
+    "content": "```\n#General:\n- Skill based event melee damage increased to 5 mil (Ki Fist mod is now x2 and Galactic Tyrant is now x3)\n- Skill based event ki damage has been nerfed.\n- Login forced overlay reset code removed as overlays are now fixed.\n- Unarmed and Ki Skill will carry over during 5/3 and 6/3 rebirths only.\n- Newbie in-game guide has been updated in various places.\n\n#Bug-Fixes:\n- Candy Ray Beam formula was not updated to use the new beam code causing unexpected behaviour in events, fixed. (Vacnt)\n- Candy object layering issue fixed when dropped on the ground.\n- Energy Barrier/Full Instinct protection checks added to new beam code which was left out.\n- Combat flagging added to the new beam code which was left out.\n- Race Change Tokens were not transitioning the Ultra Form correctly to the new target race, fixed. (Brog)\n- PVP Hit was able to acquire Ultra Form via RC Tokens, fixed. (Brog)\n- Pure Progress cooldown added to prevent macro spam bugs. (Brog)\n- Pure Progress was not decreasing over time after last update, fixed. (Brog)\n- Invisible icon bugs when using Ultra Forms fixed. (Brog)\n- Some reverting icon issues when using Sub icon fixed.\n- Slot Machine Automation now has a 10 second cooldown to prevent spamming. (Adri)\n- Extra boost checks added to potara fusion and stat storage functions to prevent any boosted stats getting through these services.\n\n#Admin:\n- Skill Tree Boost info added to VPS()\n- Chronoa Medal Boost info added to VPS()\n```"
+  },
+  {
+    "id": "1511843121745498172",
+    "author": "tof__",
+    "date": "2026-06-03T21:24:48.911000+00:00",
+    "content": "```\n#Version 8.71\n#Sixth Rebirth Changes:\n- 5/3 Transitional Value Carry Over changes:\n - 6/3 Beerus Ascension Quest sentinel mob stats and difficulty has been reduced significantly to 50T-80T. (i.e This quest can now be completed with around 40B base stats & using ALL NPC boosts (no skill tree needed, using skill trees on top of NPC boosts will grant extra ease).\n - 5/3 pre-boosted stats will now be automatically stored with 6/3 multi applied to the earned stats.\n - The game will now automatically record a player's stats just before they use ANY boost and these values will be stored with the 6/3 multi at the Beerus Rebirth stage.\n - 5/3 Truelevel acquired will be rewarded; every 1 mil TL will earn 1000 ZP carry over\n\n- 6/3 Path changes:\n - MOB Path: No change as currently balanced.\n - GYM Path: Gains per tick on equipments have been nerfed slightly as it was a bit too rewarding for an \"AFK\" path.\n - TPs Path: Exchanger NPC Level to TPs options has been nerfed with a Level Req added (200k, similar to Level to Zenni) as this was causing unbalance last wipe where players were able to combine farming low tnl and no level req and exchanging levels whilst at 35k and maxing out tps).\n```"
+  },
+  {
     "id": "1511447471149027348",
     "author": "tof__",
     "date": "2026-06-02T19:12:38.458000+00:00",

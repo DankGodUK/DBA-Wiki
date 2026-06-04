@@ -1,5 +1,17 @@
 [
   {
+    "id": "1512235971037495549",
+    "author": "tof__",
+    "date": "2026-06-04T23:25:51.481000+00:00",
+    "content": "```\n#Sixth Rebirth Information:\n- Base Stats will be snapshotted and saved before using your first boost or your first perm trans. These are the stats that will be stored via Beerus Rebirth.\n- Beerus Rebirth will automatically store your stats for you and apply a 6/3 multi to those stats as well as apply any perks such as Guild Evo Hustler perk if applicable.\n- Current Truelevel will convert to 1k ZP for every 1 mil of TL. This will be rounded i.e 2.9mil true level will give you 3k ZP.\n- Note, it is advised to NOT use Toronbo boost if you want to maximise your ZP reward as Toronbo cuts TL.\n- Clarification on Beerus Sentinel mobs - these mobs are 10x weaker in stats, i.e difficulty in attaining 6/3 has been drastically reduced.\n```"
+  },
+  {
+    "id": "1512235851227336735",
+    "author": "tof__",
+    "date": "2026-06-04T23:25:22.916000+00:00",
+    "content": "```\n#Version 8.71.1 (Mini Patch)\n#General:\n- Beerus will now apply Hustler's 10% bonus to stats stored.\n- Power Up Ki can now be used in RBA matches\n\n#Bug-Fixes:\n- Chronoa Medal Boost was being blocked by Gero Metal Medal quest which is Android only - removed medal. (Zac)\n- Power Up Ki in skill based events would allow players to surpass the set stats for that event, increasing the damage of their attacks, fixed. (Dillweed)\n- Power Up was able to be used in GoD arena matches, fixed,\n\nNOTE: This update will be deployed on Friday afternoon before the Beerus 6/3 quest opens.\n```"
+  },
+  {
     "id": "1511843133183365220",
     "author": "tof__",
     "date": "2026-06-03T21:24:51.638000+00:00",

@@ -1,5 +1,11 @@
 [
   {
+    "id": "1512892082157650122",
+    "author": "tof__",
+    "date": "2026-06-06T18:53:00.562000+00:00",
+    "content": "```\n#Version 8.71.2\n- GYM Path has been further nerfed after some more tuning with the numbers. Please see assumptions post in Announcements for more info.\n- TPS Path has been slightly nerfed from 7,500 TPs cap to 6,000 TPs cap. Please see assumptions post in Announcements for more info.\n- Beerus Sixth Sentinel Quest Mobs stats are 25T-30T. This quest requires the players to boost/trans to complete. Recommended base stats to boost at are 15-20bil.\n- Sixth Rebirth PATH will now show in the Skills tab.\n- Minor text fixes for Beerus NPC.\n```"
+  },
+  {
     "id": "1512235971037495549",
     "author": "tof__",
     "date": "2026-06-04T23:25:51.481000+00:00",

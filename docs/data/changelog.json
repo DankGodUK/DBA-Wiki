@@ -1,5 +1,11 @@
 [
   {
+    "id": "1513277256338768024",
+    "author": "tof__",
+    "date": "2026-06-07T20:23:33.243000+00:00",
+    "content": "```\n#Version 8.71.3\n- Beerus 6/3 Sentinel and Fury Sentinel mob stats have been reduced from 25T-30T down to 3T-3.75T.\n- This means a player now only requires around 3.8 bil base stats before boosting and perm transing (if perm) to defeat these mobs without using Toronbo boost. \n- If Toronbo 2x boost is used then it will vastly cut down the amount of base stats needed, but at the cost of getting less ZP rewards via the 6/3 rebirth. (6/3 rebirth pays out 1k ZP for every 1mil of TL, and Toronbo cuts TL in half for the boost)\n\n#Bug-Fixes:\n- Houses now automatically transfer between 5/3 and 6/3 rebirth.\n- Stat Storage NPC would not reset stored stats vars to 0 after the one-time use WITHDRAW facility was used. This did not cause any issues however, as a QoL update it prevents confusion as scanning a player who had used withdraw, the values would NOT show 0 stats stored. Now they will show as \"Withdrawn\"\n- Fusion Dance/Potara Dance window bug fixed.\n- Unarmed/Ki Skill Damage Multi text was not updating in Skills tab after 6/3 rebirth, fixed. (Logging in will fix you)\n```"
+  },
+  {
     "id": "1512892082157650122",
     "author": "tof__",
     "date": "2026-06-06T18:53:00.562000+00:00",

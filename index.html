@@ -920,6 +920,9 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
   </style>
 
   <script>
+// ===== ADMIN SETTINGS =====
+var BEERUS_63_UNLOCKED = true;
+
   (function(){
     const rebirthMap = {r0:0,r1:1,r2:2,r3:3,r4:4,r5:5,r6:6};
 
@@ -3432,7 +3435,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Save state
-    localStorage.setItem('beerus63unlocked', unlocked ? '1' : '0');
+    // Global site setting only. Edit BEERUS_63_UNLOCKED at the top of this script.
   }
 
   function updateMaintenanceMode() {
@@ -3444,9 +3447,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Restore state on load
   (function() {
-    var saved  = localStorage.getItem('beerus63unlocked');
     var toggle = document.getElementById('beerus-toggle');
-    if (saved === '1' && toggle) toggle.checked = true;
+    if (toggle) toggle.checked = BEERUS_63_UNLOCKED;
     updateBeerusStatus();
 
     var mSaved  = localStorage.getItem('maintenance_mode');

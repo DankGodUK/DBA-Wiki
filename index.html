@@ -3147,28 +3147,90 @@ function closeSidebar() {
   if (ov) ov.classList.remove('active');
 }
 
+let navSearchIndex = null;
+
+function buildNavSearchIndex() {
+  navSearchIndex = new Map();
+
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    const onclick = btn.getAttribute('onclick') || '';
+    const match = onclick.match(/showTab\('([^']+)'/);
+
+    let pageText = '';
+
+    if (match) {
+      const panelId = 'panel-' + match[1];
+      const panel = document.getElementById(panelId);
+
+      if (panel) {
+        pageText = panel.textContent || '';
+      }
+    }
+
+    navSearchIndex.set(
+      btn,
+      (
+        (btn.dataset.label || '') +
+        ' ' +
+        btn.textContent +
+        ' ' +
+        pageText
+      ).toLowerCase()
+    );
+  });
+}
+
 function filterNav(query) {
-  const q = query.toLowerCase().trim();
+  if (!navSearchIndex) {
+    buildNavSearchIndex();
+  }
+
+  const terms = query
+    .toLowerCase()
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean);
+
   const btns = document.querySelectorAll('.tab-btn');
   const sections = document.querySelectorAll('.sb-section');
-  if (!q) {
+
+  if (!terms.length) {
     btns.forEach(b => b.classList.remove('sb-hidden'));
     sections.forEach(s => s.classList.remove('sb-hidden'));
     return;
   }
+
   const sectionHasVisible = {};
-  sections.forEach(s => { sectionHasVisible[s.dataset.group] = false; });
-  btns.forEach(b => {
-    const label = (b.dataset.label || b.textContent).toLowerCase();
-    const match = label.includes(q);
-    b.classList.toggle('sb-hidden', !match);
-    // figure out which section this btn belongs to
-    let prev = b.previousElementSibling;
-    while (prev && !prev.classList.contains('sb-section')) prev = prev.previousElementSibling;
-    if (prev && match) sectionHasVisible[prev.dataset.group] = true;
-  });
+
   sections.forEach(s => {
-    s.classList.toggle('sb-hidden', !sectionHasVisible[s.dataset.group]);
+    sectionHasVisible[s.dataset.group] = false;
+  });
+
+  btns.forEach(btn => {
+    const searchText = navSearchIndex.get(btn) || '';
+
+    const matches = terms.every(term =>
+      searchText.includes(term)
+    );
+
+    btn.classList.toggle('sb-hidden', !matches);
+
+    let prev = btn.previousElementSibling;
+
+    while (prev && !prev.classList.contains('sb-section')) {
+      prev = prev.previousElementSibling;
+    }
+
+    if (prev && matches) {
+      sectionHasVisible[prev.dataset.group] = true;
+    }
+  });
+
+  sections.forEach(section => {
+    section.classList.toggle(
+      'sb-hidden',
+      !sectionHasVisible[section.dataset.group]
+    );
   });
 }
 

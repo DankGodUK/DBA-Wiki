@@ -870,23 +870,12 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
       <table>
         <thead><tr><th>Path</th><th>Effect</th></tr></thead>
         <tbody>
-          <tr><td class="t-orange t-bold">TPs Path</td><td>Extra stat gains from TP usage. Max Stat Gain per 1 TP spend = <strong class="t-red">7,500</strong></td></tr>
-          <tr><td class="t-orange t-bold">Gym Path</td><td>Extra stat gains from training equipment. Max +105% per lift/deflect/hit/run (1 Weight Lift = 10.8m on Legendary Equipment)</td></tr>
+          <tr><td class="t-orange t-bold">TPs Path</td><td>Extra stat gains from TP usage. Max Stat Gain per 1 TP spend = <strong class="t-red">6,000</strong></td></tr>
+          <tr><td class="t-orange t-bold">Gym Path</td><td>Extra stat gains from training equipment. Legendary Equipment = 6mil every 2 seconds (1 lift) = 10.1bil per hour (assuming max TL)</td></tr>
           <tr><td class="t-orange t-bold">Mob Farming Path</td><td>Extra stat gains from mob kills/leveling. Max Stat Gain from leveling = <strong>×6</strong> (5/3 base is ×3)</td></tr>
         </tbody>
       </table>
     </div>
-
-    <div class="section-header">ZP Level Cap Summary</div>
-    <div class="card-grid">
-      <div class="stat-card"><div class="stat-label">3/3 Level Cap</div><div class="stat-value">500 ZP × 2 = 1,000 ZP → Level 150k</div></div>
-      <div class="stat-card"><div class="stat-label">4/3 Level Cap</div><div class="stat-value">500 ZP × 2 = 1,000 ZP → Level 250k</div></div>
-      <div class="stat-card"><div class="stat-label">5/3 Level Cap</div><div class="stat-value">5,000 ZP → Level 500k max</div></div>
-      <div class="stat-card"><div class="stat-label">TNL Cut Cost (4/3)</div><div class="stat-value t-red">500 ZP per cut (3 cuts max)</div></div>
-      <div class="stat-card"><div class="stat-label">TNL Cut Cost (5/3+)</div><div class="stat-value t-red">400 ZP (unlimited uses)</div></div>
-      <div class="stat-card"><div class="stat-label">Total ZP to Champion</div><div class="stat-value t-gold">~7,000 ZP minimum</div></div>
-    </div>
-  </div>
 
   <style>
   /* Rebirth selector buttons */
@@ -921,8 +910,7 @@ footer{border-top:1px solid var(--border);padding:22px 0 10px;margin-top:48px}
 
   <script>
 // ===== ADMIN SETTINGS =====
-// Change to true when Beerus 6/3 should be available to everyone.
-var BEERUS_63_UNLOCKED = false;
+var BEERUS_63_UNLOCKED = true;
 
   (function(){
     const rebirthMap = {r0:0,r1:1,r2:2,r3:3,r4:4,r5:5,r6:6};
@@ -3159,88 +3147,30 @@ function closeSidebar() {
   if (ov) ov.classList.remove('active');
 }
 
-
-
-
-// Build a content index once
-let __navSearchIndex = null;
-
-function buildNavSearchIndex() {
-  const index = new Map();
-
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    const onclick = btn.getAttribute('onclick') || '';
-    const m = onclick.match(/showTab\('([^']+)'/);
-    const tabKey = m ? m[1] : '';
-
-    let pageText = '';
-
-    const panel =
-      document.getElementById('panel-' + tabKey) ||
-      document.getElementById(tabKey);
-
-    if (panel) {
-      pageText = panel.textContent || '';
-    }
-
-    index.set(btn, (
-      (btn.dataset.label || '') + ' ' +
-      btn.textContent + ' ' +
-      pageText
-    ).toLowerCase());
-  });
-
-  return index;
-}
-
 function filterNav(query) {
-  if (!__navSearchIndex) {
-    __navSearchIndex = buildNavSearchIndex();
-  }
-
-  const terms = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
-
+  const q = query.toLowerCase().trim();
   const btns = document.querySelectorAll('.tab-btn');
   const sections = document.querySelectorAll('.sb-section');
-
-  if (!terms.length) {
+  if (!q) {
     btns.forEach(b => b.classList.remove('sb-hidden'));
     sections.forEach(s => s.classList.remove('sb-hidden'));
     return;
   }
-
   const sectionHasVisible = {};
-
+  sections.forEach(s => { sectionHasVisible[s.dataset.group] = false; });
+  btns.forEach(b => {
+    const label = (b.dataset.label || b.textContent).toLowerCase();
+    const match = label.includes(q);
+    b.classList.toggle('sb-hidden', !match);
+    // figure out which section this btn belongs to
+    let prev = b.previousElementSibling;
+    while (prev && !prev.classList.contains('sb-section')) prev = prev.previousElementSibling;
+    if (prev && match) sectionHasVisible[prev.dataset.group] = true;
+  });
   sections.forEach(s => {
-    sectionHasVisible[s.dataset.group] = false;
-  });
-
-  btns.forEach(btn => {
-    const text = __navSearchIndex.get(btn) || '';
-    const match = terms.every(term => text.includes(term));
-
-    btn.classList.toggle('sb-hidden', !match);
-
-    let prev = btn.previousElementSibling;
-    while (prev && !prev.classList.contains('sb-section')) {
-      prev = prev.previousElementSibling;
-    }
-
-    if (prev && match) {
-      sectionHasVisible[prev.dataset.group] = true;
-    }
-  });
-
-  sections.forEach(sec => {
-    sec.classList.toggle(
-      'sb-hidden',
-      !sectionHasVisible[sec.dataset.group]
-    );
+    s.classList.toggle('sb-hidden', !sectionHasVisible[s.dataset.group]);
   });
 }
-
-
-
 
 // Changelog loader
 async function loadChangelog() {

@@ -1,5 +1,11 @@
 [
   {
+    "id": "1516190243940995073",
+    "author": "tof__",
+    "date": "2026-06-15T21:18:43.608000+00:00",
+    "content": "```\n#Version 8.71.4\n#Bug-Fixes:\n- Ki Fist and Galactic Tyrant were not dealing damage, fixed. (Waffles)\n- Used/Withdrawn Stored Stats will just show as 0 instead of \"Withdrawn\" as it was causing some issues with the skills tabs (Lelouch)\n- Lab Mob Spawn grouping in one area of the map fixed (Cypher)\n- Sword Skill stat has been disabled and option to max sword skill temporarily removed from NPC Trunks, as this is awaiting a revision update alongside fighting styles. (Cypher)\n- Using RC token to Super 17 would not grant transform/revert verbs, fixed. (Rob)\n- Dr Briefs CC Simulation area was giving less exp than Hercules training sims area, fixed. (Bond)\n- Various techs were going through Full Instinct immunity, fixed - if there are any more please report. (Bond)\n- Blackjack upgrade now carries over when 6/3 rebirth process completes. (Bond)\n- Cavern Pill text was showing 60 minutes instead of the new duration which is 30 minutes, typo fixed. (Trick)\n- Some Saiyan genes like Broly Black and others were not working with Sub Icon/UT Custom Icons when reverting and would override the custom icon when reverting, fixed. (Waffles)\n- Full Instinct tech was not able to be used via the Skillbar fixed. (Dillweed)\n- Masked Bandits inside the tower were not counting for the the Masked Bandit quest, fixed. (Jv)\n- Minor Potara Dance code issues fixed and safety checks added.\n```"
+  },
+  {
     "id": "1513277256338768024",
     "author": "tof__",
     "date": "2026-06-07T20:23:33.243000+00:00",

@@ -1,5 +1,11 @@
 [
   {
+    "id": "1516911095724638411",
+    "author": "tof__",
+    "date": "2026-06-17T21:03:08.066000+00:00",
+    "content": "```\n#Version 8.71.5\n#Combat-Changes:\n- All Rush and SSA style techniques will now have a brief initiation (1.5s) before the execution of the technique instead of instant lock in.\n- This change has been made to add versatility in using defensive techniques such as Energy Barrier and Full Instinct to block these damages.\n- Each technique will have its own initiation cue and a player must react fast enough to avoid it either by moving off screen or blocking with a technique.\n- The cues will be similar to Assassinates \"Initialising Time Skip\" text, for example Cumber will now have \"[usr] lowers his stance and begins gathering catastrophic force...\" before execution.\n- The use of these auto attacks will now initiate a small delay (2s) before another tech can be used right after it to prevent unfair combo locks.\n\n- Various techniques had a hard cooldown upon using the technique and then unable to use another techniques for over 4-5 seconds, this has been reduced to 1.5-\n\n#Bug-Fixes:\n- FBF Event when ending without enough players would cause certain vars to stick, fixed. (Zero)\n- Instant Kamehameha functional improvements, lower initiation delay and lowered tech delay after execution.\n- New Ki Beams code was applying double ki skill multi, fixed. (Cypher)\n- All Bang attacks were going through Full Instinct, fixed. (Dillweed)\n- All Homing/Scatter attacks were going through Full Instinct, fixed. (Waffles)\n- Enraged Masked Bandits were still not counting towards Masked Bandits quest, fixed. (Jv)\n- Slot Machine window bug fixed on Renji slots. (Bond)\n\nNote: Please continue to report any attacks that may bypass Full Instinct/Energy Barrier.\n```"
+  },
+  {
     "id": "1516190243940995073",
     "author": "tof__",
     "date": "2026-06-15T21:18:43.608000+00:00",

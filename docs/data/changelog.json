@@ -1,5 +1,17 @@
 [
   {
+    "id": "1543271000123383819",
+    "author": "tof__",
+    "date": "2026-08-29T14:47:59.018000+00:00",
+    "content": "```\n- EARLY BIRD Bonus will be active for 6 hours ONLY. Claimed at login - yes it's more robust now.\n- Early Bird ZP and PVP Tokens rewards buffed.\n- Waffles #1 and #2 statues have been added to HoF\n- Waffles Lab 4 mob has been added to Lab and Towers\n- New Loading screen art updated.\n\n#Player-Suggestions:\n- Double Edge Blast technique suicide strat has been blocked in G.o.D matches with the technique now banned.\n- Relinquish G.o.D title verb added.\n- Mayhem Levels Flag buffed.\n- Mayhem Zenni Flag buffed.\n- Mayhem TPs Flag buffed.\n- ZP and UP Suit buffs reward chance probability nerfed.\n- Club House gravity buffed from x30 to x40\n- Earth and Namek Dragonballs now scale with Rebirths.\n- Cavern Chests now have Click function to open them.\n\n#Bug-Fixes:\n- Remaking characters in same slots would cause the new overlay system to put a previous deleted slots overlays, fixed. (Zac)\n- Powerlevel could be powered up in Conquest, fixed. Only Ki can be powered up. (Jv)\n- Double Timer bug in Club, fixed. (Bond/Dank)\n- Dr Briefs Quest Object text typo fixed. (Trick)\n- Hustlers Guild Perk showing +50% increase to suit buffs typo fixed, actual is +100% buff.\n- OOC Toggle option was not working, fixed. (Nik)\n- Sound Toggle button on UI screen fixed. (Nik)\n```"
+  },
+  {
+    "id": "1543270988534390855",
+    "author": "tof__",
+    "date": "2026-08-29T14:47:56.255000+00:00",
+    "content": "```\n#Version 8.72 (NEW WIPE)\n#New & General:\n- NEW Super Race (ZR) Moro has arrived.\n- Legendary Moro is an ancient, planet-devouring warrior inspired with canon abilities, wielding magic, life-force absorption, and the power to drain entire worlds to strengthen themselves.\n- New Techniques added:\n - Life Force Drain\n - Enhanced Cell Regeneration\n - Planetary Consumption\n - Moro's Grasp\n - Soul Siphon\n - Sorcerer’s Dominion\n - Worldbreaker Blast\n\n- NEW Ki Ball PvP Event Mode added!\n - Ki Ball works with two opposing teams and is shaped around traditional dodgeball.\n - Within the Ki Ball event there are various modes which will activate at random at the start of the event:\n - Classic Mode: Last team standing wins, each hit is a straight elim\n - Protect the Captain: Protect your Captain and defeat the enemy Captain, last Captain standing wins for their team.\n - Explosive Ki Ball: Classic Mode but with Ki Blasts that cause a small AOE explosion that can eliminate you\n - Revival Ball: Revival Ki Balls will spawn periodically and a successful hit will respawn a team mate\n - This is a Ki Blast only event.\n - Each elim will also grant +5 ZP.\n - PVP Tokens are awarded at the end of this event and this will be automatically held via the PVP Event Cycle.\n - 6 Maps added which will randomly be chosen. - Aleister\n\n- NEW All SR/ZR Super Race Multis have been revised, granting every race viability in the meta.\n- This wipe more and more new techs will be dropping for Super Races that were either lacklustre or simply had no unique skills set.\n- Multi list will be disclosed but only upon a Server wide Poll.\n\n- NEW Sub Perk - Boost Focused Med Training - boosts by 25% percentage points (4 Hours), however, can only be used at 25% minimum progress and will only grant the stats and not any EXP.\n```"
+  },
+  {
     "id": "1536804999546277960",
     "author": "tof__",
     "date": "2026-08-11T18:34:24.348000+00:00",

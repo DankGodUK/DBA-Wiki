@@ -1,5 +1,11 @@
 [
   {
+    "id": "1543732960400773180",
+    "author": "tof__",
+    "date": "2026-08-30T21:23:38.931000+00:00",
+    "content": "```\n#Version 8.72.1 \n#General:\n- NEW Quest Object system added for Daily Stamp Quests, should you forget your quest, you can visit the Quest tab.\n- Daily Quests will no longer expire upon relogging. Quest object will remain and track active DQ quest. However, collecting a new DQ Quest will wipe out any uncompleted DQ quests\n- All existing quests will be revamped into this Object system in the near future.\n- Majin Candy Eats requirement reduced.\n\n#Balancing Changes Post Multi SR Restructuring:\n- Wrathful Spirit boost has been nerfed from x2 all stats for 15 seconds to x1.5 all stats for 15 seconds\n- Destroyer Spirit boost nerfed from x1.2 to x1.1\n- Herculean Spirit boost nerfed from x1.2 to x1.1\n- Savage Tyrant boost nerfed from x1.3 to x1.1\n- Limitbreaker boost nerfed from x1.15 to x1.1\n- All Spirit cooldown reduced from 300s to 180s\n- Destroyer Spirit and Herculean Spirit duration buffed 60s\n- Savage Tyrant and Rose Full Power duration nerfed to 30s.\n- Legendary Hit Pure Progress base multi nerfed to make it in line with all the other races.\n- Please see Multi sheet for more info.\n\n#Bug-Fixes:\n- Moro Trans Chart added (Smo)\n- Ki Ball event ending incorrectly and hanging PVP cycle fixed. (Ctrl)\n- Ki Blast friendly fire fixed in Ki Ball event. (DarkType)\n- Cavern Mobs exp and zenni gains fixed. (Johnny)\n- Window pop up bug with the new sub verb fixed. (DarkType)\n- New sub verb had a false quest medal text fixed.\n- Candy Ray was showing Dragon Fist text fixed. (Trick)\n- Ki Ball event waiting room was unsafe fixed. (LilSmo)\n- Music Toggle verb showing up in its own tab fixed. (Ace)\n```"
+  },
+  {
     "id": "1543271000123383819",
     "author": "tof__",
     "date": "2026-08-29T14:47:59.018000+00:00",

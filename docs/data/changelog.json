@@ -1,5 +1,11 @@
 [
   {
+    "id": "1544803834893959199",
+    "author": "tof__",
+    "date": "2026-09-02T20:18:55.306000+00:00",
+    "content": "```\n#Version 8.72.2\n#General:\n- New Bug Report and Suggestions verb added under Commands tab - will directly send your reports from in-game to the Discord channel making reporting bugs and giving suggestion feedback easier.\n\n- Moro Techniques have been tested and deployed.\n - Enhanced Cell Regeneration - passive 10 tick PL and Ki healing\n - Sorcerer's Dominion - AOE field that drains the enemy in close proximity and slows them, moves with the player\n - Soul Siphon - Beam attack with draining ability\n - Worldbreaker Blast - Powerful homing blast that can stun\n - Moro's Grasp - stun attack\n - Planet Devourer - NOT deployed, requires one more day of testing.\n\n- Life Drain/Absorb/Eat/Infect formulas improved and can absorb up to 10 mil but only on enemy players with at least a minimum of 100 mil PL\n- Moro UI and Ego icons added - Waffles\n- Moro bases shading touched up - Waffles\n\n#Bug-Fixes:\n- Moro Aura overlay issues on Form 2 fixed.\n- Missing requirement info added to Moro trans guide - collect the 7 Super Dragonballs for unlocking transformation.\n- Missing Skip Forms added to Moro (Chast)\n```"
+  },
+  {
     "id": "1543732960400773180",
     "author": "tof__",
     "date": "2026-08-30T21:23:38.931000+00:00",

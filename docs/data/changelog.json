@@ -1,5 +1,11 @@
 [
   {
+    "id": "1545534610564317286",
+    "author": "tof__",
+    "date": "2026-09-04T20:42:45.803000+00:00",
+    "content": "```\n#Version 8.72.3\n#General:\n- All Singular Homing Blasts have had a slight damage buff. (Techs such as Water Jet Blast, Kienzan, SSDB, NOT Rapid Blast etc. singular techs only)\n - Old formula was much more defense heavy taking into account 100% of Ki Defense, slightly modified to 85% of Ki Defense\n - Minimum Damage of a tech that will go through irregardless (after deducting Ki Defense) has been increased from 30% to 35% of the tech's damage\n - Damage had a nerf multi applied before deducting from PL which was 25%, reduced to 15%.\n - Balanced Events - each homing tech will do 10m instead of 5m now.\n - Homing Blasts such as Soul Punisher and others that had the stun effect have had duration buffs slightly.\n\n- Moro Enhanced Cell Recovery and Sorcerers Dominion will now work in Balance events but as a static non % version, it will still be banned in 1 PL events.\n- Moro Enhanced Cell Recovery formula improved.\n- Moro Sorcerers Dominion duration increased by 5 seconds.\n- Moro Sorcerers Dominion formula improved.\n- Moro Sorcerers Dominion bleed effect added for visibility.\n- Moro's Grasp duration increased by 0.5s\n- Moro trans cosmetics improved.\n- Moro theme music added.\n- Stone Spit duration increased by 0.5s\n- UP Suits nerf has been reverted.\n- ZP Suits nerf has been reduced by 50%.\n\n#Bug-Fixes:\n- Power Up PL was incorrectly available inside Cavern, fixed. (Ctrl)\n- New Suggestion Bug Report verb was appearing in its own tab fixed.\n- Moro transformation electrics fixed.\n```"
+  },
+  {
     "id": "1544803834893959199",
     "author": "tof__",
     "date": "2026-09-02T20:18:55.306000+00:00",

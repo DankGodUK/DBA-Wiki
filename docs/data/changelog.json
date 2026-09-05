@@ -1,5 +1,11 @@
 [
   {
+    "id": "1545886110645751809",
+    "author": "tof__",
+    "date": "2026-09-05T19:59:29.953000+00:00",
+    "content": "```\n#Version 8.72.4\n#Bug-Fixes:\n- All techs with a Stun or Confuse effect were not doing damage, fixed. i.e Majin Vanishing Beam blast etc\n- Worldbreaker Blast 0 damage fixed. (Waffles)\n- PL/Ki Drain 130% Cap added to Moro Regen, Soul Siphon and Sorcerers Dominion techs. (Waffles)\n- Moro Form 1 icon North state fixed - Waffles\n- Moro Custom Icon issue on Revert code fixed. (Waffles)\n- Other races with UT icon or Sub Icons not working in their revert code fixed.\n```"
+  },
+  {
     "id": "1545534610564317286",
     "author": "tof__",
     "date": "2026-09-04T20:42:45.803000+00:00",

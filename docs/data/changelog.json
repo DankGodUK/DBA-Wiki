@@ -1,5 +1,11 @@
 [
   {
+    "id": "1552028296462737439",
+    "author": "tof__",
+    "date": "2026-09-22T18:46:21.168000+00:00",
+    "content": "```\n#Version 8.72.5\n#General:\n- PVP Event Timer reduced by 2 Hours.\n\n#QoL Changes:\n- Shenron Dragonballs Stat Boost wishes buffed by x10 and added RB Multiplier\n- Shenron Dragonballs TP Boost buffed by x2 and added RB Multiplier\n- Porunga Dragonballs Stat Boost wishes buffed by x10 and added RB Multiplier\n- Porunga Dragonballs TP Boost buffed by x2 and added RB Multiplier\n- Krillin Ki Boost Zenni requirement nerfed from 100m zenni flat rate to 10m x Rebirth Multi\n- Broly 0/3 boss stats nerfed from 3.75bil to 1.5bil\n- Relinquish G.o.D and Manual Start G.o.D Defense verbs have been condensed into the Universe G.o.D Management verb.\n- Suggestion/Bug Report verb also added to Channels tab.\n\n#Bug-Fixes:\n- Ki Ball event waiting room safe zone turfs fixed. (Cypher)\n- Ki Ball rewards fixed. (Cypher)\n- Desastre Compress and similar techniques were allowing teleporting to certain maps illegally, fixed. (Maya)\n- Missing Relinquish G.o.D verb added to Channels tab. (Chast)\n- Some Ki formula were overtuned, fixed. (Chast)\n- Scatter Shot and similar techs were draining all ki fixed. (Cypher)\n- Scater Shot and similar techs damage formula fixed. (Chast)\n- Advanced kaioken can be learned at lvl 7,5k but cant be used till 10k, King Kai req has been changed to 10k instead. (Degos)\n- Cumber Ultra Form and Ultra Instinct Form icons have been added - Waffles\n- Hakai was only able to be used at 4 tile distance even though the target check was at 6 tile distance fixed so that it can be used at 6 tile distance.\n- Hakai being used when enemy is entering/fading entrances, fixed and will now fail.\n- Super Dragonball alt usage to benefit main accounts is now explicitly mentioned in the game rules as prohibited.\n\nNote: There is a major update before the 6/3 update drops. Multi sheet will be posted beforehand for all SR/ZRs so 6/3 decisions can be informed ones.\n```"
+  },
+  {
     "id": "1545886110645751809",
     "author": "tof__",
     "date": "2026-09-05T19:59:29.953000+00:00",

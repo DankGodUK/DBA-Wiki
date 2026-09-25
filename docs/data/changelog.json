@@ -1,5 +1,11 @@
 [
   {
+    "id": "1553109225520242709",
+    "author": "tof__",
+    "date": "2026-09-25T18:21:34.738000+00:00",
+    "content": "```\n#Version 8.72.6\n#General:\n- 6/3 Beerus Quest unlocked.\n\n#Multi-Balancing:\n- Ultimate Transformation has officially been phased out!\n- Advanced Kaioken and Super Invert for SRs have had their multis buffed from x35 to x80 in compensation as UT is now removed\n- Ultra Instinct Sign stackable boost nerfed from x1.3 to x1.2\n- Mastered Invert multi buffed from x95 to x110\n- Ultra Form Ego Points would grant Perms half the multi as Non Perms now removed. Both race categories will receive the same multis per point.\n- Please see 2nd tab on the DBA Multis sheet for all new multis.\n- Android 21 and Bojack Pirate King SR Semi Perms overhaul\n - These are the only 2 SR Semi Perms from the SR Semi Perms that have perm transes before a final x20 revertable non perm trans.\n - These two races will now follow the other SR Semi Perms, where their first form(s) are non perm revertable which can give up to x80-x85 multis and their final trans is permanent.\n- Various SR Perm and SR Semi Perm multis have been adjusted - see DBA Multis sheet.\n- All SR Semi Perms have had their first form(s) multis adjusted and balanced to be within similar ranges.\n- All SR Perms have had their final perm trans multis adjusted and balanced to be within similar ranges.\n- All SR Non Perms have had their final trans mults adjusted and balanced to be within similar ranges.\n- All Spirit Techniques have been nerfed in multi and duration and will only now act as a quick boost tech.\n- Perm Boosted Contract Spirit Multi nerfed from x1.2 to x1.05\n- Self Potara multi is now the same as Shin NPC at x1.5.\n- PVP Hit race Pure Progression enhanced boost buffed and is now 0.015x for each level of progress up to progress level 50. Max multi is x1.75.\n- Red Eyes Namekian reworked into a full non perm with no weird intermediate perm form.\n\n#Bug-Fixes:\n- House Warp can be used to escape Hakai jail, fixed. (Chast)\n- Spirit Techniques would not reset stats upon logout, fixed. (Maya)\n```"
+  },
+  {
     "id": "1552028296462737439",
     "author": "tof__",
     "date": "2026-09-22T18:46:21.168000+00:00",

@@ -1,5 +1,11 @@
 [
   {
+    "id": "1555707103124135967",
+    "author": "tof__",
+    "date": "2026-10-02T22:24:37.025000+00:00",
+    "content": "```\n#Version 8.72.7\n#General:\n- G.o.D challenge registration time has been reduced to 2 minutes.\n\n#Bug-Fixes:\n- Semi-Perms (with updated transformation lines) had a minor bug introduced recently where the final perm form was multiplying their temp stats and not their base stats hence showing weaker multis, fixed. (Cypher)\n- SR Pirate Bojack transformation reqs increased to be in line with other Semi Perms.\n- SR Pirate Bojack 2nd form icon state was not resetting after enrgae stat, fixed. (Cypher)\n- SR Pirate Bojack and Android 21 had a weird trans delay on their non perm forms from the recent changes, fixed.\n- Extra Form checks added to Semi Perm Revert codes to ensure player cannot accidentally revert from a perm form.\n- Red Eye Namekian had some forms with 100k req which was incorrect as the race is now a Non-Perm, fixed. (Oda)\n- Zanzoken was working in Hakai/Jail fixed. (Razz)\n- PL and KI Crystals now have a 30sec self delete code to prevent cave exploits with alts. (Cypher)\n- Spirit techniques had an issue of keeping the temporary multi upon relog during its duration, fixed. (Maya)\n- ToP could clash with G.o.D challenges fixed. (Johnny)\n```"
+  },
+  {
     "id": "1553109225520242709",
     "author": "tof__",
     "date": "2026-09-25T18:21:34.738000+00:00",

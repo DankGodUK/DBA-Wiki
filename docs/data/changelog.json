@@ -1,5 +1,11 @@
 [
   {
+    "id": "1567954795241668641",
+    "author": "tof__",
+    "date": "2026-11-05T17:32:34.377000+00:00",
+    "content": "```\n#Version 8.72.14\n#General:\n- Skill Card art added for the following techniques:\n - Kai: Gravity Field / Advanced Training / Full Buff\n - Broly: Berserker Explosion / Unstoppable Charge (updated)\n - Spirits: Wrathful Spirit / Rose Spirit / GoD Spirit / Lustful Desire / Pure Progress / Herculean Spirit\n - Finishes: Life Drain / Eat / Absorb / Infect\n - Bojack: Galactic Tyrant\n - Changeling Death Meteor\n - Instinct Mode / Instinct Evade\n\n#Bug Fixes:\n- Gravity Field still had bugs, entire code has been rewritten from scratch. No overlapping timers, no random cooldowns or chakra drains. Max limit timer is 1 hour before it ends or Ki draining to 0.\n```"
+  },
+  {
     "id": "1567602396287209635",
     "author": "tof__",
     "date": "2026-11-04T18:12:15.919000+00:00",
